@@ -26,3 +26,5 @@ review/           all units combined
 mock-test/        practice test you grade yourself
 img/              diagrams and lab tool pictures
 ```
+
+- `diagnostic/` is a 26 question check with an answer key. `fast-review/` is unit 2 in 3 quick loops.
