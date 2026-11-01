@@ -6,10 +6,13 @@ from unit2 import SECTIONS as U2, REVIEW as R2
 from quiz2 import QUIZ
 from plan2 import PLAN_SECTIONS
 from merge2 import merge
+from merge1 import merge as merge1
 MOCK = {"id": "mock2", "title": "Practice test (grades itself)", "steps": [0], "cards": [], "points": [],
  "notes": [
   {"p": "40 minutes, 30 points: atomic theories, atoms and ions, isotopes and average atomic mass, configurations, noble gas notation and orbital diagrams. Work on paper, type your final answers, then grade it yourself against the answer key. Your score shows which sections to study."},
   {"p": "**[Open the practice test](../mock-test/)**"}]}
+U1, _R1REST, ALIASES1, R1 = merge1(U1, R1)
+U1 = U1 + _R1REST
 GROUPED, REST, ALIASES, R2 = merge(PLAN_SECTIONS + U2, R2)
 U2 = [MOCK] + GROUPED + [s for s in REST if s["id"] != "packet"] + [QUIZ] + [s for s in REST if s["id"] == "packet"]
 
@@ -26,7 +29,7 @@ COURSE = {
    "chip": "Test was Friday, Oct 16",
    "topics": "Classification of matter, properties and changes, states of matter, separation, lab tools, metric system, scientific notation, sig figs, density, accuracy and precision, graphs",
    "source": "From the class study guide, sections 1 to 11",
-   "sections": U1, "review": R1},
+   "sections": U1, "review": R1, "aliases": ALIASES1},
   {"label": "Unit 2", "name": "Atomic structure", "title": "Chemistry unit 2",
    "chip": "Test Mon, Nov 2",
    "topics": "Dalton's theory, plum pudding, gold foil, the nucleus, ions, isotopes, average atomic mass, Bohr model, ground and excited states, quantum mechanical model, orbitals, quantum numbers, electron configurations, Aufbau, Pauli, Hund's rule, noble gas notation, valence electrons",
