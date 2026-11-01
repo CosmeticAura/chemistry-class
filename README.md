@@ -23,7 +23,6 @@ index.html        home page with every unit
 unit-1/           matter and measurement
 unit-2/           atomic structure
 review/           all units combined
-plan/             weekend plan for the unit 2 test
 mock-test/        practice test you grade yourself
 img/              diagrams and lab tool pictures
 ```
