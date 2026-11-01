@@ -1,0 +1,4333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chemistry unit 2</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+
+<style>
+/* Hector's personal design: Apple grouped look, light first, graphite for structure, green only for done. Dark is an in-app choice (Appearance: System, Light, Dark). */
+:root{
+  color-scheme:light;
+  --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
+  --ink:#000000; --ink-2:rgb(60 60 67 / .80); --ink-3:rgb(60 60 67 / .76); --ink-4:rgb(60 60 67 / .30);
+  --line-edge:rgb(60 60 67 / .22); --line-inner:rgb(60 60 67 / .12);
+  --accent:#000000; --on-accent:#ffffff;
+  --accent-selection:color-mix(in srgb,var(--accent) 10%,transparent);
+  --accent-focus:color-mix(in srgb,var(--accent) 55%,transparent);
+  --accent-wash:rgb(118 118 128 / .10);
+  --success:var(--ink); --error:var(--ink-2); --warning:var(--ink-3);
+  --go:#248a3d; --warn:#c93400; --stop:#d70015;
+  --space-tight:4px; --space-inline:8px; --space-row:12px; --space-group:20px; --space-page:16px; --space-s:32px; --space-m:48px;
+  --radius-control:10px; --radius-capsule:999px; --radius-group:12px; --radius-surface:16px;
+  --motion-state:.12s ease-out; --motion-disclosure:.22s ease-out; --motion-content:.2s ease-in-out; --motion-arrival:.28s cubic-bezier(.2,.9,.3,1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;
+  --font-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+  --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+  --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+  --accent:#ffffff; --on-accent:#000000;
+  --accent-wash:rgb(118 118 128 / .24);
+  --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="system"]{
+    color-scheme:dark;
+    --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+    --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+    --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+    --accent:#ffffff; --on-accent:#000000;
+    --accent-wash:rgb(118 118 128 / .24);
+    --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.47 var(--font);-webkit-font-smoothing:antialiased}
+button,textarea,select,input{font:inherit;color:inherit;accent-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent-focus);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:600}
+
+/* Layout: a quiet sticky bar, a section list on the left, the loop on the right. On a phone the list folds into a disclosure. */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-inner)}
+.bar-in,.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.bar-in{display:flex;align-items:center;gap:var(--space-row);min-height:56px;padding-block:var(--space-inline)}
+.bar h1{font-size:15px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .sub{color:var(--ink-3);font-size:13px;white-space:nowrap}
+.bar .grow{flex:1}
+.bar .home{color:var(--ink-2);font-size:13px;text-decoration:none;white-space:nowrap;padding:4px 8px 4px 0;border-right:1px solid var(--line-inner);margin-right:2px}.bar .home:hover{color:var(--ink)}
+.secs .grp{font-size:12px;color:var(--ink-3);padding:10px 10px 4px}
+.meter{display:flex;align-items:center;gap:var(--space-inline);color:var(--ink-2);font-size:13px;white-space:nowrap}
+.meter .track{width:96px;height:4px;border-radius:2px;background:var(--line-edge);overflow:hidden}
+.meter .fill{height:100%;background:var(--ink);border-radius:2px;transition:width var(--motion-disclosure)}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:var(--space-s);padding-block:var(--space-s) var(--space-m)}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr);gap:var(--space-group);padding-block:var(--space-group) var(--space-m)}.meter .track{width:56px}.bar .sub{display:none}}
+
+/* Section list */
+.side{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto}
+@media (max-width:860px){.side{position:static;max-height:none;overflow:visible}}
+.side details{border:1px solid var(--line-edge);border-radius:var(--radius-group);background:var(--surface)}
+.side summary{list-style:none;cursor:pointer;padding:var(--space-row) 14px;display:flex;justify-content:space-between;align-items:center;font-weight:500;min-height:44px}
+.side summary::-webkit-details-marker{display:none}
+.side summary .chev{color:var(--ink-3);transition:transform var(--motion-disclosure)}
+.side details[open] summary .chev{transform:rotate(90deg)}
+.side .label{color:var(--ink-3);font-size:12px;font-weight:500;margin:0 0 var(--space-inline) 10px}
+.secs{display:grid;gap:2px;padding:0;margin:0;list-style:none}
+.side details .secs{padding:0 6px 6px}
+.sec{display:grid;grid-template-columns:22px minmax(0,1fr) auto;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:var(--radius-control);cursor:pointer;min-height:44px;transition:background var(--motion-state)}
+.sec:hover{background:var(--line-inner)}
+.sec[aria-current="true"]{background:var(--accent-selection)}
+.sec .n{color:var(--ink-3);font-size:13px;text-align:right}
+.sec .t{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--ink-4)}
+.dot.active{border-color:var(--accent);background:var(--accent)}
+.dot.done{border-color:var(--success);background:var(--success)}
+.dot.revisit{border-color:var(--ink-2);border-style:dashed;background:transparent}
+
+/* Main panel */
+.main{min-width:0;display:grid;gap:var(--space-group);align-content:start}
+.head{display:flex;align-items:center;gap:var(--space-group)}
+.head .txt{min-width:0;display:grid;gap:var(--space-tight)}
+.eyebrow{color:var(--ink-3);font-size:13px}
+.head h2{font-size:26px;line-height:1.2}
+.ring{flex:none;width:112px;height:112px}
+.ring text{font-family:var(--font)}
+@media (max-width:560px){.ring{width:84px;height:84px}.head h2{font-size:21px}}
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.steps button{font-size:13px;color:var(--ink-2);padding:4px 12px;min-height:32px;border-radius:var(--radius-capsule);border:1px solid var(--line-inner);background:none;cursor:pointer;transition:border-color var(--motion-state),color var(--motion-state),background var(--motion-state)}
+.steps button:hover{color:var(--ink);border-color:var(--line-edge)}
+.steps button.now{color:var(--ink);border-color:var(--accent);background:var(--accent-wash)}
+.steps button.past{color:var(--ink-2)}
+.head .txt{flex:1}
+.secnav{display:flex;gap:var(--space-tight);align-self:flex-start}
+.secnav .btn{min-height:32px;padding:0 10px;font-size:13px}
+@media (max-width:560px){.head{flex-wrap:wrap}.secnav{width:100%;justify-content:space-between;order:3}}
+/* Clocks: a dial that sweeps down smoothly, digits that roll in when they change */
+.dial{position:relative;width:min(240px,68vw);aspect-ratio:1;display:grid;place-items:center}
+.dial svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.dial-track{fill:none;stroke:var(--line-edge);stroke-width:3}
+.dial-arc{fill:none;stroke:var(--ink);stroke-width:4;stroke-linecap:round;transition:stroke .8s ease}
+.dial-head{fill:var(--ink);transition:fill .8s ease}
+.dial .clock{transition:color .8s ease}
+.dial.mid .dial-arc{stroke:var(--warn)}.dial.mid .dial-head{fill:var(--warn)}
+.dial.soon .dial-arc{stroke:var(--stop)}.dial.soon .dial-head{fill:var(--stop)}.dial.soon .clock{color:var(--stop)}
+.dial.done .dial-track{stroke:var(--go);transition:stroke .6s ease}.dial.done .clock{color:var(--go)}
+.dial .clock{position:relative}
+.dial.soon .dial-arc,.dial.soon .dial-head{animation:soon 1s ease-in-out infinite}
+@keyframes soon{50%{opacity:.45}}
+.dial.over{animation:over .9s var(--motion-arrival) 1}
+@keyframes over{0%{transform:scale(1);filter:drop-shadow(0 0 0 transparent)}40%{transform:scale(1.05);filter:drop-shadow(0 0 22px var(--go))}100%{transform:scale(1);filter:drop-shadow(0 0 0 transparent)}}
+.clock{display:inline-flex;overflow:hidden}
+.clock .d{display:inline-block}
+.clock .d.roll{animation:roll .34s cubic-bezier(.2,.9,.3,1)}
+@keyframes roll{from{transform:translateY(-55%);opacity:0}to{transform:none;opacity:1}}
+.mini{width:44px;height:44px;flex:none}
+.mini svg{transform:rotate(-90deg);width:100%;height:100%;overflow:visible}
+.mini .dial-arc{stroke-width:4}
+.mini .dial-arc{transition:stroke .8s ease}
+.mini.full .dial-arc{stroke:var(--go);animation:minigo 1.2s ease-out 1}
+@keyframes minigo{40%{filter:drop-shadow(0 0 8px var(--go))}}
+.mini.full + .dumptime #goal{color:var(--go)}
+/* Sketch canvas for the brain dump */
+.sketch{display:grid;gap:var(--space-inline)}
+.sketch .tools{display:flex;flex-wrap:wrap;gap:var(--space-tight);align-items:center}
+.sketch .tools .btn{min-height:32px;padding:0 12px;font-size:13px}
+.sketch .tools .btn[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-wash)}
+.pad{width:100%;height:340px;display:block;border:1px solid var(--line-edge);border-radius:var(--radius-group);background:var(--bg);touch-action:none;cursor:crosshair}
+.pad:focus-visible{outline:2px solid var(--accent-focus);outline-offset:2px}
+.sketch .tools kbd{margin-left:2px}
+.pad.ro{height:auto;aspect-ratio:2.4;cursor:default}
+.panel{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:var(--space-s);display:grid;gap:var(--space-group);animation:arrive var(--motion-arrival)}
+@media (max-width:560px){.panel{padding:var(--space-group)}}
+@keyframes arrive{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+.panel h3{font-size:17px}
+.muted{color:var(--ink-2)}
+.small{font-size:13px;color:var(--ink-3)}
+.actions{display:flex;flex-wrap:wrap;gap:var(--space-inline);align-items:center}
+.actions .grow{flex:1}
+.btn{color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:var(--space-inline);min-height:44px;padding:0 18px;border-radius:var(--radius-capsule);border:1px solid var(--line-edge);background:var(--raised);cursor:pointer;font-weight:500;font-size:14px;text-decoration:none;transition:background var(--motion-state),border-color var(--motion-state),transform var(--motion-state)}
+.btn:hover{border-color:var(--ink-4)}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{background:color-mix(in srgb,var(--accent) 88%,var(--ink))}
+.btn.quiet{background:none;border-color:transparent;color:var(--ink-2)}
+.btn.quiet:hover{color:var(--ink);background:var(--line-inner)}
+.btn[disabled]{opacity:.4;cursor:default}
+kbd{font:500 11px/1 var(--font);color:var(--ink-3);border:1px solid var(--line-edge);border-radius:4px;padding:2px 5px}
+.btn.primary kbd{color:inherit;border-color:color-mix(in srgb,var(--on-accent) 40%,transparent)}
+
+/* Notes */
+.must{margin:0;padding-left:18px;display:grid;gap:6px}
+.jogsec{display:grid;gap:6px;padding-top:var(--space-row);border-top:1px solid var(--line-inner)}.jogsec:first-of-type{border-top:0;padding-top:0}
+.jogsec h4{margin:0;font-size:15px;font-weight:600;display:flex;gap:8px;align-items:baseline}.jogsec ul{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--ink-2)}
+.jogres{width:100%;border-collapse:collapse;font-size:14px}.jogres td{padding:8px 0;border-top:1px solid var(--line-inner)}.jogres td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.jogres .weak{color:var(--stop)}.jogres .ok{color:var(--go)}
+.formula{font:600 22px/1.4 var(--font);text-align:center;padding:var(--space-group) 0}
+.notes{display:grid;gap:var(--space-row);max-width:72ch}
+.notes p{margin:0}
+.notes h4{margin:var(--space-inline) 0 0;font-size:15px;font-weight:600}
+.notes ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.notes strong{font-weight:600}
+.key{white-space:pre-line;border-left:2px solid var(--accent);padding:var(--space-inline) var(--space-row);background:var(--accent-wash);border-radius:0 var(--radius-control) var(--radius-control) 0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line-edge);border-radius:var(--radius-group)}
+.notes table{border-collapse:collapse;width:100%;font-size:14px}
+.notes th,.notes td{text-align:left;vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--line-inner)}
+.notes th{font-weight:600;color:var(--ink-2);font-size:13px}
+.notes tr:last-child td{border-bottom:0}
+.notes td.group{font-weight:600;color:var(--ink-2);padding-top:14px}
+.notes figure{margin:0;display:grid;gap:6px}
+.notes figure img{width:100%;max-width:640px;border-radius:var(--radius-group);background:#fff;border:1px solid var(--line-edge)}
+.notes figcaption{font-size:13px;color:var(--ink-3)}
+.cornell{display:grid;gap:4px;border:1px solid var(--line-edge);border-radius:var(--radius-group);padding:var(--space-row) 14px;background:var(--accent-wash)}
+.focus{border:1px solid var(--accent-focus);border-radius:var(--radius-group);padding:var(--space-row) 14px;display:grid;gap:6px;background:var(--accent-wash)}
+.focus ul{margin:0;padding-left:20px;display:grid;gap:4px}
+
+/* Break timer */
+.timer{display:grid;justify-items:center;gap:var(--space-row);padding-block:var(--space-group);text-align:center}
+.clock{font-size:64px;font-weight:600;line-height:1;font-family:var(--font-round);font-variant-numeric:tabular-nums}
+@media (max-width:560px){.clock{font-size:52px}}
+.timer .bar2{width:min(360px,100%);height:4px;border-radius:2px;background:var(--line-edge);overflow:hidden}
+.timer .bar2 i{display:block;height:100%;background:var(--ink);transition:width 1s linear}
+
+/* Flashcards */
+.card{position:relative;min-height:230px;border:1px solid var(--line-edge);border-radius:var(--radius-surface);background:var(--raised);display:grid;place-items:center;padding:var(--space-s) var(--space-group);text-align:center;cursor:pointer;user-select:none;transition:border-color var(--motion-state)}
+.card:hover{border-color:var(--ink-4)}
+.card .side-l{position:absolute;top:12px;left:16px;font-size:12px;color:var(--ink-3)}
+.card .front{font-size:22px;font-weight:600;line-height:1.3;max-width:34ch}
+.card .term{font-size:13px;color:var(--ink-3);margin-bottom:var(--space-inline)}
+.card .back{font-size:17px;line-height:1.5;max-width:52ch;color:var(--ink);white-space:pre-line}
+.card .pic{display:block;margin:0 auto;max-width:100%;max-height:200px;object-fit:contain;mix-blend-mode:multiply}
+.card .pic.sm{max-height:110px;margin-bottom:var(--space-inline)}
+.card .ask{font-size:13px;color:var(--ink-3);margin-top:var(--space-inline)}
+.card .name{font-size:20px;font-weight:600;margin-bottom:6px}
+:root[data-theme="dark"] .card .pic{filter:invert(1);mix-blend-mode:screen}
+@media (prefers-color-scheme:dark){:root[data-theme="system"] .card .pic{filter:invert(1);mix-blend-mode:screen}}
+.sides{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-row)}.sides .sp{display:inline-flex;align-items:center;gap:6px}.sides .sp .small{margin-right:2px}
+.card .hint{position:absolute;bottom:12px;font-size:12px;color:var(--ink-3)}
+.card.flash-ok{animation:ok .35s ease-out}
+.card.flash-undo{animation:undo .3s ease-out}@keyframes undo{from{transform:translateX(-10px);opacity:.6}to{transform:none;opacity:1}}
+.card.flash-no{animation:no .35s ease-out}
+@keyframes ok{0%{border-color:var(--go);box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 45%,transparent)}60%{box-shadow:0 0 0 10px transparent}100%{border-color:var(--line-edge)}}
+@keyframes no{0%{border-color:var(--stop)}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}100%{transform:none;border-color:var(--line-edge)}}
+.btn.ok:hover{border-color:var(--go);color:var(--go)}.btn.no:hover{border-color:var(--stop);color:var(--stop)}
+.fcbar{display:flex;align-items:center;gap:var(--space-row);font-size:13px;color:var(--ink-3)}
+.loopt{font:500 12px var(--font);color:var(--ink-3);background:none;border:1px solid var(--line-edge);border-radius:var(--radius-capsule);padding:2px 8px;cursor:pointer;transition:color var(--motion-disclosure),border-color var(--motion-disclosure)}.loopt.on{color:var(--ink);border-color:var(--ink)}
+.fcbar .track{flex:1;height:4px;border-radius:2px;background:var(--line-edge);overflow:hidden}
+.fcbar .track i{display:block;height:100%;background:var(--ink);transition:width var(--motion-disclosure)}
+.btn.ok{border-color:color-mix(in srgb,var(--success) 50%,transparent)}
+.btn.no{border-color:color-mix(in srgb,var(--error) 50%,transparent)}
+.tally{display:flex;gap:var(--space-group);flex-wrap:wrap}
+.tally div{display:grid;gap:2px}
+.tally b{font-size:28px;font-weight:600}
+.okc{color:var(--success)} .noc{color:var(--error)}
+.quiz{display:flex;flex-wrap:wrap;gap:var(--space-inline);align-items:center;padding-top:var(--space-row);border-top:1px solid var(--line-inner)}
+.copybox{width:100%;min-height:120px;border:1px solid var(--line-edge);border-radius:var(--radius-control);background:var(--bg);padding:10px;font-size:12px}
+
+/* Brain dump */
+textarea.dump{width:100%;min-height:300px;resize:vertical;border:1px solid var(--line-edge);border-radius:var(--radius-group);background:var(--bg);padding:14px 16px;line-height:1.6;font-size:15px}
+textarea.dump:focus{outline:none;border-color:var(--accent-focus)}
+.dumptime{display:flex;align-items:baseline;gap:var(--space-inline)}
+.dumptime b{font-size:22px;font-weight:600}
+
+/* Mark */
+.mark{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space-group)}
+@media (max-width:760px){.mark{grid-template-columns:minmax(0,1fr)}}
+.mine{border:1px solid var(--line-inner);border-radius:var(--radius-group);padding:14px 16px;white-space:pre-wrap;color:var(--ink-2);font-size:14px;max-height:460px;overflow:auto;background:var(--bg)}
+.pts{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.pt{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;width:100%;text-align:left;padding:10px 12px;border:1px solid var(--line-inner);border-radius:var(--radius-control);background:none;cursor:pointer;font-size:14px;line-height:1.45;transition:background var(--motion-state),border-color var(--motion-state)}
+.pt:hover{border-color:var(--line-edge)}
+.pt .box{width:18px;height:18px;margin-top:1px;border-radius:5px;border:1.5px solid var(--ink-4);display:grid;place-items:center}
+.pt[aria-pressed="true"]{border-color:color-mix(in srgb,var(--success) 45%,transparent);background:color-mix(in srgb,var(--success) 8%,transparent)}
+.pt[aria-pressed="true"] .box{background:var(--success);border-color:var(--success)}
+.pt[aria-pressed="true"] .box::after{content:"";width:5px;height:9px;border:solid var(--bg);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.score{font-size:15px}
+.pt.pop{animation:ptpop .7s ease-out}
+.pt.pop .box{animation:boxgo .7s ease-out}
+@keyframes ptpop{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--go) 50%,transparent)}100%{box-shadow:0 0 0 9px transparent}}
+@keyframes boxgo{0%{background:var(--go);border-color:var(--go);transform:scale(1.25)}100%{transform:scale(1)}}
+.rounds{display:flex;flex-wrap:wrap;gap:var(--space-row);font-size:13px;color:var(--ink-2)}
+.rounds span{display:grid;gap:4px;min-width:64px}
+.rounds i{display:block;height:4px;border-radius:2px;background:var(--line-edge);overflow:hidden}
+.rounds i b{display:block;height:100%;background:var(--ink)}
+/* Progress panel in the side list */
+.prog{display:grid;gap:var(--space-inline);padding:var(--space-row) 10px;margin-bottom:var(--space-row);border:1px solid var(--line-inner);border-radius:var(--radius-group)}
+.prog .big{display:flex;align-items:baseline;gap:var(--space-inline)}
+.prog .big b{font-size:24px;font-weight:600}
+.prog .bar3{height:4px;border-radius:2px;background:var(--line-edge);overflow:hidden}
+.prog .bar3 i{display:block;height:100%;background:var(--ink);transition:width var(--motion-disclosure)}
+.prog .row2{display:flex;align-items:center;gap:var(--space-inline)}
+.prog .btn{min-height:28px;padding:0 8px;font-size:12.5px}
+.sec .pct{font-size:12px;color:var(--ink-2);min-width:32px;text-align:right}
+.sec{grid-template-columns:22px minmax(0,1fr) auto auto}
+
+/* Overview */
+.how{display:grid;gap:6px;margin:0;padding-left:20px}
+.rows{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.row{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:var(--space-row);align-items:center;width:100%;text-align:left;padding:12px 14px;border:1px solid var(--line-inner);border-radius:var(--radius-group);background:none;cursor:pointer;min-height:52px;transition:border-color var(--motion-state),background var(--motion-state)}
+.row:hover{border-color:var(--line-edge);background:var(--line-inner)}
+.row .n{color:var(--ink-3);font-size:13px;text-align:right}
+.row .t{font-weight:500;min-width:0}
+.row .meta{font-size:12.5px;color:var(--ink-3)}
+.chip{font-size:12px;padding:3px 10px;border-radius:var(--radius-capsule);border:1px solid var(--line-edge);color:var(--ink-2);white-space:nowrap}
+.chip.active{border-color:var(--accent-focus);color:var(--ink)}
+.chip.done{border-color:color-mix(in srgb,var(--success) 50%,transparent);color:var(--success)}
+.chip.revisit{border-style:dashed;color:var(--ink)}
+.settings{display:flex;flex-wrap:wrap;gap:var(--space-group);align-items:center;font-size:13px;color:var(--ink-2)}
+.settings label{display:flex;gap:var(--space-inline);align-items:center}
+.settings select{background:var(--raised);border:1px solid var(--line-edge);border-radius:var(--radius-control);padding:6px 8px;min-height:32px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--raised);border:1px solid var(--line-edge);border-radius:var(--radius-group);padding:10px 16px;font-size:14px;z-index:10;animation:arrive var(--motion-arrival)}
+.confirm{display:flex;flex-wrap:wrap;gap:var(--space-inline);align-items:center;padding:var(--space-row) 14px;border:1px solid color-mix(in srgb,var(--error) 45%,transparent);border-radius:var(--radius-group)}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <a class="home" id="home" href="../index.html" hidden>&lsaquo; All units</a><h1 id="title"></h1><span class="sub" id="sub"></span><span class="grow"></span>
+  <div class="meter" id="meter"></div>
+</div></header>
+<div class="wrap">
+  <nav class="side" id="side" aria-label="Sections"></nav>
+  <main class="main" id="main"></main>
+</div>
+<div id="toast" class="toast" hidden></div>
+<script>
+/* DECK_START */
+const DECK = {
+ "home": "../index.html",
+ "review": {
+  "must": [
+   "**Atomic number** = protons (= electrons in a neutral atom)",
+   "**Mass number** = protons + neutrons. **Neutrons** = mass number − atomic number",
+   "**Average atomic mass** = (mass × % + mass × %) ÷ 100",
+   "**Electrons per level** = 2n² (2, 8, 18, 32). **s2 p6 d10 f14**",
+   "**Gold foil:** most went through → mostly empty space. A few bounced → tiny, dense, positive nucleus",
+   "**Model order:** Dogs Trust Really Big Squirrels (Dalton, Thomson, Rutherford, Bohr, Schrödinger)",
+   "**Quantum numbers:** n (level), l (shape, 0 to n − 1), mₗ (orbital, −l to +l), mₛ (spin ±½)",
+   "**Ion charge** = protons − electrons. Cation +, anion −",
+   "**Filling order:** 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
+   "**Aufbau builds, Pauli pairs, Hund spreads**",
+   "**Exceptions:** Cr [Ar] 4s¹ 3d⁵, Cu [Ar] 4s¹ 3d¹⁰",
+   "**Valence electrons:** groups 1, 2 → 1, 2. Groups 13 to 18 → group − 10",
+   "**Isotopes:** same protons, different neutrons. Same chemistry, different mass",
+   "**Up = absorb** energy, **down = release** light (bright line spectrum)"
+  ],
+  "secs": {
+   "dalton": [
+    "Dalton 1803: atoms are **indivisible**, same element atoms are **identical**, atoms join in **whole number ratios**, reactions **rearrange** atoms",
+    "Wrong parts: atoms can be divided, and isotopes differ in mass",
+    "Dalton's model: solid sphere"
+   ],
+   "goldfoil": [
+    "Thomson 1897: cathode ray tube, found the **electron**. **Plum pudding**: positive ball with electrons in it",
+    "Rutherford gold foil: most alphas through → **empty space**. Few bounced → small, dense, **positive nucleus**",
+    "Chadwick found the neutron in 1932"
+   ],
+   "nucleus": [
+    "Proton +1, 1 amu. Neutron 0, 1 amu. Both in the nucleus (**nucleons**). Electron −1, about 0 amu",
+    "**Atomic number = protons**. **Mass number = protons + neutrons**",
+    "Sodium-23: 11 protons, 12 neutrons, 11 electrons"
+   ],
+   "isotopes": [
+    "**Isotopes**: same protons, different neutrons. Same chemistry, different mass",
+    "Average atomic mass: Cl 75% at 35 and 25% at 37 → (35 × 75 + 37 × 25) ÷ 100 = **35.5 amu**",
+    "The average lands closest to the most common isotope"
+   ],
+   "bohr": [
+    "Bohr 1913: electrons in fixed **energy levels**",
+    "Absorb energy → jump up (excited). Fall back → give off light (**bright line spectrum**, unique per element)",
+    "2n² per level. Sodium 2-8-1, last number = **valence electrons**"
+   ],
+   "qmmodel": [
+    "Schrödinger 1926: electrons act like waves, **electron cloud** of probability",
+    "**Orbital**: region with about 90% chance of an electron, max 2 electrons",
+    "s 1 orbital (2), p 3 (6), d 5 (10), f 7 (14). Orbit is a path, orbital is a region"
+   ],
+   "qnumbers": [
+    "n level, l shape (0 s, 1 p, 2 d, 3 f), mₗ orbital (−l to +l), mₛ spin (±½)",
+    "**Pauli**: no two electrons share all four, so 2 per orbital",
+    "n = 3 → l = 0, 1, 2. l = 1 → mₗ = −1, 0, +1"
+   ],
+   "ions": [
+    "**Cation** lost electrons (+), **anion** gained electrons (−). Protons never change",
+    "Al³⁺ has 10 e⁻, S²⁻ has 18 e⁻. Symbol: mass top left, atomic number bottom left, charge top right",
+    "Proton 1.0073, neutron 1.0087, electron 0.0005 amu. Atom is about 10,000 times wider than the nucleus"
+   ],
+   "excited": [
+    "**Ground state** matches the reference table. **Excited:** same electrons, one moved up (S 2-8-5-1)",
+    "Up = **absorb**, down = **release** light (spectral lines)",
+    "Unknown spectrum: an element is there only if all its lines match"
+   ],
+   "econfig": [
+    "**Aufbau:** lowest energy first, 4s before 3d",
+    "Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Superscripts add to the electrons",
+    "Skipping a sublevel breaks Aufbau, overfilling breaks Pauli"
+   ],
+   "orbdiag": [
+    "**Pauli:** max 2 arrows per box, opposite spins",
+    "**Hund:** one in each box first, then pair",
+    "N 2p ↑ ↑ ↑, O 2p ↑↓ ↑ ↑"
+   ],
+   "noblegas": [
+    "[noble gas] + the rest: Ca = **[Ar] 4s²**",
+    "**Cr** [Ar] 4s¹ 3d⁵, **Cu** [Ar] 4s¹ 3d¹⁰",
+    "Ions: negative add electrons, positive remove from 4s first (Fe²⁺ = [Ar] 3d⁶)"
+   ],
+   "valence": [
+    "**Valence** = outermost s + p electrons, they react",
+    "Period = highest level, block = last sublevel filled",
+    "Dots = valence electrons. Metals lose, nonmetals gain"
+   ],
+   "packet": [
+    "Packet answer key, with the fixes listed at the top"
+   ]
+  }
+ },
+ "title": "Chemistry unit 2",
+ "subtitle": "Test Mon, Nov 2",
+ "source": "From class, the Atom Practice Packet, CK-12, the class drive and the scribe notes. More topics get added as the unit goes on.",
+ "breakMinutes": 5,
+ "dumpMinutes": 7,
+ "sections": [
+  {
+   "id": "mock2",
+   "title": "Practice test (grades itself)",
+   "steps": [
+    0
+   ],
+   "cards": [],
+   "points": [],
+   "notes": [
+    {
+     "p": "40 minutes, 30 points: atomic theories, atoms and ions, isotopes and average atomic mass, configurations, noble gas notation and orbital diagrams. Work on paper, type your final answers, then grade it yourself against the answer key. Your score shows which sections to study."
+    },
+    {
+     "p": "**[Open the practice test](../mock-test/)**"
+    }
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "models",
+   "title": "The five models side by side",
+   "quizlet": "",
+   "notes": [
+    {
+     "key": "Order: **Dogs Trust Really Big Squirrels** = Dalton, Thomson, Rutherford, Bohr, Schrödinger."
+    },
+    {
+     "table": {
+      "head": [
+       "Scientist",
+       "Year",
+       "Model",
+       "Key idea"
+      ],
+      "rows": [
+       [
+        "Dalton",
+        "1803",
+        "Solid sphere",
+        "Atoms are tiny solid balls that can't be divided"
+       ],
+       [
+        "Thomson",
+        "1897 electron, 1904 model",
+        "Plum pudding",
+        "Negative electrons scattered in a positive sphere"
+       ],
+       [
+        "Rutherford",
+        "1911",
+        "Nuclear",
+        "Gold foil showed a tiny, dense, positive nucleus and mostly empty space"
+       ],
+       [
+        "Bohr",
+        "1913",
+        "Planetary",
+        "Electrons in fixed energy levels"
+       ],
+       [
+        "Schrödinger",
+        "1926",
+        "Quantum (electron cloud)",
+        "No fixed paths, only regions where electrons are likely to be (orbitals)"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Picture each one"
+    },
+    {
+     "list": [
+      "Dalton: a billiard ball, solid and unbreakable",
+      "Thomson: a chocolate chip cookie, the chips are the electrons",
+      "Rutherford: bullets fired through tissue paper",
+      "Bohr: planets on fixed rings",
+      "Schrödinger: a fan spinning so fast you only see a blur"
+     ]
+    },
+    {
+     "h": "Gold foil, word for word"
+    },
+    {
+     "list": [
+      "**Observation 1:** most alpha particles went straight through. **Conclusion:** the atom is mostly empty space.",
+      "**Observation 2:** a few bounced back. **Conclusion:** there is a tiny, dense, positive nucleus."
+     ]
+    },
+    {
+     "p": "Dalton is about 100 years before the rest. After that they come fast: 1904, 1911, 1913, 1926."
+    }
+   ],
+   "cards": [
+    [
+     "Order of the five models (mnemonic)",
+     "Dogs Trust Really Big Squirrels: Dalton, Thomson, Rutherford, Bohr, Schrödinger"
+    ],
+    [
+     "Dalton: year and model",
+     "1803, solid sphere"
+    ],
+    [
+     "Dalton's key idea",
+     "Atoms are tiny solid balls that can't be divided"
+    ],
+    [
+     "Thomson: year and model",
+     "Electron 1897, plum pudding model 1904"
+    ],
+    [
+     "Plum pudding model",
+     "Negative electrons scattered in a positive sphere"
+    ],
+    [
+     "Rutherford: year and model",
+     "1911, nuclear model"
+    ],
+    [
+     "Gold foil: most particles went straight through, so...",
+     "The atom is mostly empty space"
+    ],
+    [
+     "Gold foil: a few bounced back, so...",
+     "There is a tiny, dense, positive nucleus"
+    ],
+    [
+     "Bohr: year and model",
+     "1913, planetary model, electrons in fixed energy levels"
+    ],
+    [
+     "Schrödinger: year and model",
+     "1926, quantum mechanical (electron cloud) model"
+    ],
+    [
+     "Quantum model's key idea",
+     "No fixed paths, only regions where electrons are likely to be (orbitals)"
+    ],
+    [
+     "Bohr vs quantum model",
+     "Bohr: fixed orbits. Quantum: no fixed path, only probability regions (orbitals)"
+    ]
+   ],
+   "points": [
+    "Order: Dalton, Thomson, Rutherford, Bohr, Schrödinger (Dogs Trust Really Big Squirrels)",
+    "Dalton 1803, solid sphere, indivisible",
+    "Thomson 1897/1904, plum pudding, electrons in a positive sphere",
+    "Rutherford 1911, nuclear model",
+    "Gold foil: most went through, so mostly empty space",
+    "Gold foil: a few bounced back, so a tiny, dense, positive nucleus",
+    "Bohr 1913, electrons in fixed energy levels",
+    "Schrödinger 1926, electron cloud, orbitals are probability regions"
+   ]
+  },
+  {
+   "id": "explain",
+   "title": "The four explain answers",
+   "quizlet": "",
+   "notes": [
+    {
+     "p": "Explain questions are 2 points: one for **what** happens, one for **why**. Use the key word every time."
+    },
+    {
+     "h": "Why are isotopes the same element but different masses?"
+    },
+    {
+     "p": "Same number of **protons**, so the same element. Different numbers of **neutrons**, so different masses. Same electrons, so the same chemistry."
+    },
+    {
+     "h": "How many electrons does Mg²⁺ have, and why?"
+    },
+    {
+     "p": "Protons can't change, Mg always has 12. A 2+ charge means 2 more protons than electrons, so 12 − 2 = **10 electrons**."
+    },
+    {
+     "h": "Why does 4s fill before 3d, but empty first?"
+    },
+    {
+     "p": "4s is **lower in energy**, so it fills first. But 4s is **farther from the nucleus**, so a positive ion loses its 4s electrons first."
+    },
+    {
+     "h": "Why are Cr and Cu exceptions?"
+    },
+    {
+     "p": "One 4s electron moves into 3d because a **half full (d⁵) or full (d¹⁰) d subshell is more stable**. Cr = [Ar] 4s¹ 3d⁵, Cu = [Ar] 4s¹ 3d¹⁰."
+    },
+    {
+     "key": "Every explain answer: what happens, then why, with the key word (neutrons, charge, energy, more stable)."
+    }
+   ],
+   "cards": [
+    [
+     "Why are isotopes the same element?",
+     "Same number of protons"
+    ],
+    [
+     "Why do isotopes have different masses?",
+     "Different numbers of neutrons"
+    ],
+    [
+     "Why do isotopes react the same way?",
+     "Same number of electrons"
+    ],
+    [
+     "Electrons in Mg²⁺ and why",
+     "10. Protons stay 12, a 2+ charge means 2 fewer electrons"
+    ],
+    [
+     "Why does 4s fill before 3d?",
+     "4s is lower in energy"
+    ],
+    [
+     "Why does 4s empty before 3d in an ion?",
+     "4s is farther from the nucleus"
+    ],
+    [
+     "Why are Cr and Cu exceptions?",
+     "A half full (d⁵) or full (d¹⁰) d subshell is more stable, so one 4s electron moves to 3d"
+    ],
+    [
+     "Cr configuration",
+     "[Ar] 4s¹ 3d⁵"
+    ],
+    [
+     "Cu configuration",
+     "[Ar] 4s¹ 3d¹⁰"
+    ]
+   ],
+   "points": [
+    "Isotopes: same protons, so same element",
+    "Isotopes: different neutrons, so different masses",
+    "Mg²⁺ has 10 electrons: 12 protons minus a 2+ charge",
+    "Protons never change in an ion, only electrons",
+    "4s fills first because it is lower in energy",
+    "4s empties first because it is farther from the nucleus",
+    "Cr and Cu: a half full or full d subshell is more stable",
+    "Cr = [Ar] 4s¹ 3d⁵ and Cu = [Ar] 4s¹ 3d¹⁰"
+   ]
+  },
+  {
+   "id": "mass",
+   "title": "Average atomic mass practice",
+   "quizlet": "",
+   "steps": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "cards": [],
+   "notes": [
+    {
+     "key": "Average atomic mass = (mass × percent as a decimal) + (mass × percent as a decimal) + ..."
+    },
+    {
+     "list": [
+      "Turn every percent into a decimal: 75.78% → 0.7578.",
+      "Multiply each isotope's mass by its decimal, then add them all.",
+      "Check: the answer lands closest to the most common isotope's mass.",
+      "Unknown element? Match the answer to the mass on the periodic table."
+     ]
+    },
+    {
+     "h": "Worked example"
+    },
+    {
+     "p": "Lithium: ⁶Li is 6.015 amu (7.5%), ⁷Li is 7.016 amu (92.5%). (6.015 × 0.075) + (7.016 × 0.925) = 0.451 + 6.490 = **6.94 amu**, close to 7 because ⁷Li is most common."
+    }
+   ],
+   "dump": [
+    {
+     "p": "Solve these on paper with a calculator, then type your answers here."
+    },
+    {
+     "list": [
+      "1. Chlorine: 34.969 amu (75.78%), 36.966 amu (24.22%)",
+      "2. Element X: 10.013 amu (19.9%), 11.009 amu (80.1%). Which element?",
+      "3. Copper: 62.930 amu (69.15%), 64.928 amu (30.85%)",
+      "4. Silicon: 27.977 (92.23%), 28.976 (4.68%), 29.974 (3.09%)"
+     ]
+    }
+   ],
+   "points": [
+    "Turned every percent into a decimal",
+    "Multiplied each mass by its decimal and added",
+    "1. Chlorine = 35.45 amu",
+    "2. X = 10.81 amu, boron",
+    "3. Copper = 63.55 amu",
+    "4. Silicon = 28.09 amu"
+   ]
+  },
+  {
+   "id": "drills",
+   "title": "Configuration drills",
+   "quizlet": "",
+   "steps": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "cards": [],
+   "notes": [
+    {
+     "key": "Filling order: 1s 2s 2p 3s 3p **4s 3d** 4p 5s 4d 5p. s holds 2, p holds 6, d holds 10."
+    },
+    {
+     "list": [
+      "Noble gas notation: write the noble gas before the element in brackets, then the rest. Fe = [Ar] 4s² 3d⁶.",
+      "Check: the superscripts plus the noble gas's electrons equal the element's electrons.",
+      "**Exceptions:** Cr = [Ar] 4s¹ 3d⁵ and Cu = [Ar] 4s¹ 3d¹⁰.",
+      "**Positive ions:** write the neutral atom first, then take electrons from **4s first**, then 3d. Fe²⁺ = [Ar] 3d⁶, Fe³⁺ = [Ar] 3d⁵.",
+      "**Negative ions:** add electrons to the next open spot. Cl⁻ = [Ar]."
+     ]
+    }
+   ],
+   "dump": [
+    {
+     "p": "Write each one on paper in noble gas notation, then type them here."
+    },
+    {
+     "list": [
+      "1. Cu",
+      "2. Cr",
+      "3. Ni",
+      "4. Zn²⁺",
+      "5. Mn²⁺",
+      "6. Fe³⁺",
+      "7. Co²⁺",
+      "8. Cl⁻"
+     ]
+    }
+   ],
+   "points": [
+    "1. Cu = [Ar] 4s¹ 3d¹⁰",
+    "2. Cr = [Ar] 4s¹ 3d⁵",
+    "3. Ni = [Ar] 4s² 3d⁸",
+    "4. Zn²⁺ = [Ar] 3d¹⁰",
+    "5. Mn²⁺ = [Ar] 3d⁵",
+    "6. Fe³⁺ = [Ar] 3d⁵",
+    "7. Co²⁺ = [Ar] 3d⁷",
+    "8. Cl⁻ = [Ar]",
+    "Wrote the neutral atom first and took from 4s for every positive ion"
+   ]
+  },
+  {
+   "id": "dalton",
+   "title": "Early atomic theory and Dalton",
+   "cards": [
+    [
+     "Democritus",
+     "Greek thinker (about 400 BC) who said matter is made of tiny uncuttable pieces he called atomos. He had no experiments to back it up."
+    ],
+    [
+     "Dalton's atomic theory (year)",
+     "1803, by John Dalton, a British chemist and teacher"
+    ],
+    [
+     "Dalton point 1",
+     "All matter is made of tiny particles called atoms that cannot be divided"
+    ],
+    [
+     "Dalton point 2",
+     "Atoms of the same element are identical in mass and properties. Atoms of different elements are different."
+    ],
+    [
+     "Dalton point 3",
+     "Atoms combine in simple whole number ratios to form compounds (like H₂O is always 2 H to 1 O)"
+    ],
+    [
+     "Dalton point 4",
+     "A chemical reaction only rearranges atoms. Atoms are not created or destroyed."
+    ],
+    [
+     "Which Dalton idea was wrong because of the electron?",
+     "That atoms can't be divided. Atoms have smaller parts: protons, neutrons and electrons."
+    ],
+    [
+     "Which Dalton idea was wrong because of isotopes?",
+     "That all atoms of an element have the same mass. Isotopes of one element have different masses."
+    ],
+    [
+     "Dalton's model of the atom",
+     "A solid, indivisible sphere, like a tiny billiard ball"
+    ],
+    [
+     "Law of conservation of mass",
+     "Mass is not created or destroyed in a reaction. Dalton explained it: atoms are only rearranged."
+    ],
+    [
+     "Law of definite proportions",
+     "A compound always has the same elements in the same ratio by mass. Dalton explained it: atoms join in fixed whole number ratios."
+    ],
+    [
+     "Dalton's model name",
+     "The solid sphere model (1803)"
+    ],
+    [
+     "Dalton's theory (class wording)",
+     "Atoms cannot be subdivided, created or destroyed"
+    ],
+    [
+     "What we know now about Dalton's ideas",
+     "Atoms can be divided, atoms of one element can differ in mass (isotopes), and atoms can be changed or destroyed in nuclear reactions"
+    ],
+    [
+     "Where did Dalton get his evidence?",
+     "He weighed elements and compounds and saw that they always combine in fixed ratios by mass"
+    ]
+   ],
+   "notes": [
+    {
+     "img": "../img/u2/atomic-models.png",
+     "alt": "Five atomic models in order: Dalton, Thomson, Rutherford, Bohr, Schrödinger"
+    },
+    {
+     "key": "Order of the models: **Dogs Trust Really Big Squirrels** = Dalton, Thomson, Rutherford, Bohr, Schrödinger (quantum mechanical)."
+    },
+    {
+     "p": "**Democritus** (about 400 BC) first said matter is made of tiny uncuttable pieces, atomos. It was only an idea, with no experiments."
+    },
+    {
+     "h": "Dalton's atomic theory (1803)"
+    },
+    {
+     "list": [
+      "All matter is made of tiny **atoms** that cannot be divided.",
+      "Atoms of the **same element are identical** in mass and properties. Different elements have different atoms.",
+      "Atoms combine in **simple whole number ratios** to form compounds.",
+      "Chemical reactions **rearrange** atoms. Atoms are not created or destroyed."
+     ]
+    },
+    {
+     "p": "His model: a **solid sphere**, like a billiard ball."
+    },
+    {
+     "p": "**What was wrong:** atoms can be divided (electrons, protons, neutrons), and atoms of the same element can have different masses (isotopes). The other two ideas still hold."
+    },
+    {
+     "p": "Dalton's theory explained two laws: **conservation of mass** (atoms are only rearranged) and **definite proportions** (a compound always has the same ratio of elements)."
+    }
+   ],
+   "points": [
+    "Democritus named the atom (atomos, uncuttable) but had no evidence",
+    "Dalton's four points: atoms are indivisible, same element atoms are identical, atoms combine in whole number ratios, reactions rearrange atoms",
+    "Dalton's model is a solid sphere",
+    "Wrong parts: atoms are divisible, and isotopes mean same element atoms can differ in mass",
+    "Dalton explained conservation of mass and definite proportions",
+    "Model order: Dogs Trust Really Big Squirrels"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "goldfoil",
+   "title": "Thomson, Rutherford and the gold foil",
+   "cards": [
+    [
+     "J.J. Thomson's experiment",
+     "The cathode ray tube (1897). The beam bent toward the positive plate, so it was made of negative particles."
+    ],
+    [
+     "What Thomson discovered",
+     "The electron, so atoms are not indivisible"
+    ],
+    [
+     "Plum pudding model",
+     "Thomson's model: a ball of positive charge with negative electrons scattered through it, like raisins in a pudding"
+    ],
+    [
+     "Why the plum pudding atom is neutral",
+     "The positive sphere cancels out the negative electrons"
+    ],
+    [
+     "Gold foil experiment (who, when)",
+     "Ernest Rutherford, 1909 to 1911 (done with Geiger and Marsden)"
+    ],
+    [
+     "Gold foil setup",
+     "Positive alpha particles were fired at a very thin sheet of gold foil, with a screen around it to see where they went"
+    ],
+    [
+     "Most alpha particles went straight through, so...",
+     "The atom is mostly empty space"
+    ],
+    [
+     "A few alpha particles bounced back or bent a lot, so...",
+     "There is a tiny, dense, positive center: the nucleus"
+    ],
+    [
+     "Why the bounce proved the nucleus is positive",
+     "Alpha particles are positive, and like charges repel, so they were pushed away by something positive"
+    ],
+    [
+     "Rutherford's nuclear model",
+     "A tiny, dense, positive nucleus holding almost all the mass, with electrons moving in the empty space around it"
+    ],
+    [
+     "Which model did the gold foil disprove?",
+     "Thomson's plum pudding model. Its spread out positive charge could not bounce alpha particles back."
+    ],
+    [
+     "Who discovered the neutron?",
+     "James Chadwick, 1932"
+    ],
+    [
+     "Alpha particle",
+     "A positive particle made of 2 protons and 2 neutrons (a helium nucleus), about 4 times the mass of a hydrogen atom"
+    ],
+    [
+     "Plum pudding model year",
+     "1904. Thomson found the electron in 1897 and proposed the model in 1904."
+    ],
+    [
+     "What was wrong with the plum pudding model?",
+     "It had no nucleus, so it couldn't explain the gold foil results"
+    ],
+    [
+     "Rutherford's model name",
+     "The nuclear model (1911)"
+    ],
+    [
+     "What Rutherford's model couldn't explain",
+     "Why electrons stay around the nucleus instead of falling into it"
+    ],
+    [
+     "Whose model replaced Thomson's?",
+     "Rutherford's nuclear model"
+    ]
+   ],
+   "notes": [
+    {
+     "h": "Thomson (electron 1897, plum pudding model 1904)"
+    },
+    {
+     "p": "In the **cathode ray tube**, the beam bent toward the positive plate, so it was made of **negative particles: electrons**. That proved atoms have smaller parts."
+    },
+    {
+     "p": "**Plum pudding model:** a ball of positive charge with negative electrons scattered through it. Overall neutral."
+    },
+    {
+     "h": "Rutherford's gold foil experiment (1909 to 1911)"
+    },
+    {
+     "p": "Your class scribe notes say \"In 1991\". That is a typo for **1911**."
+    },
+    {
+     "img": "../img/u2/gold-foil.png",
+     "alt": "Alpha particles fired at gold foil, most go straight, a few bend or bounce back"
+    },
+    {
+     "table": {
+      "head": [
+       "What happened",
+       "What it means"
+      ],
+      "rows": [
+       [
+        "Most alpha particles went **straight through**",
+        "The atom is **mostly empty space**"
+       ],
+       [
+        "A few were **deflected** at big angles",
+        "Something small and **positive** pushed them (like charges repel)"
+       ],
+       [
+        "Very few **bounced straight back**",
+        "The positive part is **tiny and very dense**: the **nucleus**, with almost all the mass"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Rutherford's nuclear model:** a tiny, dense, positive nucleus with electrons around it in mostly empty space. It replaced the plum pudding model."
+    },
+    {
+     "p": "Later: Rutherford named the **proton**, and **Chadwick** discovered the **neutron** in 1932."
+    },
+    {
+     "table": {
+      "head": [
+       "Model",
+       "Who, year",
+       "Got right",
+       "Problem"
+      ],
+      "rows": [
+       [
+        "Solid sphere",
+        "Dalton, 1803",
+        "Each element has its own kind of atom",
+        "Atoms aren't indivisible"
+       ],
+       [
+        "Plum pudding",
+        "Thomson, 1904",
+        "Atoms contain electrons",
+        "No nucleus"
+       ],
+       [
+        "Nuclear",
+        "Rutherford, 1911",
+        "Positive charge is in a tiny nucleus",
+        "Didn't explain why electrons stay in orbit"
+       ],
+       [
+        "Planetary",
+        "Bohr, 1913",
+        "Fixed energy levels, explained hydrogen's spectrum",
+        "Only worked for hydrogen"
+       ],
+       [
+        "Quantum (electron cloud)",
+        "Schrödinger, 1926",
+        "Electrons are in clouds of probability",
+        "Still the accepted model"
+       ]
+      ]
+     }
+    }
+   ],
+   "points": [
+    "Thomson's cathode ray tube found the electron, a negative particle",
+    "Plum pudding: positive ball with electrons scattered in it",
+    "Gold foil: alpha particles (positive) at thin gold foil",
+    "Most went through, so the atom is mostly empty space",
+    "A few bounced back, so there is a tiny, dense, positive nucleus",
+    "This disproved the plum pudding model",
+    "Chadwick found the neutron in 1932",
+    "Model names: solid sphere, plum pudding, nuclear, planetary, quantum"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "nucleus",
+   "title": "The nucleus, atomic number and mass number",
+   "cards": [
+    [
+     "Proton",
+     "Charge +1, mass about 1 amu, found in the nucleus"
+    ],
+    [
+     "Neutron",
+     "Charge 0, mass about 1 amu, found in the nucleus"
+    ],
+    [
+     "Electron",
+     "Charge −1, mass about 0 amu (about 1/1840 of a proton), found in the electron cloud around the nucleus"
+    ],
+    [
+     "Nucleons",
+     "The particles in the nucleus: protons and neutrons"
+    ],
+    [
+     "Where is almost all of an atom's mass?",
+     "In the nucleus"
+    ],
+    [
+     "How big is the nucleus compared to the atom?",
+     "Tiny. The atom is about 10,000 times wider than its nucleus. The rest is the electron cloud."
+    ],
+    [
+     "Atomic number",
+     "The number of protons. It decides which element it is."
+    ],
+    [
+     "In a neutral atom, electrons =",
+     "Protons (the atomic number)"
+    ],
+    [
+     "Mass number",
+     "Protons + neutrons (always a whole number)"
+    ],
+    [
+     "Number of neutrons",
+     "Mass number − atomic number"
+    ],
+    [
+     "Oxygen-16: protons, neutrons, electrons",
+     "8 protons, 8 neutrons, 8 electrons"
+    ],
+    [
+     "Sodium-23: protons, neutrons, electrons",
+     "11 protons, 12 neutrons, 11 electrons"
+    ],
+    [
+     "Uranium-238: protons, neutrons",
+     "92 protons, 146 neutrons"
+    ],
+    [
+     "amu (atomic mass unit)",
+     "1/12 of the mass of a carbon-12 atom. A proton or neutron is about 1 amu."
+    ],
+    [
+     "What holds the nucleus together?",
+     "The strong nuclear force, which is stronger than the push between the positive protons"
+    ],
+    [
+     "'Atomic mass' on the class vocab sheet",
+     "It means protons + neutrons, which is the mass number. Neutrons = atomic mass − protons."
+    ],
+    [
+     "Which particle hardly affects an atom's mass?",
+     "The electron (about 1/1840 the mass of a proton)"
+    ],
+    [
+     "Lithium-7 (atomic number 3): neutrons?",
+     "7 − 3 = 4"
+    ]
+   ],
+   "notes": [
+    {
+     "table": {
+      "head": [
+       "Particle",
+       "Charge",
+       "Mass",
+       "Where"
+      ],
+      "rows": [
+       [
+        "Proton",
+        "+1",
+        "about 1 amu",
+        "Nucleus"
+       ],
+       [
+        "Neutron",
+        "0",
+        "about 1 amu",
+        "Nucleus"
+       ],
+       [
+        "Electron",
+        "−1",
+        "about 0 amu (1/1840)",
+        "Electron cloud"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Protons and neutrons together are called **nucleons**. The nucleus is tiny but holds almost **all the mass**. The strong nuclear force holds it together."
+    },
+    {
+     "key": "**Atomic number = protons** (it decides the element, and equals electrons in a neutral atom)\n**Mass number = protons + neutrons**\n**Neutrons = mass number − atomic number**"
+    },
+    {
+     "img": "../img/u2/isotope-notation.png",
+     "alt": "Nuclear symbol for carbon-14 with mass number on top and atomic number below"
+    },
+    {
+     "p": "The nuclear symbol puts the **mass number on top** and the **atomic number on the bottom**, both on the left. Carbon-14 can also be written C-14."
+    },
+    {
+     "list": [
+      "Oxygen-16: 8 protons, 16 − 8 = 8 neutrons, 8 electrons",
+      "Sodium-23: 11 protons, 23 − 11 = 12 neutrons, 11 electrons",
+      "Ions (atoms with a charge) get their own section next."
+     ]
+    },
+    {
+     "p": "Your class vocab sheet calls protons + neutrons the **atomic mass**. On a question that wants a whole number for one atom, that's the mass number. The decimal on the periodic table is the average atomic mass."
+    }
+   ],
+   "points": [
+    "Proton +1 and about 1 amu, neutron 0 and about 1 amu, both in the nucleus",
+    "Electron −1 and about 0 amu, in the electron cloud",
+    "Nucleons = protons + neutrons",
+    "The nucleus is tiny but holds almost all the mass",
+    "Atomic number = protons, it identifies the element",
+    "Mass number = protons + neutrons, neutrons = mass number − atomic number",
+    "Nuclear symbol: mass number on top, atomic number on the bottom"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "ions",
+   "title": "Ions, charges and the size of the atom",
+   "cards": [
+    [
+     "Ion",
+     "An atom with a charge because it gained or lost electrons. The protons never change."
+    ],
+    [
+     "Cation",
+     "A positive ion. It lost electrons. Examples: Na⁺, Ca²⁺, Al³⁺"
+    ],
+    [
+     "Anion",
+     "A negative ion. It gained electrons. Examples: Cl⁻, O²⁻, N³⁻"
+    ],
+    [
+     "Charge of an atom or ion",
+     "Protons − electrons. Each proton is +1, each electron is −1, neutrons are 0."
+    ],
+    [
+     "Electrons in a positive ion",
+     "Protons − charge. Al³⁺: 13 − 3 = 10 electrons"
+    ],
+    [
+     "Electrons in a negative ion",
+     "Protons + charge. S²⁻: 16 + 2 = 18 electrons"
+    ],
+    [
+     "Fe³⁺: protons and electrons",
+     "26 protons, 23 electrons"
+    ],
+    [
+     "Cl⁻: protons and electrons",
+     "17 protons, 18 electrons"
+    ],
+    [
+     "Pt²⁺: electrons",
+     "78 − 2 = 76"
+    ],
+    [
+     "Atom or ion: 19 p⁺ and 18 e⁻?",
+     "Ion (K⁺). Protons and electrons don't match. If they match, it's a neutral atom."
+    ],
+    [
+     "What happens if the number of protons changes?",
+     "It becomes a different element"
+    ],
+    [
+     "What do all atoms and ions of sodium have in common?",
+     "The same atomic number (11 protons)"
+    ],
+    [
+     "Hyphen notation",
+     "Element name then the mass number: carbon-14, cobalt-60"
+    ],
+    [
+     "Nuclear symbol with a charge",
+     "Mass number top left, atomic number bottom left, charge top right. Example: ³⁹₁₉K⁺"
+    ],
+    [
+     "Masses in amu: proton, neutron, electron",
+     "Proton 1.0073, neutron 1.0087, electron 0.0005"
+    ],
+    [
+     "1 amu in kilograms",
+     "1.66054 × 10⁻²⁷ kg"
+    ],
+    [
+     "Mass of a proton in kg",
+     "1.0073 × 1.66054 × 10⁻²⁷ = 1.673 × 10⁻²⁷ kg"
+    ],
+    [
+     "Why is an atom's mass in amu close to, but not exactly, its mass number?",
+     "Protons and neutrons are each a little over 1 amu (1.0073 and 1.0087), and the electrons add a tiny bit"
+    ],
+    [
+     "Percent of carbon-12's mass in its nucleus",
+     "99.975%. The 6 electrons weigh only about 0.003 amu out of 12."
+    ],
+    [
+     "Which particles take up most of the atom's volume?",
+     "The electrons, in the cloud around the nucleus"
+    ],
+    [
+     "Atom size vs nucleus size",
+     "The atom is about 10,000 times wider than its nucleus"
+    ],
+    [
+     "If a Cl nucleus (4.0 fm) were a dime (17 mm), the atom (100 pm) would be...",
+     "About a football stadium. 100 pm ÷ 4.0 fm = 25,000, and 17 mm × 25,000 = 425 m."
+    ]
+   ],
+   "notes": [
+    {
+     "p": "An **ion** is an atom that gained or lost **electrons**, so it has a charge. The protons never change, because changing protons changes the element."
+    },
+    {
+     "table": {
+      "head": [
+       "",
+       "What happened",
+       "Charge",
+       "Example"
+      ],
+      "rows": [
+       [
+        "**Cation**",
+        "Lost electrons",
+        "Positive",
+        "Na⁺: 11 p⁺, 10 e⁻"
+       ],
+       [
+        "**Anion**",
+        "Gained electrons",
+        "Negative",
+        "Cl⁻: 17 p⁺, 18 e⁻"
+       ],
+       [
+        "Neutral atom",
+        "Nothing",
+        "0",
+        "K: 19 p⁺, 19 e⁻"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Charge = protons − electrons**\nPositive ion: electrons = protons − charge (Fe³⁺ → 26 − 3 = **23**)\nNegative ion: electrons = protons + charge (P³⁻ → 15 + 3 = **18**)\n**Cat**ions are **paws**itive."
+    },
+    {
+     "h": "Writing the symbol"
+    },
+    {
+     "list": [
+      "**Nuclear symbol:** mass number top left, atomic number bottom left, charge top right. Sodium-24 cation = ²⁴₁₁Na⁺.",
+      "**Hyphen notation:** name and mass number, like bromine-81 or barium-137.",
+      "Potassium-39 atom = ³⁹₁₉K. Its ion with 18 electrons = ³⁹₁₉K⁺. Oxygen with 8 p⁺ and 8 n⁰ = ¹⁶₈O, and with 10 e⁻ it's ¹⁶₈O²⁻."
+     ]
+    },
+    {
+     "h": "Exact masses and the size of an atom"
+    },
+    {
+     "table": {
+      "head": [
+       "Particle",
+       "Mass (amu)",
+       "Mass (kg)",
+       "Charge"
+      ],
+      "rows": [
+       [
+        "Proton",
+        "1.0073",
+        "1.673 × 10⁻²⁷",
+        "+1"
+       ],
+       [
+        "Neutron",
+        "1.0087",
+        "1.675 × 10⁻²⁷",
+        "0"
+       ],
+       [
+        "Electron",
+        "0.00055 (often rounded to 0.0005)",
+        "9.11 × 10⁻³¹",
+        "−1"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "To get kg, multiply the amu value by **1.66054 × 10⁻²⁷ kg**. The mass number is close to the mass in amu but not exact, because protons and neutrons are each slightly more than 1 amu."
+    },
+    {
+     "p": "**Mass:** in carbon-12, the nucleus holds (12 − 0.003) ÷ 12 = **99.975%** of the mass. **Size:** the atom is about **10,000 times wider** than the nucleus. If a chlorine nucleus were a dime, the whole atom would be a football stadium (100 pm ÷ 4.0 fm = 25,000, and 17 mm × 25,000 = 425 m)."
+    }
+   ],
+   "points": [
+    "Ion: gained or lost electrons, protons stay the same",
+    "Cation is positive (lost electrons), anion is negative (gained electrons)",
+    "Charge = protons − electrons",
+    "Al³⁺ has 10 electrons, S²⁻ has 18",
+    "Symbol: mass number top left, atomic number bottom left, charge top right",
+    "Proton 1.0073 amu, neutron 1.0087 amu, electron 0.0005 amu, 1 amu = 1.66054 × 10⁻²⁷ kg",
+    "Nucleus holds about 99.97% of the mass, the atom is about 10,000 times wider than the nucleus"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "isotopes",
+   "title": "Isotopes and average atomic mass",
+   "cards": [
+    [
+     "Isotopes",
+     "Atoms of the same element (same protons) with different numbers of neutrons, so different mass numbers"
+    ],
+    [
+     "Carbon-12 vs carbon-14",
+     "Both have 6 protons. C-12 has 6 neutrons, C-14 has 8."
+    ],
+    [
+     "Isotopes of hydrogen",
+     "Hydrogen-1 (0 neutrons), hydrogen-2 or deuterium (1 neutron), hydrogen-3 or tritium (2 neutrons)"
+    ],
+    [
+     "Do isotopes react differently?",
+     "No. Same protons and electrons, so the same chemical properties. Only the mass is different."
+    ],
+    [
+     "Average atomic mass",
+     "The weighted average of the masses of all of an element's isotopes, based on how common each one is"
+    ],
+    [
+     "Average atomic mass formula",
+     "(mass₁ × % abundance₁ + mass₂ × % abundance₂ + ...) ÷ 100"
+    ],
+    [
+     "Where you see average atomic mass",
+     "The decimal number on the periodic table, in amu"
+    ],
+    [
+     "Why isn't atomic mass a whole number?",
+     "It's an average of isotopes with different masses"
+    ],
+    [
+     "The average is closest to which isotope?",
+     "The most abundant (most common) one"
+    ],
+    [
+     "Chlorine: 75% Cl-35, 25% Cl-37",
+     "(35 × 75 + 37 × 25) ÷ 100 = 35.5 amu"
+    ],
+    [
+     "Boron: 20% B-10, 80% B-11",
+     "(10 × 20 + 11 × 80) ÷ 100 = 10.8 amu"
+    ],
+    [
+     "Mass number vs atomic mass",
+     "Mass number is a whole number for one isotope (protons + neutrons). Atomic mass is the average of all isotopes, a decimal."
+    ],
+    [
+     "Why aren't carbon-14 and nitrogen-14 isotopes?",
+     "They have different numbers of protons (6 and 7), so they're different elements. Isotopes must have the same protons."
+    ],
+    [
+     "Same mass number, different element. Isotopes?",
+     "No. Isotopes are the same element with different mass numbers."
+    ],
+    [
+     "Lithium averages 6.941 amu (Li-6 and Li-7). Most abundant?",
+     "Lithium-7, because the average is much closer to 7"
+    ],
+    [
+     "Silicon averages 28.086 amu (Si-28, 29, 30). What does that tell you?",
+     "Silicon-28 is by far the most common. Si-29 and Si-30 are rare."
+    ],
+    [
+     "Cesium: 75% Cs-133, 20% Cs-132, 5% Cs-134",
+     "0.75 × 133 + 0.20 × 132 + 0.05 × 134 = 132.85 amu"
+    ],
+    [
+     "Copper: 69.2% at 62.93 amu, 30.8% at 64.93 amu",
+     "43.548 + 19.998 = 63.546 amu"
+    ],
+    [
+     "Element Z averages 208.99 amu, 67% is Z-208. Other isotope?",
+     "0.67 × 208 = 139.36. 208.99 − 139.36 = 69.63. 69.63 ÷ 0.33 = 211, so Z-211."
+    ],
+    [
+     "Cl-35 (34.969 amu) and Cl-37 (36.966 amu) average 35.453. Abundances?",
+     "34.969x + 36.966(1 − x) = 35.453, so x = 0.7576. 75.76% Cl-35 and 24.24% Cl-37."
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Isotopes** are atoms of the same element with the **same protons** but **different neutrons**, so different mass numbers. They react the same way chemically."
+    },
+    {
+     "list": [
+      "Carbon-12 (6 neutrons), carbon-13 (7), carbon-14 (8)",
+      "Hydrogen-1 (0 neutrons), deuterium H-2 (1), tritium H-3 (2)"
+     ]
+    },
+    {
+     "h": "Average atomic mass"
+    },
+    {
+     "p": "The decimal on the periodic table is a **weighted average** of the isotopes, based on how common each one is (its **abundance**)."
+    },
+    {
+     "formula": "average = (mass₁ × %₁ + mass₂ × %₂) ÷ 100"
+    },
+    {
+     "list": [
+      "**Step 1.** Multiply each isotope's mass by its percent.",
+      "**Step 2.** Add those up.",
+      "**Step 3.** Divide by 100. (Or turn the percents into decimals first and skip step 3.)"
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "Chlorine isotope",
+       "Mass",
+       "Abundance",
+       "Mass × abundance"
+      ],
+      "rows": [
+       [
+        "Cl-35",
+        "35",
+        "75%",
+        "35 × 75 = 2625"
+       ],
+       [
+        "Cl-37",
+        "37",
+        "25%",
+        "37 × 25 = 925"
+       ],
+       [
+        "Total",
+        "",
+        "100%",
+        "3550 ÷ 100 = **35.5 amu**"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "Check: the answer must land between the isotope masses, and closer to the most common one. 35.5 is between 35 and 37 and closer to 35, which is 75%."
+    },
+    {
+     "h": "The decimal way (what the packet uses)"
+    },
+    {
+     "p": "Turn each percent into a decimal (75% = 0.75), multiply by the mass, and add. No dividing by 100 at the end. Cesium: 0.75 × 133 + 0.20 × 132 + 0.05 × 134 = **132.85 amu**."
+    },
+    {
+     "h": "Working backwards"
+    },
+    {
+     "list": [
+      "**Missing isotope mass:** subtract the part you know from the average, then divide by the other percent. Z averages 208.99 with 67% Z-208: (208.99 − 0.67 × 208) ÷ 0.33 = **211**.",
+      "**Missing abundances (two isotopes):** call one fraction x and the other 1 − x. Chlorine: 34.969x + 36.966(1 − x) = 35.453 → x = 0.7576, so **75.76% Cl-35, 24.24% Cl-37**.",
+      "**Which is most abundant?** No math needed: it's the isotope the average is closest to. Lithium 6.941 → Li-7. Silicon 28.086 → Si-28."
+     ]
+    },
+    {
+     "p": "**Not isotopes:** carbon-14 and nitrogen-14 have the same mass number but different protons, so they are different elements."
+    },
+    {
+     "p": "Video from the class drive: [how to calculate average atomic mass](https://www.youtube.com/watch?v=xirPkCI1sMA)."
+    }
+   ],
+   "points": [
+    "Isotopes: same protons, different neutrons, different mass numbers",
+    "Isotopes have the same chemical properties",
+    "Average atomic mass is a weighted average by abundance",
+    "Formula: (mass × % + mass × %) ÷ 100",
+    "Chlorine example: 35.5 amu",
+    "The average is closest to the most abundant isotope",
+    "Mass number is a whole number for one isotope, atomic mass is a decimal average",
+    "Decimal way: 0.75 × 133 + 0.20 × 132 + ... with no ÷ 100",
+    "Backwards: (average − known part) ÷ other fraction gives the missing mass",
+    "C-14 and N-14 are not isotopes, they have different protons"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "bohr",
+   "title": "Bohr model and energy levels",
+   "cards": [
+    [
+     "Bohr model (who, when)",
+     "Niels Bohr, 1913"
+    ],
+    [
+     "Bohr model",
+     "Electrons move around the nucleus in fixed paths called energy levels (shells), each with a set amount of energy"
+    ],
+    [
+     "Can an electron be between energy levels?",
+     "No. It can only be in one level or another."
+    ],
+    [
+     "Ground state",
+     "All electrons in the lowest energy levels they can be in"
+    ],
+    [
+     "Excited state",
+     "An electron has absorbed energy and jumped to a higher level"
+    ],
+    [
+     "What happens when an electron falls back down?",
+     "It gives off the extra energy as light of a specific color (wavelength)"
+    ],
+    [
+     "Bright line spectrum",
+     "The set of colored lines an element gives off. Each element's is unique, like a fingerprint."
+    ],
+    [
+     "Energy levels closer to the nucleus have...",
+     "Lower energy"
+    ],
+    [
+     "Most electrons a level can hold",
+     "2n². Level 1: 2, level 2: 8, level 3: 18, level 4: 32"
+    ],
+    [
+     "Electron configuration of sodium (Bohr style)",
+     "2-8-1 (11 electrons)"
+    ],
+    [
+     "Electron configuration of chlorine (Bohr style)",
+     "2-8-7 (17 electrons)"
+    ],
+    [
+     "Valence electrons",
+     "The electrons in the outermost energy level"
+    ],
+    [
+     "How many valence electrons does oxygen (2-6) have?",
+     "6"
+    ],
+    [
+     "What the Bohr model got right",
+     "It explained hydrogen's bright line spectrum"
+    ],
+    [
+     "Bohr model's weakness",
+     "It only worked for hydrogen. Electrons don't really travel in neat circles."
+    ],
+    [
+     "How to draw a Bohr diagram",
+     "Protons and neutrons in the center, then electrons from the inside out: 2 in ring 1, 8 in ring 2, 8 in ring 3 (for the first 20 elements)"
+    ],
+    [
+     "Bohr diagram: carbon (6)",
+     "2-4"
+    ],
+    [
+     "Bohr diagram: silicon (14)",
+     "2-8-4"
+    ],
+    [
+     "Bohr diagram: argon (18)",
+     "2-8-8"
+    ],
+    [
+     "Bohr diagram: potassium (19)",
+     "2-8-8-1"
+    ],
+    [
+     "Bohr diagram: calcium (20)",
+     "2-8-8-2"
+    ],
+    [
+     "Bohr diagram: bromine (35)",
+     "2-8-18-7 (read it off the reference table)"
+    ],
+    [
+     "Where to find any element's shell configuration",
+     "On your reference table, printed under the atomic number in every box (Na says 2-8-1)"
+    ],
+    [
+     "Bohr's model name",
+     "The planetary model (1913)"
+    ],
+    [
+     "Quantized",
+     "Energy comes only in fixed amounts. A Bohr electron can only have the energy of one level, nothing in between."
+    ],
+    [
+     "Photon emission",
+     "When an electron drops to a lower orbit, it gives off light of an exact wavelength"
+    ],
+    [
+     "What was wrong with Bohr's model?",
+     "Moving electrons should give off energy and spiral into the nucleus, and the model didn't work for atoms heavier than hydrogen"
+    ]
+   ],
+   "notes": [
+    {
+     "img": "../img/u2/bohr-levels.png",
+     "alt": "Bohr model with four energy levels and an electron jumping up and falling back"
+    },
+    {
+     "p": "**Bohr (1913):** electrons travel around the nucleus in fixed **energy levels** (shells). An electron can only be in a level, never in between."
+    },
+    {
+     "list": [
+      "**Ground state:** every electron in the lowest level it can be in.",
+      "**Excited state:** an electron absorbs energy and jumps up to a higher level.",
+      "When it **falls back**, it gives off that energy as **light** of one specific color. That makes a **bright line spectrum**, which is different for every element."
+     ]
+    },
+    {
+     "key": "**Most electrons per level = 2n²** → 2, 8, 18, 32.\nWrite configurations level by level: sodium (11) is **2-8-1**, chlorine (17) is **2-8-7**, oxygen (8) is **2-6**.\nThe last number is the **valence electrons**."
+    },
+    {
+     "p": "Bohr explained hydrogen's spectrum, but the model fails for bigger atoms, and electrons don't really move in neat circles. That led to the quantum mechanical model."
+    },
+    {
+     "h": "Drawing Bohr diagrams"
+    },
+    {
+     "list": [
+      "Write the protons and neutrons in the nucleus (neutrons = mass number − atomic number).",
+      "Fill electrons from the inside out: **2, then 8, then 8**, then the rest. Never go over what a ring holds.",
+      "Past calcium (20), copy the configuration from the reference table, like Br **2-8-18-7** and I **2-8-18-18-7**."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Electrons",
+       "Rings"
+      ],
+      "rows": [
+       [
+        "H",
+        "1",
+        "1"
+       ],
+       [
+        "Li",
+        "3",
+        "2-1"
+       ],
+       [
+        "C",
+        "6",
+        "2-4"
+       ],
+       [
+        "O",
+        "8",
+        "2-6"
+       ],
+       [
+        "Ne",
+        "10",
+        "2-8"
+       ],
+       [
+        "Na",
+        "11",
+        "2-8-1"
+       ],
+       [
+        "Mg",
+        "12",
+        "2-8-2"
+       ],
+       [
+        "Al",
+        "13",
+        "2-8-3"
+       ],
+       [
+        "Si",
+        "14",
+        "2-8-4"
+       ],
+       [
+        "P",
+        "15",
+        "2-8-5"
+       ],
+       [
+        "Cl",
+        "17",
+        "2-8-7"
+       ],
+       [
+        "Ar",
+        "18",
+        "2-8-8"
+       ],
+       [
+        "K",
+        "19",
+        "2-8-8-1"
+       ],
+       [
+        "Ca",
+        "20",
+        "2-8-8-2"
+       ]
+      ]
+     }
+    }
+   ],
+   "points": [
+    "Bohr 1913: electrons in fixed energy levels",
+    "Ground state is lowest energy, excited state is after absorbing energy",
+    "Falling back gives off light, making a bright line spectrum unique to each element",
+    "Max electrons per level is 2n²: 2, 8, 18, 32",
+    "Configurations like 2-8-1, the last number is the valence electrons",
+    "It only worked for hydrogen",
+    "Bohr diagrams fill 2, 8, 8 from the inside out",
+    "K is 2-8-8-1, Ca is 2-8-8-2, bigger ones come from the reference table"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "excited",
+   "title": "Ground state, excited state and spectra",
+   "cards": [
+    [
+     "Ground state configuration",
+     "Every electron in the lowest level possible. It matches the reference table, like sulfur 2-8-6."
+    ],
+    [
+     "Excited state configuration",
+     "Same number of electrons, but at least one has jumped up a level. Sulfur excited: 2-8-5-1."
+    ],
+    [
+     "How to spot an excited state",
+     "The electrons add up to the right total, but an inner level isn't full or it doesn't match the reference table"
+    ],
+    [
+     "Is 2-7-1 excited or ground? (neon)",
+     "Excited. Neon's ground state is 2-8."
+    ],
+    [
+     "Electron moves to a higher level",
+     "It absorbs energy"
+    ],
+    [
+     "Electron falls to a lower level",
+     "It releases energy as light"
+    ],
+    [
+     "Compared to the ground state, an excited atom has...",
+     "An electron with more energy. Same number of electrons."
+    ],
+    [
+     "Spectral lines come from...",
+     "Electrons falling from higher to lower energy levels and releasing light"
+    ],
+    [
+     "Most energy absorbed: 2 to 4, 2 to 5, 4 to 2, or 5 to 2?",
+     "2 to 5. Absorbing means moving up, and the biggest jump up takes the most energy."
+    ],
+    [
+     "Most energy released",
+     "The biggest jump down, like 5 to 2"
+    ],
+    [
+     "Bright line spectrum",
+     "The pattern of colored lines an element gives off. Every element has its own, like a fingerprint."
+    ],
+    [
+     "Finding elements in an unknown spectrum",
+     "An element is in the mixture only if every one of its lines shows up in the unknown"
+    ],
+    [
+     "Ground state (class vocab)",
+     "The lowest energy configuration, the one printed on the periodic table"
+    ],
+    [
+     "Excited state (class vocab)",
+     "Any configuration that isn't the one on the periodic table"
+    ],
+    [
+     "Electromagnetic spectrum",
+     "The full range of light at all wavelengths. A spectrum shows how much light something gives off at each wavelength."
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Ground state:** every electron is in the lowest level it can be. That's the configuration printed on the reference table."
+    },
+    {
+     "p": "**Excited state:** the atom took in energy and an electron jumped up. The total number of electrons doesn't change, but the pattern does."
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Ground state",
+       "An excited state"
+      ],
+      "rows": [
+       [
+        "Sulfur (16)",
+        "2-8-6",
+        "2-8-5-1"
+       ],
+       [
+        "Sodium (11)",
+        "2-8-1",
+        "2-7-2"
+       ],
+       [
+        "Neon (10)",
+        "2-8",
+        "2-7-1"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Up = absorb, down = release.**\nFalling down releases light, which makes the **spectral lines**. Bigger jump, more energy."
+    },
+    {
+     "p": "Each element's **bright line spectrum** is unique. To find which elements are in an unknown, an element counts only if **all** of its lines appear in the unknown's spectrum."
+    }
+   ],
+   "points": [
+    "Ground state: lowest levels, matches the reference table",
+    "Excited state: same electrons, one moved up (S 2-8-5-1)",
+    "Going up absorbs energy, coming down releases light",
+    "Spectral lines come from electrons falling to lower levels",
+    "Biggest jump means the most energy",
+    "Every element has a unique bright line spectrum, match all lines"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "qmmodel",
+   "title": "Quantum mechanical model and orbitals",
+   "cards": [
+    [
+     "Quantum mechanical model (who, when)",
+     "Erwin Schrödinger, 1926, built on Heisenberg and de Broglie"
+    ],
+    [
+     "Quantum mechanical model",
+     "Electrons act like waves. We can't know their exact path, only where they are likely to be."
+    ],
+    [
+     "Electron cloud",
+     "The fuzzy region around the nucleus where electrons are likely to be found. Denser means more likely."
+    ],
+    [
+     "Heisenberg uncertainty principle",
+     "You can't know both the exact position and the exact speed of an electron at the same time"
+    ],
+    [
+     "Orbital",
+     "A region of space where there is a high chance (about 90%) of finding an electron"
+    ],
+    [
+     "Most electrons in one orbital",
+     "2, and they must have opposite spins"
+    ],
+    [
+     "s sublevel",
+     "1 orbital, holds 2 electrons, sphere shaped"
+    ],
+    [
+     "p sublevel",
+     "3 orbitals, holds 6 electrons, dumbbell shaped"
+    ],
+    [
+     "d sublevel",
+     "5 orbitals, holds 10 electrons"
+    ],
+    [
+     "f sublevel",
+     "7 orbitals, holds 14 electrons"
+    ],
+    [
+     "Sublevels in energy level n",
+     "n sublevels. Level 1: s. Level 2: s, p. Level 3: s, p, d. Level 4: s, p, d, f."
+    ],
+    [
+     "Orbitals in energy level n",
+     "n² orbitals (so 2n² electrons)"
+    ],
+    [
+     "Bohr orbit vs orbital",
+     "A Bohr orbit is an exact circular path. An orbital is a probability region with no exact path."
+    ],
+    [
+     "Filling order (aufbau)",
+     "1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p... lowest energy first"
+    ],
+    [
+     "The modern model of the atom",
+     "The quantum mechanical model, also called the electron cloud or quantum model (Schrödinger, 1926). It's still the accepted model."
+    ],
+    [
+     "Do electrons travel in definite paths?",
+     "No. Their movement is unpredictable, so we only know where they're likely to be (the electron cloud)."
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Schrödinger (1926)**, building on de Broglie and Heisenberg: electrons behave like **waves**. You can't pin down an electron's exact path, so the model gives **probabilities** instead."
+    },
+    {
+     "p": "**Heisenberg uncertainty principle:** you can't know an electron's exact position and exact speed at the same time."
+    },
+    {
+     "p": "The **electron cloud** is the region where electrons are likely to be. An **orbital** is a region with about a 90% chance of finding an electron. Each orbital holds **at most 2 electrons**, with opposite spins."
+    },
+    {
+     "table": {
+      "head": [
+       "Sublevel",
+       "Orbitals",
+       "Electrons",
+       "Shape"
+      ],
+      "rows": [
+       [
+        "s",
+        "1",
+        "2",
+        "Sphere"
+       ],
+       [
+        "p",
+        "3",
+        "6",
+        "Dumbbell"
+       ],
+       [
+        "d",
+        "5",
+        "10",
+        "More complex"
+       ],
+       [
+        "f",
+        "7",
+        "14",
+        "More complex"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**s2 p6 d10 f14.** Energy level n has n sublevels and n² orbitals: level 2 has s and p (4 orbitals, 8 electrons)."
+    },
+    {
+     "p": "**Orbit vs orbital:** a Bohr orbit is an exact circle. An orbital is a fuzzy region where the electron probably is."
+    },
+    {
+     "p": "Filling order (aufbau, lowest energy first): 1s, 2s, 2p, 3s, 3p, 4s, 3d. Oxygen (8 electrons) is 1s² 2s² 2p⁴."
+    }
+   ],
+   "points": [
+    "Schrödinger 1926: electrons act like waves, the model gives probabilities",
+    "Heisenberg: can't know exact position and speed together",
+    "Electron cloud and orbitals are regions where electrons are likely to be",
+    "An orbital holds at most 2 electrons with opposite spins",
+    "s2 p6 d10 f14, with 1, 3, 5, 7 orbitals",
+    "Level n has n sublevels and n² orbitals",
+    "Orbit is an exact path, orbital is a probability region"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "qnumbers",
+   "title": "Quantum numbers",
+   "cards": [
+    [
+     "What quantum numbers describe",
+     "The address of an electron in an atom. There are four."
+    ],
+    [
+     "Principal quantum number (n)",
+     "The energy level and size: 1, 2, 3... Bigger n is farther from the nucleus and higher energy."
+    ],
+    [
+     "Angular momentum quantum number (l)",
+     "The sublevel shape. It goes from 0 to n − 1."
+    ],
+    [
+     "l values and their letters",
+     "0 = s, 1 = p, 2 = d, 3 = f"
+    ],
+    [
+     "Magnetic quantum number (mₗ)",
+     "Which orbital, its direction in space. It goes from −l to +l."
+    ],
+    [
+     "mₗ values for a p sublevel (l = 1)",
+     "−1, 0, +1 (3 orbitals)"
+    ],
+    [
+     "Spin quantum number (mₛ)",
+     "The electron's spin: +½ or −½"
+    ],
+    [
+     "Pauli exclusion principle",
+     "No two electrons in the same atom can have the same four quantum numbers. So an orbital holds 2 electrons, with opposite spins."
+    ],
+    [
+     "If n = 3, what can l be?",
+     "0, 1 or 2 (s, p or d)"
+    ],
+    [
+     "If l = 2, what can mₗ be?",
+     "−2, −1, 0, +1, +2 (5 d orbitals)"
+    ],
+    [
+     "Quantum numbers for a 2p electron",
+     "n = 2, l = 1, mₗ = −1, 0 or +1, mₛ = +½ or −½"
+    ],
+    [
+     "Can n = 1 have l = 1?",
+     "No. l can only go up to n − 1, so n = 1 only has l = 0 (1s)."
+    ],
+    [
+     "Order of the four quantum numbers",
+     "n, l, mₗ, mₛ: level, shape, orbital, spin"
+    ]
+   ],
+   "notes": [
+    {
+     "p": "Four **quantum numbers** give each electron an address, from the biggest area to the smallest."
+    },
+    {
+     "table": {
+      "head": [
+       "Quantum number",
+       "Symbol",
+       "Tells you",
+       "Allowed values"
+      ],
+      "rows": [
+       [
+        "Principal",
+        "n",
+        "Energy level and size",
+        "1, 2, 3, ..."
+       ],
+       [
+        "Angular momentum",
+        "l",
+        "Sublevel shape (s, p, d, f)",
+        "0 to n − 1"
+       ],
+       [
+        "Magnetic",
+        "mₗ",
+        "Which orbital (direction)",
+        "−l to +l"
+       ],
+       [
+        "Spin",
+        "mₛ",
+        "Spin direction",
+        "+½ or −½"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**l letters:** 0 = s, 1 = p, 2 = d, 3 = f.\nAddress idea: n is the street, l is the building, mₗ is the apartment, mₛ is which of the 2 roommates."
+    },
+    {
+     "p": "**Pauli exclusion principle:** no two electrons in one atom share all four quantum numbers. That's why an orbital holds only 2 electrons, with opposite spins."
+    },
+    {
+     "list": [
+      "n = 3 → l can be 0, 1, 2 (3s, 3p, 3d)",
+      "l = 1 → mₗ can be −1, 0, +1 (three p orbitals)",
+      "A 2p electron: n = 2, l = 1, mₗ = −1, 0 or +1, mₛ = +½ or −½",
+      "n = 1, l = 1 is impossible, because l only goes up to n − 1"
+     ]
+    }
+   ],
+   "points": [
+    "Four quantum numbers: n, l, mₗ, mₛ",
+    "n is the energy level, 1, 2, 3...",
+    "l is the shape, 0 to n − 1, with 0 s, 1 p, 2 d, 3 f",
+    "mₗ is the orbital, −l to +l",
+    "mₛ is spin, +½ or −½",
+    "Pauli: no two electrons share all four, so 2 per orbital"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "econfig",
+   "title": "Electron configurations and the Aufbau principle",
+   "cards": [
+    [
+     "Electron configuration",
+     "A list of which sublevels an atom's electrons are in, like 1s² 2s² 2p⁴"
+    ],
+    [
+     "In 2p⁴, what do the 2, the p and the 4 mean?",
+     "2 is the energy level, p is the sublevel, 4 is the number of electrons in it"
+    ],
+    [
+     "Aufbau principle",
+     "Electrons fill the lowest energy sublevel first, building up from the bottom"
+    ],
+    [
+     "Filling order",
+     "1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f"
+    ],
+    [
+     "Why does 4s fill before 3d?",
+     "4s is lower in energy than 3d, so Aufbau fills it first"
+    ],
+    [
+     "How to check a configuration",
+     "The superscripts must add up to the number of electrons. Mg: 2 + 2 + 6 + 2 = 12."
+    ],
+    [
+     "Max electrons in s, p, d, f",
+     "2, 6, 10, 14"
+    ],
+    [
+     "Nitrogen (7)",
+     "1s² 2s² 2p³"
+    ],
+    [
+     "Sodium (11)",
+     "1s² 2s² 2p⁶ 3s¹"
+    ],
+    [
+     "Chlorine (17)",
+     "1s² 2s² 2p⁶ 3s² 3p⁵"
+    ],
+    [
+     "Calcium (20)",
+     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²"
+    ],
+    [
+     "Iron (26)",
+     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶"
+    ],
+    [
+     "Bromine (35)",
+     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵"
+    ],
+    [
+     "What element is 1s² 2s² 2p⁶ 3s² 3p⁴?",
+     "Sulfur (2 + 2 + 6 + 2 + 4 = 16 electrons)"
+    ],
+    [
+     "What element is ...4s² 3d¹⁰ 4p⁶ 5s¹?",
+     "Rubidium (37)"
+    ],
+    [
+     "What's wrong with ...3p⁶ 4s² 4d¹⁰ 4p⁵?",
+     "It skips 3d. After 4s comes 3d, not 4d. It breaks Aufbau."
+    ],
+    [
+     "What's wrong with 1s² 2s² 2p⁶ 3s³ 3d⁵?",
+     "An s sublevel can only hold 2 electrons (Pauli), and 3p was skipped (Aufbau)"
+    ]
+   ],
+   "notes": [
+    {
+     "p": "An **electron configuration** lists where every electron is. In **3p⁵**, 3 is the energy level, p is the sublevel and 5 is how many electrons are in it."
+    },
+    {
+     "p": "**Aufbau principle:** electrons fill the **lowest energy** sublevel first. The order isn't just 1, 2, 3: **4s comes before 3d** because it's lower in energy. Follow the diagonal arrows."
+    },
+    {
+     "img": "../img/u2/aufbau-order.png",
+     "alt": "Aufbau diagonal chart showing the filling order of sublevels"
+    },
+    {
+     "list": [
+      "**Step 1.** Find the number of electrons (atomic number for a neutral atom).",
+      "**Step 2.** Follow the arrows: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f.",
+      "**Step 3.** Fill each sublevel to its max (s 2, p 6, d 10, f 14) until you run out.",
+      "**Step 4.** Check that the superscripts add up to the number of electrons."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Electrons",
+       "Configuration"
+      ],
+      "rows": [
+       [
+        "Nitrogen",
+        "7",
+        "1s² 2s² 2p³"
+       ],
+       [
+        "Oxygen",
+        "8",
+        "1s² 2s² 2p⁴"
+       ],
+       [
+        "Sodium",
+        "11",
+        "1s² 2s² 2p⁶ 3s¹"
+       ],
+       [
+        "Silicon",
+        "14",
+        "1s² 2s² 2p⁶ 3s² 3p²"
+       ],
+       [
+        "Chlorine",
+        "17",
+        "1s² 2s² 2p⁶ 3s² 3p⁵"
+       ],
+       [
+        "Calcium",
+        "20",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²"
+       ],
+       [
+        "Titanium",
+        "22",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²"
+       ],
+       [
+        "Iron",
+        "26",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶"
+       ],
+       [
+        "Nickel",
+        "28",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁸"
+       ],
+       [
+        "Bromine",
+        "35",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵"
+       ],
+       [
+        "Strontium",
+        "38",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s²"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Spotting a wrong configuration"
+    },
+    {
+     "list": [
+      "Skipping a sublevel in the order (4s² 4d¹⁰ instead of 4s² 3d¹⁰) breaks **Aufbau**.",
+      "Too many electrons in a sublevel (3s³) breaks **Pauli**: s holds 2, p holds 6.",
+      "Using a core that isn't a noble gas ([Ra] instead of [Rn]) is not allowed."
+     ]
+    }
+   ],
+   "points": [
+    "Configuration like 3p⁵: level, sublevel, number of electrons",
+    "Aufbau: fill the lowest energy first",
+    "Order: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
+    "4s fills before 3d because it's lower in energy",
+    "s 2, p 6, d 10, f 14",
+    "Superscripts add up to the number of electrons",
+    "Iron: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "orbdiag",
+   "title": "Orbital diagrams, Pauli and Hund's rule",
+   "cards": [
+    [
+     "Orbital diagram",
+     "A box or line for every orbital, with arrows for electrons. ↑ and ↓ are the two spins."
+    ],
+    [
+     "Boxes per sublevel",
+     "s 1, p 3, d 5, f 7"
+    ],
+    [
+     "Pauli exclusion principle (in a diagram)",
+     "A box holds at most 2 arrows, and they point opposite ways: ↑↓"
+    ],
+    [
+     "Hund's rule",
+     "In a sublevel, put one electron in each box first, all pointing up, then start pairing"
+    ],
+    [
+     "Hund's rule picture",
+     "The bus seat rule: nobody sits next to someone until every seat has one person"
+    ],
+    [
+     "The three filling rules in one line",
+     "Aufbau builds from the bottom, Pauli pairs opposite spins, Hund spreads out before pairing"
+    ],
+    [
+     "Nitrogen orbital diagram",
+     "1s ↑↓, 2s ↑↓, 2p ↑ ↑ ↑"
+    ],
+    [
+     "Oxygen orbital diagram",
+     "1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑"
+    ],
+    [
+     "Nitrogen drawn as 2p ↑↓ ↑ _",
+     "Wrong, breaks Hund's rule. Each p box gets one electron before any pairs."
+    ],
+    [
+     "A box drawn ↑↑",
+     "Wrong, breaks Pauli. Two electrons in one orbital must have opposite spins."
+    ],
+    [
+     "Unpaired electrons in nitrogen",
+     "3"
+    ],
+    [
+     "Iron's 3d orbital diagram",
+     "↑↓ ↑ ↑ ↑ ↑ (6 electrons, 4 unpaired)"
+    ],
+    [
+     "Orbital diagram of an ion",
+     "Same as the neutral atom with arrows added (negative) or removed (positive). Na⁺: 1s ↑↓, 2s ↑↓, 2p ↑↓ ↑↓ ↑↓"
+    ]
+   ],
+   "notes": [
+    {
+     "table": {
+      "head": [
+       "Rule",
+       "What it says",
+       "In the diagram"
+      ],
+      "rows": [
+       [
+        "**Aufbau**",
+        "Fill the lowest energy first",
+        "Fill boxes left to right in the filling order"
+       ],
+       [
+        "**Pauli exclusion**",
+        "Max 2 electrons per orbital, opposite spins",
+        "Never more than ↑↓ in one box"
+       ],
+       [
+        "**Hund's rule**",
+        "Spread out before pairing",
+        "One ↑ in every box of a sublevel, then go back and add ↓"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Aufbau builds, Pauli pairs, Hund spreads.**\nBus seat rule: nobody shares a seat until every seat has one person."
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "1s",
+       "2s",
+       "2p",
+       "3s",
+       "3p"
+      ],
+      "rows": [
+       [
+        "Be (4)",
+        "↑↓",
+        "↑↓",
+        "_ _ _",
+        "",
+        ""
+       ],
+       [
+        "N (7)",
+        "↑↓",
+        "↑↓",
+        "↑ ↑ ↑",
+        "",
+        ""
+       ],
+       [
+        "O (8)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑ ↑",
+        "",
+        ""
+       ],
+       [
+        "Ne (10)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "",
+        ""
+       ],
+       [
+        "Na (11)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑",
+        ""
+       ],
+       [
+        "Si (14)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑ ↑ _"
+       ],
+       [
+        "Cl (17)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑"
+       ],
+       [
+        "Ar (18)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "For the 4s and 3d part (everything up to 3p is full, like argon):"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "4s",
+       "3d (5 boxes)"
+      ],
+      "rows": [
+       [
+        "Ti (22)",
+        "↑↓",
+        "↑ ↑ _ _ _"
+       ],
+       [
+        "V (23)",
+        "↑↓",
+        "↑ ↑ ↑ _ _"
+       ],
+       [
+        "Fe (26)",
+        "↑↓",
+        "↑↓ ↑ ↑ ↑ ↑"
+       ],
+       [
+        "Ni (28)",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓ ↑ ↑"
+       ],
+       [
+        "Cu (29)",
+        "↑",
+        "↑↓ ↑↓ ↑↓ ↑↓ ↑↓"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Ions:** draw the neutral atom, then add arrows (negative ion) or remove them (positive ion). Ca²⁺ looks like argon, O²⁻ looks like neon."
+    }
+   ],
+   "points": [
+    "Orbital diagram: a box per orbital, arrows for electrons",
+    "s 1 box, p 3, d 5, f 7",
+    "Pauli: max 2 per box, opposite spins",
+    "Hund: one in each box first, then pair",
+    "Aufbau builds, Pauli pairs, Hund spreads",
+    "N is 2p ↑ ↑ ↑, O is 2p ↑↓ ↑ ↑"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "noblegas",
+   "title": "Noble gas notation, exceptions and ions",
+   "cards": [
+    [
+     "Noble gas notation",
+     "Put the noble gas before the element in brackets, then write only what comes after it. Ca = [Ar] 4s²"
+    ],
+    [
+     "Noble gas cores",
+     "[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86"
+    ],
+    [
+     "Core electrons vs valence electrons",
+     "The bracket is the core (inner electrons). What comes after holds the valence electrons."
+    ],
+    [
+     "Chlorine, noble gas notation",
+     "[Ne] 3s² 3p⁵"
+    ],
+    [
+     "Iron, noble gas notation",
+     "[Ar] 4s² 3d⁶"
+    ],
+    [
+     "Cobalt, noble gas notation",
+     "[Ar] 4s² 3d⁷"
+    ],
+    [
+     "Tin, noble gas notation",
+     "[Kr] 5s² 4d¹⁰ 5p²"
+    ],
+    [
+     "Silver, noble gas notation",
+     "[Kr] 5s¹ 4d¹⁰"
+    ],
+    [
+     "Lead, noble gas notation",
+     "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+    ],
+    [
+     "Radium, noble gas notation",
+     "[Rn] 7s²"
+    ],
+    [
+     "Chromium exception",
+     "[Ar] 4s¹ 3d⁵, not 4s² 3d⁴. A half full d sublevel is more stable."
+    ],
+    [
+     "Copper exception",
+     "[Ar] 4s¹ 3d¹⁰, not 4s² 3d⁹. A full d sublevel is more stable."
+    ],
+    [
+     "Other atoms that act like Cr and Cu",
+     "Mo [Kr] 5s¹ 4d⁵, Ag [Kr] 5s¹ 4d¹⁰, Au [Xe] 4f¹⁴ 5d¹⁰ 6s¹"
+    ],
+    [
+     "Negative ion configuration",
+     "Add electrons. O²⁻: 1s² 2s² 2p⁶, the same as neon."
+    ],
+    [
+     "Positive ion configuration",
+     "Take electrons from the outermost level first. Na⁺: 1s² 2s² 2p⁶"
+    ],
+    [
+     "Fe²⁺ configuration",
+     "[Ar] 3d⁶. The 2 electrons come out of 4s, not 3d."
+    ],
+    [
+     "Is [Ra] 7s² 5f⁸ valid?",
+     "No. Radium isn't a noble gas, so it can't be the core. Use [Rn]."
+    ],
+    [
+     "What element is [Kr] 5s² 4d¹⁰ 5p³?",
+     "Antimony, Sb (51)"
+    ],
+    [
+     "What element is [Xe] 6s² 4f¹⁴ 5d⁶?",
+     "Osmium, Os (76)"
+    ],
+    [
+     "Isoelectronic",
+     "Having the same electron configuration. Na⁺, Mg²⁺, O²⁻ and F⁻ all match neon."
+    ],
+    [
+     "Carbon, noble gas notation (class example)",
+     "[He] 2s² 2p²"
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Noble gas notation** is the shortcut. Write the noble gas from the row above in brackets, then only the electrons after it."
+    },
+    {
+     "key": "Cores: **[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86**\nCa (20) = 20 − 18 → **[Ar] 4s²**"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Full",
+       "Noble gas"
+      ],
+      "rows": [
+       [
+        "Lithium",
+        "1s² 2s¹",
+        "[He] 2s¹"
+       ],
+       [
+        "Fluorine",
+        "1s² 2s² 2p⁵",
+        "[He] 2s² 2p⁵"
+       ],
+       [
+        "Magnesium",
+        "1s² 2s² 2p⁶ 3s²",
+        "[Ne] 3s²"
+       ],
+       [
+        "Chlorine",
+        "1s² 2s² 2p⁶ 3s² 3p⁵",
+        "[Ne] 3s² 3p⁵"
+       ],
+       [
+        "Potassium",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹",
+        "[Ar] 4s¹"
+       ],
+       [
+        "Titanium",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²",
+        "[Ar] 4s² 3d²"
+       ],
+       [
+        "Iron",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶",
+        "[Ar] 4s² 3d⁶"
+       ],
+       [
+        "Gallium",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p¹",
+        "[Ar] 4s² 3d¹⁰ 4p¹"
+       ],
+       [
+        "Bromine",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
+        "[Ar] 4s² 3d¹⁰ 4p⁵"
+       ],
+       [
+        "Silver",
+        "too long",
+        "[Kr] 5s¹ 4d¹⁰"
+       ],
+       [
+        "Tin",
+        "too long",
+        "[Kr] 5s² 4d¹⁰ 5p²"
+       ],
+       [
+        "Iodine",
+        "too long",
+        "[Kr] 5s² 4d¹⁰ 5p⁵"
+       ],
+       [
+        "Barium",
+        "too long",
+        "[Xe] 6s²"
+       ],
+       [
+        "Lead",
+        "too long",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Exceptions"
+    },
+    {
+     "p": "A **half full (d⁵)** or **full (d¹⁰)** d sublevel is extra stable, so one electron moves from s to d."
+    },
+    {
+     "list": [
+      "**Cr:** [Ar] 4s¹ 3d⁵ (not 4s² 3d⁴)",
+      "**Cu:** [Ar] 4s¹ 3d¹⁰ (not 4s² 3d⁹)",
+      "Same pattern: Mo [Kr] 5s¹ 4d⁵, Ag [Kr] 5s¹ 4d¹⁰, Au [Xe] 4f¹⁴ 5d¹⁰ 6s¹",
+      "Your handout's molybdenum line says [Ar] 5s¹ 4d⁵. That's a typo, it should be [Kr]."
+     ]
+    },
+    {
+     "h": "Ions"
+    },
+    {
+     "table": {
+      "head": [
+       "Ion",
+       "Electrons",
+       "Configuration",
+       "Same as"
+      ],
+      "rows": [
+       [
+        "O²⁻",
+        "10",
+        "1s² 2s² 2p⁶",
+        "Ne"
+       ],
+       [
+        "F⁻",
+        "10",
+        "1s² 2s² 2p⁶",
+        "Ne"
+       ],
+       [
+        "Na⁺",
+        "10",
+        "1s² 2s² 2p⁶",
+        "Ne"
+       ],
+       [
+        "Ca²⁺",
+        "18",
+        "1s² 2s² 2p⁶ 3s² 3p⁶",
+        "Ar"
+       ],
+       [
+        "K⁺",
+        "18",
+        "1s² 2s² 2p⁶ 3s² 3p⁶",
+        "Ar"
+       ],
+       [
+        "Li⁺",
+        "2",
+        "1s²",
+        "He"
+       ],
+       [
+        "Fe²⁺",
+        "24",
+        "[Ar] 3d⁶",
+        ""
+       ],
+       [
+        "Co³⁺",
+        "24",
+        "[Ar] 3d⁶",
+        ""
+       ],
+       [
+        "Ni²⁺",
+        "26",
+        "[Ar] 3d⁸",
+        ""
+       ],
+       [
+        "Ag⁺",
+        "46",
+        "[Kr] 4d¹⁰",
+        ""
+       ]
+      ]
+     }
+    },
+    {
+     "p": "For transition metals, electrons leave **4s before 3d**, because 4s is the outermost level."
+    }
+   ],
+   "points": [
+    "Noble gas notation: [noble gas] then the rest, Ca = [Ar] 4s²",
+    "Cores: He 2, Ne 10, Ar 18, Kr 36, Xe 54, Rn 86",
+    "Cr [Ar] 4s¹ 3d⁵ and Cu [Ar] 4s¹ 3d¹⁰, half full and full d are stable",
+    "Negative ions add electrons, positive ions remove them",
+    "Transition metal ions lose 4s electrons first: Fe²⁺ = [Ar] 3d⁶",
+    "Isoelectronic means same configuration, like Na⁺ and Ne"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "valence",
+   "title": "Valence electrons, blocks and dot diagrams",
+   "cards": [
+    [
+     "Valence electrons",
+     "The electrons in the outermost energy level (the highest s and p). They're the ones used in reactions and bonding."
+    ],
+    [
+     "Why valence electrons matter to chemists",
+     "They decide how an atom reacts and bonds"
+    ],
+    [
+     "Valence electrons from the group number",
+     "Groups 1 and 2: 1 and 2. Groups 13 to 18: subtract 10 (group 17 → 7). Helium has 2."
+    ],
+    [
+     "Most valence electrons an atom can have",
+     "8, a full s and p (an octet)"
+    ],
+    [
+     "Valence electrons in fluorine",
+     "7"
+    ],
+    [
+     "Valence electrons in gallium [Ar] 4s² 3d¹⁰ 4p¹",
+     "3 (the 4s² and 4p¹). The 3d doesn't count."
+    ],
+    [
+     "Lewis dot diagram",
+     "The element's symbol with one dot for each valence electron"
+    ],
+    [
+     "Dots for B, Cl and Fe",
+     "B 3, Cl 7, Fe 2 (from 4s²)"
+    ],
+    [
+     "Period from a configuration",
+     "The highest energy level number. [Ne] 3s² 3p⁵ is period 3."
+    ],
+    [
+     "Block from a configuration",
+     "The last sublevel being filled. [Ar] 4s² 3d⁶ is the d block."
+    ],
+    [
+     "s block",
+     "Groups 1 and 2, plus helium"
+    ],
+    [
+     "p block",
+     "Groups 13 to 18"
+    ],
+    [
+     "d block",
+     "Groups 3 to 12, the transition metals"
+    ],
+    [
+     "f block",
+     "The two rows at the bottom (lanthanides and actinides)"
+    ],
+    [
+     "[He] 2s² 2p¹",
+     "Period 2, p block, group 13, 3 valence electrons, boron"
+    ],
+    [
+     "[Ne] 3s² 3p⁵",
+     "Period 3, p block, group 17, 7 valence electrons, chlorine"
+    ],
+    [
+     "[Ar] 4s² 3d⁶",
+     "Period 4, d block, group 8, 2 valence electrons, iron"
+    ],
+    [
+     "[Kr] 5s¹",
+     "Period 5, s block, group 1, 1 valence electron, rubidium"
+    ],
+    [
+     "[Xe] 6s² 4f¹⁴ 5d¹⁰",
+     "Period 6, d block, group 12, 2 valence electrons, mercury"
+    ],
+    [
+     "Why atoms form ions",
+     "To get a full outer level like a noble gas. Metals lose electrons (Na → Na⁺), nonmetals gain (Cl → Cl⁻)."
+    ],
+    [
+     "Usual ion charge: O, Na, Al, N, Cl, Ca",
+     "O²⁻, Na⁺, Al³⁺, N³⁻, Cl⁻, Ca²⁺"
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Valence electrons** are in the outermost energy level, counting only s and p. They're the electrons that react, so they matter most to chemists."
+    },
+    {
+     "key": "Groups 1, 2 → **1, 2** valence electrons\nGroups 13 to 18 → **group − 10** (Cl in group 17 has 7)\nNoble gases have **8** (helium has 2)"
+    },
+    {
+     "img": "../img/u2/spdf-blocks.png",
+     "alt": "Periodic table split into s, p, d and f blocks"
+    },
+    {
+     "p": "Reading a noble gas configuration: the **period** is the biggest level number, the **block** is the last sublevel filled, and the element is the one at that spot."
+    },
+    {
+     "table": {
+      "head": [
+       "Configuration",
+       "Period",
+       "Block",
+       "Group",
+       "Valence",
+       "Element"
+      ],
+      "rows": [
+       [
+        "[He] 2s² 2p¹",
+        "2",
+        "p",
+        "13",
+        "3",
+        "B"
+       ],
+       [
+        "[Ne] 3s² 3p⁵",
+        "3",
+        "p",
+        "17",
+        "7",
+        "Cl"
+       ],
+       [
+        "[Ar] 4s² 3d⁶",
+        "4",
+        "d",
+        "8",
+        "2",
+        "Fe"
+       ],
+       [
+        "[Kr] 5s¹",
+        "5",
+        "s",
+        "1",
+        "1",
+        "Rb"
+       ],
+       [
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰",
+        "6",
+        "d",
+        "12",
+        "2",
+        "Hg"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Lewis dot diagram:** write the symbol and put one dot per valence electron around it (up to 8). Boron gets 3, chlorine 7, iron 2."
+    },
+    {
+     "h": "Gaining and losing electrons"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Shells",
+       "Lose or gain",
+       "Ion"
+      ],
+      "rows": [
+       [
+        "O",
+        "2-6",
+        "gain 2",
+        "O²⁻"
+       ],
+       [
+        "Na",
+        "2-8-1",
+        "lose 1",
+        "Na⁺"
+       ],
+       [
+        "S",
+        "2-8-6",
+        "gain 2",
+        "S²⁻"
+       ],
+       [
+        "K",
+        "2-8-8-1",
+        "lose 1",
+        "K⁺"
+       ],
+       [
+        "Al",
+        "2-8-3",
+        "lose 3",
+        "Al³⁺"
+       ],
+       [
+        "Cl",
+        "2-8-7",
+        "gain 1",
+        "Cl⁻"
+       ],
+       [
+        "Ca",
+        "2-8-8-2",
+        "lose 2",
+        "Ca²⁺"
+       ],
+       [
+        "N",
+        "2-5",
+        "gain 3",
+        "N³⁻"
+       ]
+      ]
+     }
+    }
+   ],
+   "points": [
+    "Valence electrons: outermost s and p, the ones that react",
+    "Groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10",
+    "Dot diagram: one dot per valence electron",
+    "Period = highest level, block = last sublevel filled",
+    "s block groups 1 to 2, p block 13 to 18, d block 3 to 12, f block the bottom rows",
+    "Metals lose electrons, nonmetals gain them, to look like a noble gas"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "u2quiz",
+   "title": "Practice quiz",
+   "steps": [
+    0
+   ],
+   "notes": [
+    {
+     "p": "21 questions in the style of a class quiz, about a minute each. Cover the answers, write yours on paper with the work shown, then check. Redo the loop for any section you missed."
+    },
+    {
+     "list": [
+      "**1.** Put the atomic models in order and name the model that came right after Rutherford's.",
+      "**2.** In the gold foil experiment most alpha particles went straight through. What did that show?",
+      "**3.** A few alpha particles bounced straight back. What did that show, and why does it mean the nucleus is positive?",
+      "**4.** Which particle hardly adds to an atom's mass?",
+      "**5.** An atom or ion has 17 protons, 18 neutrons and 18 electrons. What is it, what is its mass number and what is its charge?",
+      "**6.** How many protons, neutrons and electrons are in ²⁷₁₃Al³⁺?",
+      "**7.** Carbon-12 and carbon-14 are isotopes. What is different about them, and what is the same?",
+      "**8.** Gallium is 60.1% Ga-69 (68.926 amu) and 39.9% Ga-71 (70.925 amu). Find the average atomic mass.",
+      "**9.** Element X is 19.9% X-10 (10.013 amu) and 80.1% X-11 (11.009 amu). Find its average atomic mass and name it.",
+      "**10.** Is 2-8-7-1 a ground state or an excited state? Which element is it?",
+      "**11.** An electron drops from level 4 to level 2. Does the atom absorb or release energy, and what do you see?",
+      "**12.** What is the most electrons energy level n = 4 can hold?",
+      "**13.** Write the full electron configuration of manganese (25).",
+      "**14.** Write the noble gas notation for selenium (34).",
+      "**15.** Which element is [Kr] 5s² 4d⁷?",
+      "**16.** Draw the 3p orbital diagram for phosphorus. How many unpaired electrons does it have, and which rule decides it?",
+      "**17.** A student draws nitrogen's 2p as ↑↓ ↑ _. Which rule is broken?",
+      "**18.** If n = 3, what values can l have, and how many orbitals are in level 3?",
+      "**19.** How many valence electrons does arsenic (group 15) have, and how many dots go in its Lewis dot diagram?",
+      "**20.** Write the electron configuration of S²⁻. Which noble gas has the same one?",
+      "**21.** Write chromium's configuration and say why it is an exception."
+     ]
+    },
+    {
+     "h": "Answers"
+    },
+    {
+     "table": {
+      "head": [
+       "#",
+       "Answer"
+      ],
+      "rows": [
+       [
+        "1",
+        "Dalton, Thomson, Rutherford, Bohr, Schrödinger (Dogs Trust Really Big Squirrels). After Rutherford came **Bohr's planetary model** (1913)."
+       ],
+       [
+        "2",
+        "The atom is **mostly empty space**."
+       ],
+       [
+        "3",
+        "A **tiny, dense nucleus** holds the mass. Alpha particles are positive and like charges repel, so the nucleus is **positive**."
+       ],
+       [
+        "4",
+        "The **electron** (about 1/1840 of a proton)."
+       ],
+       [
+        "5",
+        "**Chlorine**, mass number **35**, charge **1−** (more electrons than protons), so ³⁵₁₇Cl⁻."
+       ],
+       [
+        "6",
+        "**13 protons, 14 neutrons, 10 electrons** (electrons = protons − charge)."
+       ],
+       [
+        "7",
+        "Different number of **neutrons** (6 and 8), so different mass numbers. Same protons (6), same electrons, same chemistry."
+       ],
+       [
+        "8",
+        "(68.926 × 60.1 + 70.925 × 39.9) ÷ 100 = **69.72 amu**. It is closer to 69 because Ga-69 is more common."
+       ],
+       [
+        "9",
+        "(10.013 × 19.9 + 11.009 × 80.1) ÷ 100 = **10.81 amu**, which is **boron**."
+       ],
+       [
+        "10",
+        "18 electrons, so it is **argon**. Its ground state is 2-8-8, so 2-8-7-1 is **excited**."
+       ],
+       [
+        "11",
+        "It **releases** energy as light of one color, a line in the **bright line spectrum**. Up = absorb, down = release."
+       ],
+       [
+        "12",
+        "2n² = 2 × 4² = **32**"
+       ],
+       [
+        "13",
+        "**1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁵**"
+       ],
+       [
+        "14",
+        "**[Ar] 4s² 3d¹⁰ 4p⁴**"
+       ],
+       [
+        "15",
+        "36 + 2 + 7 = 45 electrons, so **rhodium (Rh)**."
+       ],
+       [
+        "16",
+        "3p **↑ ↑ ↑**, so **3 unpaired**. **Hund's rule**: one in each box before any pair up."
+       ],
+       [
+        "17",
+        "**Hund's rule.** It should be ↑ ↑ ↑."
+       ],
+       [
+        "18",
+        "l = **0, 1, 2** (s, p, d). n² = **9 orbitals**."
+       ],
+       [
+        "19",
+        "Group 15 − 10 = **5** valence electrons, so **5 dots** (4s² 4p³)."
+       ],
+       [
+        "20",
+        "16 + 2 = 18 electrons: **1s² 2s² 2p⁶ 3s² 3p⁶**, the same as **argon**."
+       ],
+       [
+        "21",
+        "**[Ar] 4s¹ 3d⁵**, not 4s² 3d⁴. A half full d sublevel is more stable, so one electron moves from 4s to 3d."
+       ]
+      ]
+     }
+    }
+   ],
+   "cards": [],
+   "points": [],
+   "quizlet": ""
+  },
+  {
+   "id": "packet",
+   "title": "Atom practice packet answer key",
+   "steps": [
+    0
+   ],
+   "cards": [],
+   "notes": [
+    {
+     "p": "Answers to the Atom Practice Packet, by the page numbers you wrote on it. Use it to check your work, not to skip it. Every number here was recalculated."
+    },
+    {
+     "h": "Fix these (you had them wrong)"
+    },
+    {
+     "list": [
+      "**p. 9, Br-81:** make sure the atomic number under it reads 35.",
+      "**p. 10:** potassium is ³⁹₁₉K and its ion is ³⁹₁₉K⁺ (not 84). Both oxygens are ¹⁶₈O, and the one with 10 e⁻ is ¹⁶₈O²⁻.",
+      "**p. 11, 3c:** 12, 13, 14 are **mass numbers**, not atomic mass.",
+      "**p. 13, 6b:** isotopes differ in **neutrons** (and mass), not electrons.",
+      "**p. 14, sulfur:** 32.0574 amu.",
+      "**p. 15, Q3:** C-14 and N-14 aren't isotopes because they have **different protons**.",
+      "**p. 39, Q9 (Ca):** 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² (3p⁶, not 3p²)."
+     ]
+    },
+    {
+     "h": "Pages 4 to 7"
+    },
+    {
+     "list": [
+      "**p. 4, Q12:** an element can have many isotopes, but most are unstable (radioactive) and break down, so only a few occur in nature.",
+      "**p. 5, Q2:** proton 1.0073 × 1.66054 × 10⁻²⁷ = 1.673 × 10⁻²⁷ kg, neutron 1.675 × 10⁻²⁷ kg, electron 0.000549 × 1.66054 × 10⁻²⁷ = 9.11 × 10⁻³¹ kg (if you round the electron to 0.0005 amu first you get 8.3 × 10⁻³¹, so use the value the packet gives).",
+      "**p. 6:** 99.975% of carbon-12's mass is in the nucleus, because electrons are so light.",
+      "**p. 7:** atom ÷ nucleus = 100 pm ÷ 4.0 fm = 25,000. 17 mm × 25,000 = 425 m, so **(c) a football stadium**."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "p. 5 Table 2",
+       "Symbol",
+       "Z",
+       "A",
+       "Neutrons",
+       "Electrons"
+      ],
+      "rows": [
+       [
+        "calcium-40 ion",
+        "⁴⁰₂₀Ca²⁺",
+        "20",
+        "40",
+        "20",
+        "18"
+       ],
+       [
+        "oxygen-16",
+        "¹⁶₈O",
+        "8",
+        "16",
+        "8",
+        "8"
+       ],
+       [
+        "uranium-238",
+        "²³⁸₉₂U",
+        "92",
+        "238",
+        "146",
+        "92"
+       ],
+       [
+        "fluorine-19",
+        "¹⁹₉F",
+        "9",
+        "19",
+        "10",
+        "9"
+       ],
+       [
+        "chlorine-35 ion",
+        "³⁵₁₇Cl⁻",
+        "17",
+        "35",
+        "18",
+        "18"
+       ],
+       [
+        "potassium-39",
+        "³⁹₁₉K",
+        "19",
+        "39",
+        "20",
+        "19"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Page 12"
+    },
+    {
+     "table": {
+      "head": [
+       "Isotope or ion",
+       "Z",
+       "Protons",
+       "Neutrons",
+       "Electrons",
+       "Mass #"
+      ],
+      "rows": [
+       [
+        "uranium-235",
+        "92",
+        "92",
+        "143",
+        "92",
+        "235"
+       ],
+       [
+        "uranium-238",
+        "92",
+        "92",
+        "146",
+        "92",
+        "238"
+       ],
+       [
+        "boron-10",
+        "5",
+        "5",
+        "5",
+        "5",
+        "10"
+       ],
+       [
+        "boron-11",
+        "5",
+        "5",
+        "6",
+        "5",
+        "11"
+       ],
+       [
+        "¹H",
+        "1",
+        "1",
+        "0",
+        "1",
+        "1"
+       ],
+       [
+        "¹H⁺",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1"
+       ],
+       [
+        "¹²C",
+        "6",
+        "6",
+        "6",
+        "6",
+        "12"
+       ],
+       [
+        "⁷Li",
+        "3",
+        "3",
+        "4",
+        "3",
+        "7"
+       ],
+       [
+        "³⁵Cl⁻",
+        "17",
+        "17",
+        "18",
+        "18",
+        "35"
+       ],
+       [
+        "³⁹K",
+        "19",
+        "19",
+        "20",
+        "19",
+        "39"
+       ],
+       [
+        "²⁴Mg²⁺",
+        "12",
+        "12",
+        "12",
+        "10",
+        "24"
+       ],
+       [
+        "⁷⁵As",
+        "33",
+        "33",
+        "42",
+        "33",
+        "75"
+       ],
+       [
+        "¹⁰⁸Ag⁺",
+        "47",
+        "47",
+        "61",
+        "46",
+        "108"
+       ],
+       [
+        "³²S²⁻",
+        "16",
+        "16",
+        "16",
+        "18",
+        "32"
+       ],
+       [
+        "⁶⁶Zn²⁺",
+        "30",
+        "30",
+        "36",
+        "28",
+        "66"
+       ],
+       [
+        "¹⁹⁰Os",
+        "76",
+        "76",
+        "114",
+        "76",
+        "190"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Part II:** an atom is negative when it has more electrons than protons, and positive when it has more protons than electrons. Isotopes are atoms of the same element with different numbers of neutrons. Changing the number of protons changes the element."
+    },
+    {
+     "h": "Pages 15 to 18, average atomic mass"
+    },
+    {
+     "list": [
+      "**p. 15, Q4:** ²³⁴₉₂U (142 neutrons) and ²³⁸₉₂U (146 neutrons).",
+      "**p. 16:** hydrogen 1.012 amu. Q9 is about 71.16 amu as printed, but its percents only add to 95%. Dividing by 0.95 gives about 74.9 amu, which is **arsenic**. Q10: 51.996 amu, **chromium**. Q11: **Ca-40**. Q12: 41.996 amu.",
+      "**p. 17:** Cu 63.62, S 32.09, Pb 207.21, Br 79.99 amu (whole number masses). Q5: Si-28 is most common. Q6: Li-7. Q7: **Z-211**.",
+      "**p. 18:** Q8: **Q-113**. Q9: **75.76% Cl-35, 24.24% Cl-37**."
+     ]
+    },
+    {
+     "h": "Pages 19 to 25, Bohr diagrams"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Protons",
+       "Neutrons",
+       "Electrons",
+       "Rings"
+      ],
+      "rows": [
+       [
+        "H",
+        "1",
+        "0",
+        "1",
+        "1"
+       ],
+       [
+        "C",
+        "6",
+        "6",
+        "6",
+        "2-4"
+       ],
+       [
+        "Be",
+        "4",
+        "5",
+        "4",
+        "2-2"
+       ],
+       [
+        "O",
+        "8",
+        "8",
+        "8",
+        "2-6"
+       ],
+       [
+        "Ne",
+        "10",
+        "10",
+        "10",
+        "2-8"
+       ],
+       [
+        "Na",
+        "11",
+        "12",
+        "11",
+        "2-8-1"
+       ],
+       [
+        "Mg",
+        "12",
+        "12",
+        "12",
+        "2-8-2"
+       ],
+       [
+        "Al",
+        "13",
+        "14",
+        "13",
+        "2-8-3"
+       ],
+       [
+        "Si",
+        "14",
+        "14",
+        "14",
+        "2-8-4"
+       ],
+       [
+        "P",
+        "15",
+        "16",
+        "15",
+        "2-8-5"
+       ],
+       [
+        "Cl",
+        "17",
+        "18",
+        "17",
+        "2-8-7"
+       ],
+       [
+        "Ar",
+        "18",
+        "22",
+        "18",
+        "2-8-8"
+       ],
+       [
+        "K",
+        "19",
+        "20",
+        "19",
+        "2-8-8-1"
+       ],
+       [
+        "Ca",
+        "20",
+        "20",
+        "20",
+        "2-8-8-2"
+       ],
+       [
+        "Li",
+        "3",
+        "4",
+        "3",
+        "2-1"
+       ],
+       [
+        "S",
+        "16",
+        "16",
+        "16",
+        "2-8-6"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Bromine is 2-8-18-7 and iodine is 2-8-18-18-7, from the reference table."
+    },
+    {
+     "h": "Pages 26 and 30, configurations"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Electrons",
+       "Configuration"
+      ],
+      "rows": [
+       [
+        "Na",
+        "11",
+        "1s² 2s² 2p⁶ 3s¹"
+       ],
+       [
+        "Pb",
+        "82",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+       ],
+       [
+        "Sr",
+        "38",
+        "[Kr] 5s²"
+       ],
+       [
+        "U",
+        "92",
+        "[Rn] 7s² 5f⁴"
+       ],
+       [
+        "N",
+        "7",
+        "1s² 2s² 2p³"
+       ],
+       [
+        "Ag",
+        "47",
+        "[Kr] 5s¹ 4d¹⁰"
+       ],
+       [
+        "Ti",
+        "22",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²"
+       ],
+       [
+        "Ce",
+        "58",
+        "[Xe] 6s² 4f²"
+       ],
+       [
+        "Cl",
+        "17",
+        "1s² 2s² 2p⁶ 3s² 3p⁵"
+       ],
+       [
+        "Hg",
+        "80",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Uranium and cerium follow the filling order here. Their real configurations are slightly different, but your class uses the order."
+    },
+    {
+     "h": "Page 27"
+    },
+    {
+     "list": [
+      "**Q11:** (a) 13, aluminum. (b) 23, vanadium. (c) 9, fluorine. (d) 31, gallium. (e) 8, oxygen. Write the configuration for each from the boxes.",
+      "**Q12:** s block: groups 1 and 2 plus He. p block: groups 13 to 18. d block: groups 3 to 12. f block: the two bottom rows.",
+      "**Q13:** three d electrons: V (23). Complete d: Cu (29, it's 3d¹⁰), or Zn (30) if you ignore exceptions. Ten p electrons: S (16). An f electron: La (57) by the filling order. 13 d electrons: Nb (41). 23 p electrons: I (53). 7 s electrons: K (19).",
+      "**Q14:** 9 (2p⁶ + 3p³). **Q15:** 18 (2n² with n = 3)."
+     ]
+    },
+    {
+     "h": "Page 29"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Z",
+       "Shells",
+       "Configuration",
+       "Lost or gained",
+       "Left",
+       "Ion"
+      ],
+      "rows": [
+       [
+        "O",
+        "8",
+        "2-6",
+        "1s² 2s² 2p⁴",
+        "gain 2",
+        "10",
+        "2−"
+       ],
+       [
+        "Na",
+        "11",
+        "2-8-1",
+        "1s² 2s² 2p⁶ 3s¹",
+        "lose 1",
+        "10",
+        "1+"
+       ],
+       [
+        "S",
+        "16",
+        "2-8-6",
+        "1s² 2s² 2p⁶ 3s² 3p⁴",
+        "gain 2",
+        "18",
+        "2−"
+       ],
+       [
+        "K",
+        "19",
+        "2-8-8-1",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹",
+        "lose 1",
+        "18",
+        "1+"
+       ],
+       [
+        "Al",
+        "13",
+        "2-8-3",
+        "1s² 2s² 2p⁶ 3s² 3p¹",
+        "lose 3",
+        "10",
+        "3+"
+       ],
+       [
+        "Cl",
+        "17",
+        "2-8-7",
+        "1s² 2s² 2p⁶ 3s² 3p⁵",
+        "gain 1",
+        "18",
+        "1−"
+       ],
+       [
+        "Sr",
+        "38",
+        "2-8-18-8-2",
+        "[Kr] 5s²",
+        "lose 2",
+        "36",
+        "2+"
+       ],
+       [
+        "Ca",
+        "20",
+        "2-8-8-2",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²",
+        "lose 2",
+        "18",
+        "2+"
+       ],
+       [
+        "F",
+        "9",
+        "2-7",
+        "1s² 2s² 2p⁵",
+        "gain 1",
+        "10",
+        "1−"
+       ],
+       [
+        "Br",
+        "35",
+        "2-8-18-7",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
+        "gain 1",
+        "36",
+        "1−"
+       ],
+       [
+        "N",
+        "7",
+        "2-5",
+        "1s² 2s² 2p³",
+        "gain 3",
+        "10",
+        "3−"
+       ],
+       [
+        "I",
+        "53",
+        "2-8-18-18-7",
+        "[Kr] 5s² 4d¹⁰ 5p⁵",
+        "gain 1",
+        "54",
+        "1−"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Page 31"
+    },
+    {
+     "list": [
+      "**E:** sodium 1s² 2s² 2p⁶ 3s¹. Iron 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Bromine 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵. Barium 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 4d¹⁰ 5p⁶ 6s². Neptunium [Rn] 7s² 5f⁵ (written out in full it continues from 6p⁶).",
+      "**F:** cobalt [Ar] 4s² 3d⁷. Silver [Kr] 5s¹ 4d¹⁰. Tellurium [Kr] 5s² 4d¹⁰ 5p⁴. Radium [Rn] 7s². Lawrencium [Rn] 7s² 5f¹⁴ 6d¹.",
+      "**G:** 11) sulfur, 12) rubidium, 13) antimony, 14) osmium, 15) einsteinium."
+     ]
+    },
+    {
+     "h": "Page 32"
+    },
+    {
+     "list": [
+      "**16)** invalid: 4d after 4s, it should be 3d (Aufbau). **17)** invalid: 3s³, s holds only 2 (Pauli), and 3p was skipped. **18)** invalid: [Ra] isn't a noble gas, use [Rn]. **19)** valid, it's iodine. **20)** valid, it's xenon.",
+      "**I:** nitrogen 1s² 2s² 2p³ = [He] 2s² 2p³. Chlorine 1s² 2s² 2p⁶ 3s² 3p⁵ = [Ne] 3s² 3p⁵. Sodium 1s² 2s² 2p⁶ 3s¹ = [Ne] 3s¹. Neon 1s² 2s² 2p⁶ = [He] 2s² 2p⁶. The arrows are in the orbital diagrams section."
+     ]
+    },
+    {
+     "h": "Pages 33 and 34"
+    },
+    {
+     "list": [
+      "**B:** O²⁻ 1s² 2s² 2p⁶. Fe²⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶. B³⁺ 1s². Ni²⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁸. K⁺ 1s² 2s² 2p⁶ 3s² 3p⁶. Co³⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶.",
+      "**C:** 17) selenium (or ions with 34 electrons, like Br⁺ or As⁻). 18) krypton, or Br⁻, Rb⁺, Sr²⁺, Se²⁻. 19) dysprosium (66 electrons). 20) manganese. 21) antimony. 22) potassium. 23) dysprosium. 24) aluminum.",
+      "**p. 34:** nickel 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁸. Vanadium 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d³. Copper 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d¹⁰ (the exception)."
+     ]
+    },
+    {
+     "h": "Pages 35 to 37"
+    },
+    {
+     "table": {
+      "head": [
+       "p. 35",
+       "Full",
+       "Noble gas"
+      ],
+      "rows": [
+       [
+        "Li",
+        "1s² 2s¹",
+        "[He] 2s¹"
+       ],
+       [
+        "F",
+        "1s² 2s² 2p⁵",
+        "[He] 2s² 2p⁵"
+       ],
+       [
+        "Ne",
+        "1s² 2s² 2p⁶",
+        "[He] 2s² 2p⁶"
+       ],
+       [
+        "Si",
+        "1s² 2s² 2p⁶ 3s² 3p²",
+        "[Ne] 3s² 3p²"
+       ],
+       [
+        "Ti",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²",
+        "[Ar] 4s² 3d²"
+       ],
+       [
+        "Br",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
+        "[Ar] 4s² 3d¹⁰ 4p⁵"
+       ],
+       [
+        "Pb",
+        "noble gas only",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+       ],
+       [
+        "U",
+        "noble gas only",
+        "[Rn] 7s² 5f⁴"
+       ]
+      ]
+     }
+    },
+    {
+     "list": [
+      "**p. 35, 9 to 13:** B, Cl, Fe, Rb, Hg (full table in the valence section). **Q14:** 4s is lower in energy than 3d, so Aufbau fills it first. **Q15:** valence electrons are the outermost s and p electrons, the ones that react. Use the group number: groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10.",
+      "**p. 36, Part I:** Fr [Rn] 7s¹ (1 valence), Sn [Kr] 5s² 4d¹⁰ 5p² (4 valence, 5s² 5p²), Sr [Kr] 5s² (2), P [Ne] 3s² 3p³ (5).",
+      "**p. 36, Part II:** N 1s² 2s² 2p³, Ti 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d², Rb 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s¹, Cl 1s² 2s² 2p⁶ 3s² 3p⁵.",
+      "**p. 37, Part III:** K [Ar] 4s¹, 1 valence (4s¹). Mg [Ne] 3s², 2 (3s²). I [Kr] 5s² 4d¹⁰ 5p⁵, 7 (5s² 5p⁵). Ga [Ar] 4s² 3d¹⁰ 4p¹, 3 (4s² 4p¹)."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "p. 37 Part IV",
+       "Max e⁻ (2n²)",
+       "Sublevels",
+       "Types",
+       "Orbitals each",
+       "e⁻ per orbital"
+      ],
+      "rows": [
+       [
+        "n = 1",
+        "2",
+        "1",
+        "s",
+        "s = 1",
+        "2"
+       ],
+       [
+        "n = 2",
+        "8",
+        "2",
+        "s, p",
+        "s = 1, p = 3",
+        "2"
+       ],
+       [
+        "n = 3",
+        "18",
+        "3",
+        "s, p, d",
+        "s = 1, p = 3, d = 5",
+        "2"
+       ],
+       [
+        "n = 4",
+        "32",
+        "4",
+        "s, p, d, f",
+        "s = 1, p = 3, d = 5, f = 7",
+        "2"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Pages 38 to 40"
+    },
+    {
+     "list": [
+      "**p. 38:** iron has 26 electrons, 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Be, Si, Ni, Ar and Ti diagrams are in the orbital diagrams section.",
+      "**p. 39:** Cr 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d⁵ (exception). Mg 1s² 2s² 2p⁶ 3s². Ca [Ar] 4s². Cl [Ne] 3s² 3p⁵. Ag [Kr] 5s¹ 4d¹⁰. Sn [Kr] 5s² 4d¹⁰ 5p².",
+      "**p. 39 ions:** Ca²⁺ is drawn like argon, O²⁻ like neon. Be²⁺ 1s². Li⁺ 1s². F⁻ 1s² 2s² 2p⁶. Br⁻ [Kr]. Ba²⁺ [Xe]. Ag⁺ [Kr] 4d¹⁰. Dots: Fe 2, B 3, Cl 7.",
+      "**p. 40:** 1) 2 released. 2) 3 (seven). 3) 4 spectra. 4) match every line of each element to the unknown. 5) 3. 6) 2 (n = 2 to 5). 7) 2. 8) 4 (2-8-5-1). 9) 2."
+     ]
+    },
+    {
+     "h": "Handout typo"
+    },
+    {
+     "p": "The Examples page lists molybdenum as [Ar] 5s¹ 4d⁵. It should be **[Kr] 5s¹ 4d⁵**."
+    }
+   ],
+   "points": [
+    "Check your packet against this key, especially the fixes at the top"
+   ],
+   "quizlet": ""
+  }
+ ]
+};
+/* DECK_END */
+(function(){
+"use strict";
+const STEPS=["Read","Break","Flashcards","Break","Brain dump","Mark"];
+/* A section can use only some of the steps, for example read, break and flashcards for one where a brain dump makes no sense */
+const secSteps=sec=>sec&&sec.steps&&sec.steps.length?sec.steps:[0,1,2,3,4,5];
+const lastStep=sec=>{const a=secSteps(sec);return a[a.length-1]};
+const KEY="studyloop:"+DECK.title;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rich=s=>esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+const secs=DECK.sections;
+let S=load();
+let tick=null,raf=0;
+/* Clocks live only in memory. Each break and the brain dump get their own, started when you arrive and thrown away when you leave the step, the section or the page. */
+const clocks={};let liveKey=null,lastTick=-1;
+function breakClock(id,step){const k=id+":"+step;if(!clocks[k]){const len=S.settings.breakMin*60000;clocks[k]={end:Date.now()+len,len}}return clocks[k]}
+function dumpClock(id){const k=id+":4";if(!clocks[k])clocks[k]={start:Date.now()};return clocks[k]}
+/* Sketch undo and redo stacks, per section */
+const hist={};function H(id){return hist[id]||(hist[id]={u:[],r:[]})}
+let pad=null;
+/* Grades: the latest mark for a section, and the average over every section marked so far */
+function lastGrade(id){const s=S.sec[id];if(!s||!s.history||!s.history.length)return null;const h=s.history[s.history.length-1];return h.total?h.got/h.total:0}
+function overall(){const g=secs.map(x=>lastGrade(x.id)).filter(v=>v!==null);return {n:g.length,avg:g.length?g.reduce((a,b)=>a+b,0)/g.length:0}}
+const pct=v=>Math.round(v*100)+"%";
+
+function blank(){return {cur:null,sec:{},settings:{breakMin:DECK.breakMinutes||5,dumpMin:DECK.dumpMinutes||7,sound:true}}}
+function load(){try{const v=JSON.parse(localStorage.getItem(KEY)||"null");if(v&&v.sec)return Object.assign(blank(),v)}catch(e){}return blank()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function st(id){if(!S.sec[id])S.sec[id]={round:1,step:0,status:"new",fc:null,passes:0,dump:"",got:{},focus:[],history:[]};return S.sec[id]}
+function secById(id){return secs.find(s=>s.id===id)}
+function idx(id){return secs.findIndex(s=>s.id===id)}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function fmt(ms){ms=Math.max(0,Math.round(ms/1000));return Math.floor(ms/60)+":"+String(ms%60).padStart(2,"0")}
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2200)}
+
+/* Sound: one soft chime when a timer ends. */
+let ac=null;
+function chime(){if(!S.settings.sound)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();[660,880].forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.type="sine";o.frequency.value=f;const t=ac.currentTime+i*.18;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.18,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+.6);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+.65)})}catch(e){}}
+
+function statusOf(id){const s=S.sec[id];return s?s.status:"new"}
+function statusLabel(id){const s=S.sec[id];if(!s||s.status==="new")return "Not started";if(s.status==="done")return "Done";if(s.status==="revisit")return "Loop again";return "Round "+s.round+", "+STEPS[s.step].toLowerCase()}
+
+function renderBar(){
+  $("#title").textContent=DECK.title;{const h=$("#home");if(h&&DECK.home){h.href=DECK.home;h.hidden=false}}
+  $("#sub").textContent=DECK.subtitle||"";
+  const done=secs.filter(s=>statusOf(s.id)==="done").length;
+  $("#meter").innerHTML='<span class="num">'+done+" of "+secs.length+' done</span><span class="track"><span class="fill" style="width:'+(100*done/secs.length)+'%"></span></span>';
+}
+function renderSide(){
+  let lastGrp=null;const list='<ul class="secs">'+secs.map((s,i)=>{const g=lastGrade(s.id),gl=s.group&&s.group!==lastGrp?'<li class="grp">'+esc(s.group)+"</li>":"";lastGrp=s.group||lastGrp;return gl+'<li><button class="sec" data-go="'+esc(s.id)+'" aria-current="'+(S.cur===s.id)+'"><span class="n num">'+(i+1)+'</span><span class="t">'+esc(s.title)+'</span><span class="pct num" title="Last brain dump">'+(g===null?"":pct(g))+'</span><span class="dot '+statusOf(s.id)+'" title="'+esc(statusLabel(s.id))+'"></span></button></li>'}).join("")+"</ul>";
+  const o=overall(),done=secs.filter(s=>statusOf(s.id)==="done").length;
+  const prog='<div class="prog"><span class="small">Remembered</span><div class="big"><b class="num">'+(o.n?pct(o.avg):"0%")+'</b><span class="small num">'+(o.n?"average of "+o.n+" marked":"nothing marked yet")+'</span></div><div class="bar3"><i style="width:'+(o.n?o.avg*100:0)+'%"></i></div><div class="row2"><span class="small num">'+done+" of "+secs.length+' done</span><span class="grow" style="flex:1"></span><button class="btn quiet" id="resetall">Reset all</button></div><div id="rconf"></div></div>';
+  const over='<button class="sec" data-go="" aria-current="'+(S.cur===null)+'"><span class="n">&#8962;</span><span class="t">Overview</span><span></span></button><button class="sec" data-go="jog" aria-current="'+(S.cur==="jog")+'"><span class="n">&#8635;</span><span class="t">Memory jog</span><span></span></button>';
+  const narrow=matchMedia("(max-width:860px)").matches;
+  if(narrow){const cur=S.cur==="jog"?"Memory jog":S.cur?(idx(S.cur)+1)+". "+secById(S.cur).title:"Overview";
+    $("#side").innerHTML='<details id="secdd"><summary><span>'+esc(cur)+'</span><span class="small num">'+(o.n?pct(o.avg)+" remembered ":"")+'<span class="chev">&#8250;</span></span></summary><div style="padding:0 6px 6px">'+prog+'<div class="secs">'+over+"</div>"+list+"</div></details>";}
+  else $("#side").innerHTML=prog+'<div class="secs" style="margin-bottom:12px">'+over+'</div><p class="label">Sections</p>'+list;
+  const ra=$("#resetall");if(ra)ra.onclick=()=>{$("#rconf").innerHTML='<div class="confirm" style="padding:8px 10px"><span class="small">Clear every grade, round, brain dump and sketch?</span><button class="btn" id="rano">Keep</button><button class="btn" id="rayes" style="border-color:var(--stop);color:var(--stop)">Reset all</button></div>';$("#rano").onclick=()=>$("#rconf").innerHTML="";$("#rayes").onclick=resetAll};
+}
+function resetAll(){const snd=S.settings;S=blank();S.settings=snd;for(const k in clocks)delete clocks[k];for(const k in hist)delete hist[k];save();render();toast("Progress reset")}
+
+function ring(step,round,N){
+  N=N||6;const R=40,c=56,nodes=Array.from({length:N},(_,i)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [c+R*Math.cos(a),c+R*Math.sin(a)]});
+  let arcs="";for(let i=0;i<N;i++){const [x1,y1]=nodes[i],[x2,y2]=nodes[(i+1)%N];arcs+='<path d="M'+x1.toFixed(1)+" "+y1.toFixed(1)+" A"+R+" "+R+" 0 0 1 "+x2.toFixed(1)+" "+y2.toFixed(1)+'" fill="none" stroke="'+(i<step?"var(--ink-2)":"var(--line-edge)")+'" stroke-width="2"/>'}
+  const dots=nodes.map(([x,y],i)=>'<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+(i===step?7:4.5)+'" fill="'+(i===step?"var(--accent)":i<step?"var(--ink-2)":"var(--surface)")+'" stroke="'+(i===step?"var(--accent)":i<step?"var(--ink-2)":"var(--ink-4)")+'" stroke-width="1.5"/>').join("");
+  return '<svg class="ring" viewBox="0 0 112 112" role="img" aria-label="Step '+(step+1)+' of '+N+', round '+round+'">'+arcs+dots+'<text x="56" y="53" text-anchor="middle" font-size="10" fill="var(--ink-3)">Round</text><text x="56" y="70" text-anchor="middle" font-size="17" font-weight="600" fill="var(--ink)">'+round+"</text></svg>";
+}
+
+function notesHTML(blocks){
+  return blocks.map(b=>{
+    if(b.h)return "<h4>"+rich(b.h)+"</h4>";
+    if(b.p)return "<p>"+rich(b.p)+"</p>";
+    if(b.formula)return '<p class="formula">'+rich(b.formula)+"</p>";
+    if(b.key)return '<p class="key">'+rich(b.key)+"</p>";
+    if(b.list)return "<ul>"+b.list.map(x=>"<li>"+rich(x)+"</li>").join("")+"</ul>";
+    if(b.table){const t=b.table;return '<div class="tablewrap"><table><thead><tr>'+t.head.map(h=>"<th>"+rich(h)+"</th>").join("")+"</tr></thead><tbody>"+t.rows.map(r=>r.length===1?'<tr><td class="group" colspan="'+t.head.length+'">'+rich(r[0])+"</td></tr>":"<tr>"+r.map(c=>"<td>"+rich(c)+"</td>").join("")+"</tr>").join("")+"</tbody></table></div>"}
+    if(b.img)return '<figure><img src="'+esc(b.img)+'" alt="'+esc(b.alt||"")+'" loading="lazy">'+(b.caption?"<figcaption>"+rich(b.caption)+"</figcaption>":"")+"</figure>";
+    return "";
+  }).join("");
+}
+
+function header(sec,s){
+  const i=idx(sec.id);
+  const steps='<ol class="steps">'+secSteps(sec).map(k=>[STEPS[k],k]).map(([n,k])=>'<li><button data-step="'+k+'" class="'+(k===s.step?"now":k<s.step?"past":"")+'" aria-current="'+(k===s.step?"step":"false")+'" title="Go to '+n.toLowerCase()+'">'+n+"</button></li>").join("")+"</ol>";
+  const prev=i>0?secs[i-1]:null,nxt=i<secs.length-1?secs[i+1]:null;
+  const nav='<div class="secnav"><button class="btn quiet" data-sec="'+(prev?esc(prev.id):"")+'"'+(prev?' title="'+esc(prev.title)+'"':" disabled")+'>&lsaquo; Previous</button><button class="btn quiet" data-sec="'+(nxt?esc(nxt.id):"")+'"'+(nxt?' title="'+esc(nxt.title)+'"':" disabled")+'>Next &rsaquo;</button></div>';
+  const ss=secSteps(sec);return '<div class="head">'+ring(Math.max(0,ss.indexOf(s.step)),s.round,ss.length)+'<div class="txt"><span class="eyebrow num">Section '+(i+1)+" of "+secs.length+'</span><h2>'+esc(sec.title)+"</h2>"+steps+"</div>"+nav+"</div>";
+}
+
+function render(){
+  clearInterval(tick);tick=null;cancelAnimationFrame(raf);raf=0;pad=null;
+  const key=S.cur&&S.cur!=="jog"?S.cur+":"+st(S.cur).step:null;
+  if(liveKey&&liveKey!==key)delete clocks[liveKey];
+  liveKey=key;
+  renderBar();renderSide();
+  const m=$("#main");
+  if(!S.cur){m.innerHTML=overview();bindOverview();return}
+  if(S.cur==="jog"){m.innerHTML=jogView();bindJog();return}
+  const sec=secById(S.cur);if(!sec){S.cur=null;return render()}
+  const s=st(sec.id);
+  if(!secSteps(sec).includes(s.step)){s.step=secSteps(sec).find(k=>k>s.step)??lastStep(sec);save()}
+  let body="";
+  switch(s.step){
+    case 0:body=stepRead(sec,s);break;
+    case 1:case 3:body=stepBreak(sec,s);break;
+    case 2:body=stepCards(sec,s);break;
+    case 4:body=stepDump(sec,s);break;
+    case 5:body=stepMark(sec,s);break;
+  }
+  m.innerHTML=header(sec,s)+body;
+  m.querySelectorAll(".steps [data-step]").forEach(b=>b.onclick=()=>jump(sec,s,+b.dataset.step));
+  m.querySelectorAll(".secnav [data-sec]").forEach(b=>b.onclick=()=>{if(b.dataset.sec)go(b.dataset.sec)});
+  bindStep(sec,s);
+}
+/* Jump to any step, forward or back, without losing the brain dump or sketch */
+function jump(sec,s,k){if(k===s.step)return;UNDO=[];s.step=k;save();render();scrollTo({top:0,behavior:"smooth"})}
+/* Clock helpers */
+const still=matchMedia("(prefers-reduced-motion: reduce)");
+function setClock(el,str){if(!el)return;const cur=[...el.querySelectorAll(".d")].map(d=>d.textContent).join("");if(cur===str)return;const old=el.querySelectorAll(".d");if(old.length!==str.length){el.innerHTML=[...str].map(ch=>'<span class="d">'+ch+"</span>").join("");return}[...str].forEach((ch,i)=>{if(old[i].textContent!==ch){const n=document.createElement("span");n.className="d"+(still.matches?"":" roll");n.textContent=ch;old[i].replaceWith(n)}})}
+function dialSVG(r,id,head){return '<svg viewBox="0 0 '+(2*r+12)+" "+(2*r+12)+'" aria-hidden="true"><circle class="dial-track" cx="'+(r+6)+'" cy="'+(r+6)+'" r="'+r+'"/><circle class="dial-arc" id="'+id+'" cx="'+(r+6)+'" cy="'+(r+6)+'" r="'+r+'" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="0"/>'+(head?'<circle class="dial-head" id="'+id+'h" r="5" cx="'+(2*r+6)+'" cy="'+(r+6)+'"/>':"")+"</svg>"}
+function setDial(id,frac,r){const a=document.getElementById(id);if(!a)return;frac=Math.max(0,Math.min(1,frac));a.setAttribute("stroke-dashoffset",String(1-frac));const h=document.getElementById(id+"h");if(h){const ang=frac*2*Math.PI;h.setAttribute("cx",(r+6+r*Math.cos(ang)).toFixed(2));h.setAttribute("cy",(r+6+r*Math.sin(ang)).toFixed(2));h.style.opacity=frac>0?1:0}}
+
+function go(id){if(id==="jog"){S.cur="jog";save();render();scrollTo({top:0,behavior:"smooth"});return}S.cur=id||null;if(id){const s=st(id);if(s.status==="new"||s.status==="revisit"){if(s.status==="revisit"){s.status="active";}else s.status="active"}}save();render();scrollTo({top:0,behavior:"smooth"})}
+function finishSec(sec,s){UNDO=[];s.status="done";s.focus=[];s.step=0;s.round=1;s.got={};s.fc=null;const n=nextNew(sec);save();toast("Section "+(idx(sec.id)+1)+" done");go(n?n.id:null)}
+function next(sec,s){if(s.step>=lastStep(sec))return finishSec(sec,s);UNDO=[];const a=secSteps(sec);s.step=a[a.indexOf(s.step)+1]??s.step+1;if(s.step===2){s.fc=null}save();render();scrollTo({top:0,behavior:"smooth"})}
+
+/* Overview */
+function overview(){
+  const done=secs.filter(s=>statusOf(s.id)==="done").length;
+  const nextSec=secs.find(s=>statusOf(s.id)==="active")||secs.find(s=>statusOf(s.id)==="new")||secs.find(s=>statusOf(s.id)==="revisit");
+  const rows=secs.map((s,i)=>{const st0=statusOf(s.id),g=lastGrade(s.id);return '<li><button class="row" data-go="'+esc(s.id)+'"><span class="n num">'+(i+1)+'</span><span class="t">'+esc(s.title)+'<br><span class="meta num">'+s.cards.length+" cards"+(secSteps(s).includes(5)?", "+s.points.length+" key points":", flashcards only")+(g===null?"":", last brain dump "+pct(g))+'</span></span><span class="chip '+st0+'">'+esc(statusLabel(s.id))+"</span></button></li>"}).join("");
+  return '<div class="head"><div class="txt"><span class="eyebrow num">'+done+" of "+secs.length+' sections done</span><h2>'+esc(DECK.title)+"</h2>"+(DECK.source?'<span class="small">'+esc(DECK.source)+"</span>":"")+"</div></div>"+
+  '<section class="panel"><h3>How each section works</h3><ol class="how"><li>Read everything and write it in Cornell notes on paper.</li><li>Take a 5 minute brain break (you can skip it).</li><li>Do the flashcards, on sections where they make sense. Loop them as long as you want.</li><li>Take another brain break.</li><li>Brain dump: write everything you remember with the notes closed.</li><li>Mark what you missed, then loop on it or move to the next section.</li></ol>'+
+  '<div class="actions"><button class="btn" data-go="jog">Memory jog, every topic fast</button>'+(nextSec?'<button class="btn primary" data-go="'+esc(nextSec.id)+'">'+(statusOf(nextSec.id)==="new"?"Start ":"Continue ")+(idx(nextSec.id)+1)+". "+esc(nextSec.title)+"</button>":'<span class="muted">Every section is done. Loop any one again to keep it fresh.</span>')+"</div>"+
+  '<div class="settings"><label>Appearance <select id="ap">'+[["system","System"],["light","Light"],["dark","Dark"]].map(([v,n])=>'<option value="'+v+'"'+(document.documentElement.dataset.theme===v?" selected":"")+">"+n+"</option>").join("")+'</select></label><label>Breaks <select id="bk">'+[3,5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.breakMin===v?" selected":"")+">"+v+" min</option>").join("")+'</select></label><label>Brain dump goal <select id="dm">'+[5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.dumpMin===v?" selected":"")+">"+v+" min</option>").join("")+'</select></label><label><input type="checkbox" id="snd"'+(S.settings.sound?" checked":"")+"> Chime when a break ends</label></div></section>"+
+  '<section class="panel"><h3>Sections</h3><ul class="rows">'+rows+'</ul><div class="actions"><span class="grow"></span><button class="btn quiet" id="reset">Reset progress</button></div><div id="confirm"></div></section>';
+}
+function bindOverview(){
+  document.querySelectorAll("#main [data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+  $("#ap").onchange=e=>{const v=e.target.value;document.documentElement.dataset.theme=v;try{localStorage.setItem("studynow:appearance",v)}catch(er){}};
+  $("#bk").onchange=e=>{S.settings.breakMin=+e.target.value;save()};
+  $("#dm").onchange=e=>{S.settings.dumpMin=+e.target.value;save()};
+  $("#snd").onchange=e=>{S.settings.sound=e.target.checked;save()};
+  $("#reset").onclick=()=>{$("#confirm").innerHTML='<div class="confirm"><span>Clear every round, brain dump and mark?</span><span class="grow"></span><button class="btn" id="rno">Keep</button><button class="btn" id="ryes" style="border-color:var(--error);color:var(--error)">Clear progress</button></div>';$("#rno").onclick=()=>$("#confirm").innerHTML="";$("#ryes").onclick=resetAll};
+}
+
+/* Step 1: read */
+function stepRead(sec,s){
+  const focus=s.round>1&&s.focus.length?'<div class="focus"><b>Round '+s.round+": focus on what you missed</b><ul>"+s.focus.map(k=>"<li>"+rich(sec.points[k])+"</li>").join("")+"</ul></div>":"";
+  const ss=secSteps(sec),nx=ss[ss.indexOf(0)+1],cor=ss.length>1&&ss.includes(4);
+  return '<section class="panel">'+focus+(cor?'<div class="cornell"><b>Read everything, then write it in Cornell notes on paper.</b><span class="small">Cue column on the left (questions and key terms), notes on the right, a two line summary at the bottom.</span></div>':"")+'<div class="notes">'+notesHTML(sec.notes)+'</div><div class="actions"><button class="btn primary" id="go">'+(cor?"Done, notes written":"Done reading")+' <kbd>Enter</kbd></button><span class="small">'+(nx===1?"Next: a "+S.settings.breakMin+" minute brain break, skippable":nx!=null?"Next: "+STEPS[nx].toLowerCase():"")+"</span></div></section>";
+}
+
+/* Steps 2 and 4: break */
+function stepBreak(sec,s){
+  const ss=secSteps(sec),nxs=ss[ss.indexOf(s.step)+1],after=(STEPS[nxs]||"brain dump").toLowerCase();
+  return '<section class="panel"><div class="timer"><span class="eyebrow">Brain break</span><div class="dial" id="dial">'+dialSVG(100,"arc",true)+'<div class="clock num" id="clock"></div></div><p class="muted" style="margin:0;max-width:44ch">Stand up, get some water, look away from the screen. No notes and no phone.</p></div>'+
+  '<div class="actions" style="justify-content:center"><button class="btn quiet" id="plus">Add a minute</button><button class="btn" id="go">Skip break, start '+after+' <kbd>Enter</kbd></button></div><p class="small" style="text-align:center;margin:0" id="tnote">Next: '+after+"</p></section>";
+}
+
+/* Step 3: flashcards */
+let UNDO=[];
+function canUndo(sec){return UNDO.length&&UNDO[UNDO.length-1].id===sec.id}
+function undoCard(sec,s){if(!canUndo(sec))return;const u=UNDO.pop();s.fc=JSON.parse(u.fc);s.passes=u.passes;s.fc.flip=true;save();render();const c=$("#card");if(c)c.classList.add("flash-undo");toast("Undid that card")}
+const undoBtn=sec=>'<button class="btn quiet" id="undo"'+(canUndo(sec)?"":" disabled")+'>Undo <kbd>&#8984;Z</kbd></button>';
+const PARTS=[["pic","Picture"],["name","Name"],["def","Definition"]];
+function sides(){if(!S.sides||!S.sides.front||!S.sides.back)S.sides={front:["pic"],back:["name","def"]};return S.sides}
+function face(c,parts){let p=PARTS.map(x=>x[0]).filter(k=>parts.includes(k)&&(k!=="pic"||c[2]));if(!p.length)p=["name"];
+  const one=p.length===1;return '<div>'+p.map(k=>k==="pic"?'<img class="pic'+(one?"":" sm")+'" src="'+esc(c[2])+'" alt="">':k==="name"?'<div class="'+(one?"front":"name")+'">'+rich(c[0])+"</div>":'<div class="back">'+rich(c[1])+"</div>").join("")+"</div>"}
+function sidePicker(sec){const hasPic=sec.cards.some(c=>c[2]),sd=sides();
+  const row=w=>'<span class="sp"><span class="small">'+(w==="front"?"Front":"Back")+'</span>'+PARTS.filter(x=>x[0]!=="pic"||hasPic).map(x=>'<button class="loopt'+(sd[w].includes(x[0])?" on":"")+'" data-side="'+w+'" data-part="'+x[0]+'" aria-pressed="'+sd[w].includes(x[0])+'">'+x[1]+"</button>").join("")+"</span>";
+  return '<div class="sides">'+row("front")+row("back")+"</div>"}
+function newPass(sec,s,which){const pool=which==="missed"&&s.fc&&s.fc.missed.length?s.fc.missed:sec.cards.map((c,i)=>i);s.fc={order:shuffle(pool),pos:0,flip:false,got:[],missed:[]};s.passes++;save()}
+/* Memory jog: one fast pass over every topic, separate from the section loop */
+let J={mode:"review",per:4,cards:[],pos:0,flip:false,res:[],hist:[]};
+function jogBuild(per,only){const out=[];secs.forEach(sec=>{const pin=(sec.jogPin||[]).map(f=>sec.cards.findIndex(c=>c[0]===f)).filter(i=>i>=0);
+  let pool=only?only.filter(x=>x[0]===sec.id).map(x=>x[1]):sec.cards.map((c,i)=>i);if(!pool.length)return;
+  let pick=only?pool:pin.concat(shuffle(pool.filter(i=>!pin.includes(i)))).slice(0,Math.max(per,pin.length));
+  shuffle(pick).forEach(k=>out.push([sec.id,k]))});return out}
+function jogStart(only){J={mode:"quiz",per:J.per,cards:jogBuild(J.per,only),pos:0,flip:false,res:[],hist:[]};render()}
+function jogView(){
+  const head='<div class="head"><div class="txt"><span class="eyebrow">All '+secs.length+' topics</span><h2>Memory jog</h2><span class="small">A short review of everything on one page. About 5 minutes.</span></div></div>';
+  if(J.mode!=="quiz"){const last=S.jogLast,R=DECK.review||{must:[],secs:{}};
+    return head+'<section class="panel"><h3>Must memorize</h3><ul class="must">'+(R.must||[]).map(m=>"<li>"+rich(m)+"</li>").join("")+"</ul></section>"+
+    '<section class="panel">'+secs.map((sec,i)=>(sec.group&&(i===0||secs[i-1].group!==sec.group)?'<p class="label" style="margin:'+(i?"12px":"0")+' 0 0">'+esc(sec.group)+"</p>":"")+'<div class="jogsec"><h4><span class="num small">'+(i+1)+"</span>"+esc(sec.title)+"</h4><ul>"+((R.secs||{})[sec.id]||sec.points).map(p=>"<li>"+rich(p)+"</li>").join("")+"</ul></div>").join("")+"</section>"+
+    '<section class="panel"><h3>Then test yourself</h3><p class="small" style="margin:0">A few flashcards from every topic, then a score for each one so you know what to look at again.</p><div class="settings"><label>Cards per topic <select id="jper">'+[3,4,6,8].map(v=>'<option value="'+v+'"'+(J.per===v?" selected":"")+">"+v+"</option>").join("")+'</select></label></div><div class="actions"><button class="btn primary" id="jquiz">Quiz me on everything</button></div>'+(last?'<p class="small" style="margin:0">Last quiz '+esc(last.date)+": "+last.got+" of "+last.total+" ("+pct(last.got/last.total)+")</p>":"")+"</section>"}
+  if(J.mode==="quiz"&&J.pos<J.cards.length){const [sid,k]=J.cards[J.pos],sec=secById(sid),c=sec.cards[k],sd=sides(),pp=sd[J.flip?"back":"front"],only=c[2]&&pp.length===1&&pp[0]==="pic";
+    return head+'<section class="panel"><div class="fcbar num"><span>'+(idx(sid)+1)+". "+esc(sec.title)+'</span><span class="track"><i style="width:'+(100*J.pos/J.cards.length)+'%"></i></span><span>'+(J.pos+1)+" / "+J.cards.length+"</span></div>"+
+    '<div class="card" id="card" role="button" tabindex="0" aria-label="Flip card">'+(only?"":'<span class="side-l">'+(J.flip?"Back":"Front")+"</span>")+face(c,pp)+(J.flip||only?"":'<span class="hint">Click or press space to flip</span>')+"</div>"+
+    '<div class="actions" style="justify-content:center"><button class="btn quiet" id="jundo"'+(J.hist.length?"":" disabled")+'>Undo <kbd>&#8984;Z</kbd></button><button class="btn no" id="jmiss"'+(J.flip?"":" disabled")+'>Missed <kbd>&larr;</kbd></button><button class="btn ok" id="jgot"'+(J.flip?"":" disabled")+'>Got it <kbd>&rarr;</kbd></button></div>'+
+    '<div class="actions"><button class="btn quiet" id="jstop">Stop and see results</button></div></section>'}
+  const by={};J.res.forEach(([sid,k,ok])=>{const b=by[sid]=by[sid]||[0,0];b[1]++;if(ok)b[0]++});
+  const rows=secs.filter(s=>by[s.id]).map(s=>({s,g:by[s.id][0],n:by[s.id][1]})).sort((a,b)=>a.g/a.n-b.g/b.n);
+  const got=J.res.filter(r=>r[2]).length,miss=J.res.filter(r=>!r[2]);
+  return head+'<section class="panel"><h3>'+got+" of "+J.res.length+" ("+pct(J.res.length?got/J.res.length:0)+')</h3><p class="small" style="margin:0">Weakest topics first. Click one to go study it.</p><table class="jogres">'+
+    rows.map(r=>'<tr><td><button class="btn quiet" data-go="'+esc(r.s.id)+'" style="padding:0">'+(idx(r.s.id)+1)+". "+esc(r.s.title)+'</button></td><td class="'+(r.g/r.n<.75?"weak":r.g===r.n?"ok":"")+'">'+r.g+" / "+r.n+"</td></tr>").join("")+"</table>"+
+    '<div class="actions"><button class="btn quiet" id="jundo"'+(J.hist.length?"":" disabled")+'>Undo <kbd>&#8984;Z</kbd></button><span class="grow"></span>'+(miss.length?'<button class="btn" id="jmissed">Redo the '+miss.length+" missed</button>":"")+'<button class="btn primary" id="jagain">New jog</button></div></section>';
+}
+function jogMark(ok){if(!J.flip)return;J.hist.push(JSON.stringify({pos:J.pos,res:J.res}));const [sid,k]=J.cards[J.pos];J.res.push([sid,k,ok]);J.pos++;J.flip=false;
+  if(J.pos>=J.cards.length){const got=J.res.filter(r=>r[2]).length;S.jogLast={date:new Date().toLocaleDateString(),got,total:J.res.length};save()}
+  render();const c=$("#card");if(c)c.classList.add(ok?"flash-ok":"flash-no")}
+function jogUndo(){if(!J.hist.length)return;const h=JSON.parse(J.hist.pop());J.pos=h.pos;J.res=h.res;J.mode="quiz";J.flip=true;render()}
+function bindJog(){
+  const on=(id,f)=>{const el=$("#"+id);if(el)el.onclick=f};
+  on("jread",()=>{J.mode="read";render();scrollTo({top:0})});on("jback",()=>{J.mode="menu";render()});
+  on("jquiz",()=>jogStart());on("jagain",()=>{J.mode="review";render();scrollTo({top:0})});
+  on("jmissed",()=>jogStart(J.res.filter(r=>!r[2]).map(r=>[r[0],r[1]])));
+  on("jundo",jogUndo);on("jgot",()=>jogMark(true));on("jmiss",()=>jogMark(false));
+  on("jstop",()=>{J.cards=J.cards.slice(0,J.pos);render()});
+  on("card",()=>{J.flip=!J.flip;render()});
+  const sel=$("#jper");if(sel)sel.onchange=e=>{J.per=+e.target.value};
+  document.querySelectorAll("#main [data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+}
+function jogKey(e){const tag=(e.target.tagName||"").toLowerCase();if(tag==="select"||tag==="input"||tag==="textarea")return;
+  if(((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="z")||(!e.metaKey&&!e.ctrlKey&&(e.key==="z"||e.key==="Backspace"))){e.preventDefault();return jogUndo()}
+  if(J.mode!=="quiz"||J.pos>=J.cards.length)return;
+  if(e.key===" "){e.preventDefault();J.flip=!J.flip;render()}
+  else if(e.key==="ArrowRight"){e.preventDefault();jogMark(true)}
+  else if(e.key==="ArrowLeft"){e.preventDefault();jogMark(false)}}
+function stepCards(sec,s){
+  if(!s.fc){s.passes=0;newPass(sec,s,"all")}
+  const f=s.fc,quiz='<div class="quiz"><span class="small">Quizlet</span>'+(sec.quizlet?'<a class="btn" href="'+esc(sec.quizlet)+'" target="_blank" rel="noopener">Open the Quizlet set</a>':"")+'<button class="btn quiet" id="qcopy">Copy cards for Quizlet import</button><button class="btn quiet" id="qskip">Did them on Quizlet, skip</button><div id="qbox" style="width:100%"></div></div>';
+  if(f.pos>=f.order.length){
+    const g=f.got.length,n=f.order.length;
+    return '<section class="panel"><span class="eyebrow num">Pass '+s.passes+" done</span><div class=\"tally\"><div><b class=\"okc num\">"+g+'</b><span class="small">got it</span></div><div><b class="noc num">'+f.missed.length+'</b><span class="small">missed</span></div><div><b class="num">'+n+'</b><span class="small">cards</span></div></div>'+
+    (f.missed.length?'<div class="notes"><p class="muted">Missed this pass:</p><ul>'+f.missed.map(k=>"<li>"+rich(sec.cards[k][0])+"</li>").join("")+"</ul></div>":"")+
+    '<div class="actions">'+undoBtn(sec)+(f.missed.length?'<button class="btn" id="again-m">Another pass on the '+f.missed.length+" missed</button>":"")+'<button class="btn" id="again-a">Another pass on all</button>'+'<button class="btn primary" id="go">'+(lastStep(sec)===2?"Finish section":"Take a break")+' <kbd>Enter</kbd></button></div>'+quiz+"</section>";
+  }
+  const c=sec.cards[f.order[f.pos]];
+  return '<section class="panel"><div class="fcbar num"><span>Pass '+s.passes+'</span><button class="loopt'+(S.loop?" on":"")+'" id="loopt" aria-pressed="'+(S.loop?"true":"false")+'" title="Keep shuffling new passes without stopping (L)">Loop'+(S.loop?" on":"")+'</button><span class="track"><i style="width:'+(100*f.pos/f.order.length)+'%"></i></span><span>'+(f.pos+1)+" / "+f.order.length+'</span></div>'+
+  '<div class="card" id="card" role="button" tabindex="0" aria-label="Flip card">'+(function(){const pp=sides()[f.flip?"back":"front"],only=c[2]&&pp.length===1&&pp[0]==="pic";return (only?"":'<span class="side-l">'+(f.flip?"Back":"Front")+'</span>')+face(c,pp)})()+(f.flip||(c[2]&&sides().front.includes("pic"))?"":'<span class="hint">Click or press space to flip</span>')+'</div>'+
+  '<div class="actions" style="justify-content:center">'+undoBtn(sec)+'<button class="btn no" id="miss"'+(f.flip?"":" disabled")+'>Missed <kbd>&larr;</kbd></button><button class="btn ok" id="got"'+(f.flip?"":" disabled")+'>Got it <kbd>&rarr;</kbd></button></div>'+sidePicker(sec)+quiz+"</section>";
+}
+
+/* Step 5: brain dump */
+function stepDump(sec,s){
+  return '<section class="panel"><div class="actions"><div class="mini" id="mini">'+dialSVG(18,"marc",false)+'</div><div class="dumptime"><b class="clock num" id="dt"></b><span class="small" id="goal">goal '+S.settings.dumpMin+' min</span></div><span class="grow"></span><span class="small">Notes stay hidden until you finish</span></div>'+
+  (sec.dump?'<div class="notes"><label for="dump" class="muted">'+notesHTML(sec.dump)+'</label></div>':'<label for="dump" class="muted">Write everything you remember about '+esc(sec.title.toLowerCase())+'. Definitions, examples, anything.</label>')+'<textarea class="dump" id="dump" placeholder="Start anywhere...">'+esc(s.dump)+'</textarea>'+
+  '<div class="sketch"><span class="muted">Sketch what you need to draw: flowcharts, particle diagrams, lab setups, graphs.</span><div class="tools"><button class="btn" id="tpen" aria-pressed="true">Pen <kbd>P</kbd></button><button class="btn" id="tera" aria-pressed="false">Eraser <kbd>E</kbd></button><span class="grow" style="flex:1"></span><button class="btn quiet" id="tundo">Undo <kbd>&#8984;Z</kbd></button><button class="btn quiet" id="tredo">Redo <kbd>&#8984;Y</kbd></button><button class="btn quiet" id="tclr">Clear</button></div><canvas class="pad" id="pad" tabindex="0" aria-label="Sketch area. P for pen, E for eraser, Command Z to undo, Command Y to redo"></canvas><div id="clrc"></div></div>'+
+  '<div class="actions"><button class="btn primary" id="go">Done, check it <kbd>Ctrl Enter</kbd></button></div></section>';
+}
+
+/* Step 6: mark */
+function stepMark(sec,s){
+  const total=sec.points.length,got=sec.points.filter((p,k)=>s.got[k]).length,missed=total-got;
+  return '<section class="panel"><p class="muted" style="margin:0">Check each key point you got in your brain dump. Be strict: only count it if you wrote it down.</p><div class="mark"><div style="display:grid;gap:8px;align-content:start"><span class="small">Your brain dump</span><div class="mine">'+(s.dump.trim()?esc(s.dump):'<span class="small">Nothing written</span>')+'</div>'+(s.sketch&&s.sketch.k&&s.sketch.k.length?'<span class="small">Your sketch</span><canvas class="pad ro" id="padro" aria-label="Your sketch"></canvas>':"")+'</div><div style="display:grid;gap:8px;align-content:start"><span class="small">Key points</span><ul class="pts">'+sec.points.map((p,k)=>'<li><button class="pt" data-k="'+k+'" aria-pressed="'+!!s.got[k]+'"'+(k===lastTick&&s.got[k]?' data-pop="1"':"")+'><span class="box"></span><span>'+rich(p)+"</span></button></li>").join("")+'</ul></div></div>'+
+  (s.history&&s.history.length?'<div class="rounds num">'+s.history.map(h=>'<span>Round '+h.round+" "+pct(h.total?h.got/h.total:0)+'<i><b style="width:'+(h.total?100*h.got/h.total:0)+'%"></b></i></span>').join("")+'<span>This round '+pct(got/total)+'<i><b style="width:'+(100*got/total)+'%"></b></i></span></div>':"")+
+  '<div class="actions"><span class="score num">You got <b>'+got+"</b> of "+total+(missed?", missed <b class=\"noc\">"+missed+"</b>":"")+'</span><span class="grow"></span>'+(missed?'<button class="btn" id="moveon">Move on for now</button><button class="btn primary" id="loop">Loop again on the '+missed+" missed</button>":'<button class="btn primary" id="finish">'+(nextNew(sec)?"Next section":"Finish")+"</button>")+"</div></section>";
+}
+function nextNew(sec){const i=idx(sec.id);for(let k=1;k<=secs.length;k++){const n=secs[(i+k)%secs.length];if(statusOf(n.id)!=="done"&&n.id!==sec.id)return n}return null}
+
+function bindStep(sec,s){
+  const goBtn=$("#go");
+  if(s.step===0){goBtn.onclick=()=>next(sec,s)}
+  if(s.step===1||s.step===3){
+    let rang=false;
+    const dial=$("#dial");
+    const T=breakClock(sec.id,s.step);
+    const frame=()=>{const left=T.end-Date.now();const c=$("#clock");if(!c)return;setClock(c,fmt(left));setDial("arc",left/T.len,100);
+      const f=left/T.len;dial.classList.toggle("mid",left>10000&&f<=.3);dial.classList.toggle("soon",left>0&&left<=10000);
+      if(left<=0){if(!rang){dial.classList.remove("mid","soon");dial.classList.add("done");if(Date.now()-T.end<3000){chime();if(!still.matches)dial.classList.add("over")}rang=true;$("#tnote").textContent="Break is over";goBtn.classList.add("primary")}return}
+      if(!still.matches)raf=requestAnimationFrame(frame)};
+    frame();if(still.matches)tick=setInterval(frame,1000);
+    $("#plus").onclick=()=>{const now=Date.now();if(T.end<now){T.end=now;T.len=0}T.end+=60000;T.len+=60000;render()};
+    goBtn.onclick=()=>next(sec,s);
+  }
+  if(s.step===2){
+    const f=s.fc;
+    const ub=$("#undo");if(ub)ub.onclick=()=>undoCard(sec,s);bindStep.undo=()=>undoCard(sec,s);
+    const qs=$("#qskip");if(qs)qs.onclick=()=>{s.quizlet=true;s.fc=null;next(sec,s)};
+    document.querySelectorAll(".sides [data-side]").forEach(b=>b.onclick=()=>{const sd=sides(),w=b.dataset.side,k=b.dataset.part,a=sd[w];
+      if(a.includes(k)){if(a.length>1)a.splice(a.indexOf(k),1)}else a.push(k);save();render()});
+    const lt=$("#loopt");if(lt)lt.onclick=()=>{S.loop=!S.loop;save();render()};
+    const qc=$("#qcopy");if(qc)qc.onclick=()=>{const txt=sec.cards.map(c=>c[0]+"\t"+String(c[1]).replace(/\s*\n\s*/g," ")).join("\n");const done=()=>toast("Copied "+sec.cards.length+" cards. In Quizlet: Import, paste, Tab between term and definition.");if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,()=>fallback(txt))}else fallback(txt)};
+    if(f.pos>=f.order.length){
+      if($("#again-m"))$("#again-m").onclick=()=>{newPass(sec,s,"missed");render()};
+      if($("#again-a"))$("#again-a").onclick=()=>{newPass(sec,s,"all");render()};
+      goBtn.onclick=()=>next(sec,s);
+      return;
+    }
+    const card=$("#card");
+    const flip=()=>{f.flip=!f.flip;save();render()};
+    card.onclick=flip;
+    const mark=(ok)=>{if(!f.flip)return;UNDO.push({id:sec.id,fc:JSON.stringify(f),passes:s.passes});if(UNDO.length>200)UNDO.shift();const k=f.order[f.pos];(ok?f.got:f.missed).push(k);f.pos++;f.flip=false;
+      if(S.loop&&f.pos>=f.order.length){const m=f.missed.length,g=f.got.length;newPass(sec,s,m?"missed":"all");toast(m?"Got "+g+", missed "+m+". Now just the "+m+" missed.":"Got all "+g+". Shuffling the full set again.")}
+      save();render();const c2=$("#card");if(c2){c2.classList.add(ok?"flash-ok":"flash-no")}};
+    $("#got").onclick=()=>mark(true);$("#miss").onclick=()=>mark(false);
+    bindStep.mark=mark;bindStep.flip=flip;
+  }
+  if(s.step===4){
+    const ta=$("#dump");ta.focus();ta.setSelectionRange(ta.value.length,ta.value.length);
+    ta.oninput=()=>{s.dump=ta.value;save()};
+    const goal=S.settings.dumpMin*60000;let reached=false;const D=dumpClock(sec.id);
+    const frame=()=>{const el=Date.now()-D.start;setClock($("#dt"),fmt(el));setDial("marc",el/goal,18);
+      if(el>=goal&&!reached){reached=true;$("#goal").textContent="goal reached";$("#mini").classList.add("full")}
+      if(!still.matches&&!reached)raf=requestAnimationFrame(frame)};
+    frame();tick=setInterval(()=>{setClock($("#dt"),fmt(Date.now()-D.start));if(reached||still.matches)frame()},1000);
+    bindPad(s,sec.id);
+    goBtn.onclick=()=>{s.dump=ta.value;s.got={};next(sec,s)};
+  }
+  if(s.step===5){
+    const pr=$("#padro");if(pr){pr.style.aspectRatio=String(1/(s.sketch.a||.45));paint(pr,s.sketch,true)}
+    document.querySelectorAll(".pt[data-pop]").forEach(b=>{if(!still.matches)b.classList.add("pop")});lastTick=-1;
+    document.querySelectorAll(".pt").forEach(b=>b.onclick=()=>{const k=+b.dataset.k;s.got[k]=!s.got[k];lastTick=k;save();const y=scrollY;render();scrollTo(0,y)});
+    const total=sec.points.length,missedK=sec.points.map((p,k)=>k).filter(k=>!s.got[k]);
+    const record=()=>{s.history.push({round:s.round,got:total-missedK.length,total});s.dump="";s.sketch=null;delete hist[sec.id]};
+    if($("#loop"))$("#loop").onclick=()=>{record();s.focus=missedK;s.round++;s.step=0;s.got={};s.fc=null;save();render();scrollTo({top:0,behavior:"smooth"})};
+    if($("#moveon"))$("#moveon").onclick=()=>{record();s.focus=missedK;s.status="revisit";s.round++;s.step=0;s.got={};s.fc=null;const n=nextNew(sec);save();go(n?n.id:null)};
+    if($("#finish"))$("#finish").onclick=()=>{record();s.status="done";s.focus=[];s.step=0;s.round=1;s.got={};s.fc=null;const n=nextNew(sec);save();toast("Section "+(idx(sec.id)+1)+" done");go(n?n.id:null)};
+  }
+}
+/* Sketch: strokes are stored as points scaled to the canvas width, so they redraw at any size and in either theme */
+function paint(cv,sk,ro){
+  const dpr=window.devicePixelRatio||1,w=cv.clientWidth;if(!w)return;
+  const h=ro?Math.round(w*(sk.a||.45)):cv.clientHeight;
+  cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
+  const c=cv.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);c.lineCap="round";c.lineJoin="round";
+  const ink=getComputedStyle(document.body).color;
+  (sk.k||[]).forEach(st=>{c.globalCompositeOperation=st.e?"destination-out":"source-over";c.strokeStyle=ink;c.lineWidth=st.w*w;c.beginPath();st.p.forEach((pt,i)=>{const x=pt[0]*w,y=pt[1]*w;i?c.lineTo(x,y):c.moveTo(x,y)});if(st.p.length===1)c.lineTo(st.p[0][0]*w+.01,st.p[0][1]*w);c.stroke()});
+  c.globalCompositeOperation="source-over";
+}
+function bindPad(s,id){
+  const cv=$("#pad");if(!cv)return;
+  if(!s.sketch)s.sketch={a:0,k:[]};
+  const sk=s.sketch,h=H(id);let erase=false,cur=null;
+  const fit=()=>{sk.a=cv.clientHeight/cv.clientWidth;paint(cv,sk,false)};fit();
+  const ro=new ResizeObserver(()=>paint(cv,sk,false));ro.observe(cv);
+  const pt=e=>{const r=cv.getBoundingClientRect();return [+((e.clientX-r.left)/r.width).toFixed(4),+((e.clientY-r.top)/r.width).toFixed(4)]};
+  const snap=()=>{h.u.push(sk.k.slice());if(h.u.length>200)h.u.shift();h.r=[]};
+  cv.onpointerdown=e=>{e.preventDefault();if(document.activeElement&&document.activeElement!==cv)document.activeElement.blur();cv.focus({preventScroll:true});cv.setPointerCapture(e.pointerId);snap();cur={e:erase,w:erase?.04:.0045,p:[pt(e)]};sk.k.push(cur);paint(cv,sk,false)};
+  cv.onpointermove=e=>{if(!cur)return;cur.p.push(pt(e));paint(cv,sk,false)};
+  const end=()=>{if(!cur)return;cur=null;sk.a=cv.clientHeight/cv.clientWidth;save()};
+  cv.onpointerup=end;cv.onpointercancel=end;
+  const tool=v=>{erase=v;$("#tpen").setAttribute("aria-pressed",String(!v));$("#tera").setAttribute("aria-pressed",String(v));cv.style.cursor=v?"cell":"crosshair"};
+  const undo=()=>{if(!h.u.length)return;h.r.push(sk.k.slice());sk.k=h.u.pop();save();paint(cv,sk,false)};
+  const redo=()=>{if(!h.r.length)return;h.u.push(sk.k.slice());sk.k=h.r.pop();save();paint(cv,sk,false)};
+  $("#tpen").onclick=()=>tool(false);$("#tera").onclick=()=>tool(true);
+  $("#tundo").onclick=undo;$("#tredo").onclick=redo;
+  $("#tclr").onclick=()=>{if(!sk.k.length)return;$("#clrc").innerHTML='<div class="confirm"><span>Clear the whole sketch?</span><span class="grow" style="flex:1"></span><button class="btn" id="cno">Keep</button><button class="btn" id="cyes" style="border-color:var(--stop);color:var(--stop)">Clear sketch</button></div>';$("#cno").onclick=()=>$("#clrc").innerHTML="";$("#cyes").onclick=()=>{snap();sk.k=[];save();paint(cv,sk,false);$("#clrc").innerHTML="";toast("Sketch cleared. Command Z brings it back.")}};
+  pad={undo,redo,pen:()=>tool(false),eraser:()=>tool(true)};
+}
+function fallback(txt){const box=$("#qbox");if(!box)return;box.innerHTML='<textarea class="copybox" id="cb" readonly></textarea><p class="small">Your browser blocked copying. Press Cmd C (or Ctrl C) now, the text is selected.</p>';const cb=$("#cb");cb.value=txt;cb.focus();cb.select()}
+
+document.addEventListener("click",e=>{const b=e.target.closest("#side [data-go]");if(b)go(b.dataset.go)});
+document.addEventListener("keydown",e=>{
+  if(!S.cur)return;if(S.cur==="jog"){jogKey(e);return}const s=st(S.cur);const tag=(e.target.tagName||"").toLowerCase();
+  if(s.step===4){const mod=e.ctrlKey||e.metaKey,k=e.key.toLowerCase();
+    if(e.key==="Enter"&&mod){e.preventDefault();$("#go").click();return}
+    if(tag==="textarea"||tag==="input"||tag==="select"||!pad)return;
+    if(mod&&k==="z"&&!e.shiftKey){e.preventDefault();pad.undo()}
+    else if(mod&&(k==="y"||(k==="z"&&e.shiftKey))){e.preventDefault();pad.redo()}
+    else if(!mod&&!e.altKey&&k==="p"){e.preventDefault();pad.pen()}
+    else if(!mod&&!e.altKey&&k==="e"){e.preventDefault();pad.eraser()}
+    return}
+  if(tag==="textarea"||tag==="select"||tag==="input")return;
+  if(s.step===2&&(((e.metaKey||e.ctrlKey)&&!e.shiftKey&&e.key.toLowerCase()==="z")||(!e.metaKey&&!e.ctrlKey&&(e.key==="z"||e.key==="Z"||e.key==="Backspace")))){e.preventDefault();bindStep.undo&&bindStep.undo();return}
+  if(s.step===2&&(e.key==="l"||e.key==="L")&&!e.metaKey&&!e.ctrlKey&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();S.loop=!S.loop;save();render();toast(S.loop?"Looping: passes keep going until you leave":"Loop off");return}
+  if(s.step===2&&s.fc&&s.fc.pos<s.fc.order.length){
+    if(e.key===" "){e.preventDefault();bindStep.flip&&bindStep.flip()}
+    else if(e.key==="ArrowRight"){e.preventDefault();bindStep.mark&&bindStep.mark(true)}
+    else if(e.key==="ArrowLeft"){e.preventDefault();bindStep.mark&&bindStep.mark(false)}
+    return;
+  }
+  if(e.key==="Enter"&&tag!=="button"&&tag!=="a"){const g=$("#go");if(g){e.preventDefault();g.click()}}
+});
+let lastNarrow=matchMedia("(max-width:860px)").matches;
+addEventListener("resize",()=>{const n=matchMedia("(max-width:860px)").matches;if(n!==lastNarrow){lastNarrow=n;renderSide()}});
+document.title=DECK.title;
+render();
+function fromHash(){let h=decodeURIComponent((location.hash||"").slice(1));if(!h){try{h=new URLSearchParams(location.search).get("s")||""}catch(e){}}if(h&&(h==="jog"||secs.some(x=>x.id===h)))go(h)}
+fromHash();addEventListener("hashchange",fromHash);
+})();
+</script>
+</body>
+</html>
