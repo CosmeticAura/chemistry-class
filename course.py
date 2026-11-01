@@ -5,11 +5,13 @@ from unit1 import SECTIONS as U1, REVIEW as R1
 from unit2 import SECTIONS as U2, REVIEW as R2
 from quiz2 import QUIZ
 from plan2 import PLAN_SECTIONS
+from merge2 import merge
 MOCK = {"id": "mock2", "title": "Practice test (grades itself)", "steps": [0], "cards": [], "points": [],
  "notes": [
   {"p": "40 minutes, 30 points: atomic theories, atoms and ions, isotopes and average atomic mass, configurations, noble gas notation and orbital diagrams. Work on paper, type your final answers, then grade it yourself against the answer key. Your score shows which sections to study."},
   {"p": "**[Open the practice test](../mock-test/)**"}]}
-U2 = [MOCK] + PLAN_SECTIONS + [s for s in U2 if s["id"] != "packet"] + [QUIZ] + [s for s in U2 if s["id"] == "packet"]
+GROUPED, REST, ALIASES, R2 = merge(PLAN_SECTIONS + U2, R2)
+U2 = [MOCK] + GROUPED + [s for s in REST if s["id"] != "packet"] + [QUIZ] + [s for s in REST if s["id"] == "packet"]
 
 COURSE = {
  "name": "Chemistry, 10th grade",
@@ -29,4 +31,4 @@ COURSE = {
    "chip": "Test Mon, Nov 2",
    "topics": "Dalton's theory, plum pudding, gold foil, the nucleus, ions, isotopes, average atomic mass, Bohr model, ground and excited states, quantum mechanical model, orbitals, quantum numbers, electron configurations, Aufbau, Pauli, Hund's rule, noble gas notation, valence electrons",
    "source": "From class, the Atom Practice Packet, CK-12, the class drive and the scribe notes. More topics get added as the unit goes on.",
-   "sections": U2, "review": R2}]}
+   "sections": U2, "review": R2, "aliases": ALIASES}]}
