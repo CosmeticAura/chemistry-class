@@ -22,7 +22,7 @@ COURSE = {
  "intro": "Quizzes can be unannounced and run about 1 minute per point.",
  "cumulative": True,
  "img": "img",
- "breakMinutes": 5, "dumpMinutes": 7,
+ "breakMinutes": 2.5, "dumpMinutes": 7,
  "extras": [{"eyebrow": "Unit 2, test Mon, Nov 2", "title": "Unit 2 practice test", "text": "40 minutes, 30 points, written answers like the real test. You grade it yourself against the answer key, and it tells you which sections to study.", "href": "mock-test/"}],
  "units": [
   {"label": "Unit 1", "name": "Matter and measurement", "title": "Chemistry unit 1",
