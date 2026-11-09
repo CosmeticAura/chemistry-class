@@ -5,7 +5,7 @@ from unit1 import SECTIONS as U1, REVIEW as R1
 from unit2 import SECTIONS as U2, REVIEW as R2
 from quiz2 import QUIZ
 from plan2 import PLAN_SECTIONS
-from merge2 import merge
+from merge8 import merge
 from merge1 import merge as merge1
 MOCK = {"id": "mock2", "title": "Practice test (grades itself)", "steps": [0], "cards": [], "points": [],
  "notes": [
@@ -14,7 +14,7 @@ MOCK = {"id": "mock2", "title": "Practice test (grades itself)", "steps": [0], "
 U1, _R1REST, ALIASES1, R1 = merge1(U1, R1)
 U1 = U1 + _R1REST
 GROUPED, REST, ALIASES, R2 = merge(PLAN_SECTIONS + U2, R2)
-U2 = [MOCK] + GROUPED + [s for s in REST if s["id"] != "packet"] + [QUIZ] + [s for s in REST if s["id"] == "packet"]
+U2 = GROUPED + [QUIZ] + REST
 
 COURSE = {
  "name": "Chemistry, 10th grade",
@@ -23,7 +23,7 @@ COURSE = {
  "cumulative": True,
  "img": "img",
  "breakMinutes": 2.5, "dumpMinutes": 7,
- "extras": [{"eyebrow": "Unit 2, test Mon, Nov 2", "title": "Unit 2 practice test", "text": "40 minutes, 30 points, written answers like the real test. You grade it yourself against the answer key, and it tells you which sections to study.", "href": "mock-test/"}],
+ "extras": [{"eyebrow": "Unit 2 quiz, Nov 2", "title": "Unit 2 quiz practice test", "text": "From the Nov 2 quiz: theories, atoms and ions, isotopes, average atomic mass, configurations and orbital diagrams. Written answers, you grade it yourself.", "href": "mock-test/"}],
  "units": [
   {"label": "Unit 1", "name": "Matter and measurement", "title": "Chemistry unit 1",
    "chip": "Test was Friday, Oct 16",
@@ -31,7 +31,7 @@ COURSE = {
    "source": "From the class study guide, sections 1 to 11",
    "sections": U1, "review": R1, "aliases": ALIASES1},
   {"label": "Unit 2", "name": "Atomic structure", "title": "Chemistry unit 2",
-   "chip": "Test Mon, Nov 2",
-   "topics": "Dalton's theory, plum pudding, gold foil, the nucleus, ions, isotopes, average atomic mass, Bohr model, ground and excited states, quantum mechanical model, orbitals, quantum numbers, electron configurations, Aufbau, Pauli, Hund's rule, noble gas notation, valence electrons",
-   "source": "From class, the Atom Practice Packet, CK-12, the class drive and the scribe notes. More topics get added as the unit goes on.",
+   "chip": "Unit test Fri, Nov 13",
+   "topics": "The 8 topics on the unit test: atomic theories, atoms, ions and isotopes, average atomic mass, Bohr's model, electromagnetic spectra, ground vs excited state, electron configuration, orbital diagrams",
+   "source": "From class, the Atom Practice Packet, CK-12, the class drive and the scribe notes. Grouped into the 8 topics on the unit test.",
    "sections": U2, "review": R2, "aliases": ALIASES}]}
