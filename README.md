@@ -12,6 +12,14 @@ Chemistry study site for 10th grade at The Clinton School, 2026 to 2027. Each un
 | [Unit 2](https://cosmeticaura.github.io/chemistry-class/unit-2/) | Atomic structure | In progress |
 | [Review](https://cosmeticaura.github.io/chemistry-class/review/) | Everything so far | Updated with each unit |
 
+## Written study guides
+
+Same content as the site, as a doc you can read or print.
+
+| Unit | Google Doc | In this repo |
+| --- | --- | --- |
+| Unit 2, atomic structure | [Open the doc](https://docs.google.com/document/d/1clxKIAYBhxvEYy_koJu0fkwdCjU83R-fXqybuEQqs18/edit) (Clinton school accounts) | [guides/unit-2.md](guides/unit-2.md) |
+
 ## How each unit works
 
 Every section goes read, short break, flashcards, break, brain dump, then you mark how well it stuck. The memory jog is a quick pass over every topic with the formulas and mnemonics to memorize. Progress saves in your browser, so you can close the tab and pick up where you left off.
