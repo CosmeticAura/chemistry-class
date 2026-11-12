@@ -5,11 +5,11 @@ Test: Friday, Nov 13. Written answers, with a periodic table and a calculator.
 Interactive version with flashcards and practice: https://cosmeticaura.github.io/chemistry-class/unit-2/
 All the code and links: https://github.com/CosmeticAura/chemistry-class
 
-The test has 8 topics. Each one below is the short version of what to know. Words in **bold** are the ones teachers look for.
+The unit has 8 topics.
 
 ## 1. Atomic theories
 
-Know who came in what order and what each one added.
+The models in order, and what each one added:
 
 1. **Democritus** (about 400 BC): everything is made of tiny pieces that can't be cut, called atoms. No experiments.
 2. **Dalton** (1803): atoms are solid spheres. Atoms of one element are all the same. In a reaction, atoms are only rearranged, never created or destroyed.
@@ -18,7 +18,7 @@ Know who came in what order and what each one added.
 5. **Bohr** (1913): electrons move in fixed **energy levels** around the nucleus.
 6. **Modern (quantum) model**: electrons are in **orbitals**, regions where they are likely to be, not neat paths.
 
-Class vocab, word for word:
+Definitions:
 - **Atom:** the basic building block of matter, the smallest particle an element can be divided into.
 - **Law of conservation of mass:** even though matter can change form, its total mass stays the same.
 
@@ -45,11 +45,11 @@ The mass on the periodic table is an average of all the isotopes, weighted by ho
 1. Turn each percent into a decimal (60.11% becomes 0.6011).
 2. Multiply each isotope's mass by its decimal.
 3. Add the results.
-4. Check: the answer has to land between the isotope masses, closer to the more common one.
+4. The answer lands between the isotope masses, closer to the more common one.
 
-Example, gallium: (0.6011 × 68.926) + (0.3989 × 70.925) = 41.431 + 28.292 = **69.72 amu**. Keep the decimals, don't round to 70.
+Example, gallium: (0.6011 × 68.926) + (0.3989 × 70.925) = 41.431 + 28.292 = **69.72 amu**.
 
-Shortcut with no math: if an element's isotopes are 10 and 11 and the average is 10.81, the 11 isotope is more common because the average is closer to 11.
+Without math: if an element's isotopes are 10 and 11 and the average is 10.81, the 11 isotope is more common because the average is closer to 11.
 
 ## 4. Bohr's model and dot diagrams
 
@@ -79,9 +79,7 @@ Sulfur (2-8-6) gets 6 dots: pairs on top and right, single dots on bottom and le
 
 ## 5. Electromagnetic spectra
 
-No math on this, only ideas.
-
-Class vocab, word for word:
+Definitions:
 - **Electromagnetic spectrum:** the amount of light given off by an object at a range of wavelengths.
 - **Bright line spectrum:** an electron can absorb or emit specific amounts of energy by changing energy levels.
 
@@ -113,7 +111,7 @@ Each element has its own spacing of energy levels, so it gives off its own set o
 ## 6. Ground state vs excited state
 
 - **Ground state:** every electron in the lowest level it can be in. Chlorine 2-8-7 and potassium 2-8-8-1 are ground state.
-- **Excited state:** an electron absorbed energy and jumped up. You can spot it when an inner ring isn't full but an outer ring has electrons, like magnesium 2-7-3 or sulfur 2-8-5-1.
+- **Excited state:** an electron absorbed energy and jumped up. The sign is an inner ring that isn't full while an outer ring has electrons, like magnesium 2-7-3 or sulfur 2-8-5-1.
 - When the electron falls back down it **releases** energy as light of one exact color. A bigger drop (4 to 2) gives off more energy than a smaller one (3 to 2).
 
 ## 7. Electron configuration
@@ -158,6 +156,6 @@ Nitrogen three ways:
 
 If someone draws oxygen's 2p as ↑↓ ↑↓ with an empty box, they broke **Hund's rule**. It should be ↑↓ ↑ ↑.
 
-## How to study this
+## Study tip
 
-Work in 25 minute blocks with a 5 minute break between them. For each topic: read it, close it, write everything you remember on a blank page, then check what you missed and only go over those parts again. The interactive site does this for you, with flashcards for every topic.
+25 minutes of studying, then a 5 minute break. Repeat. Short breaks help the brain hold on to what you just learned.
