@@ -28,7 +28,7 @@ Every section goes read, short break, practice (flashcards or multiple choice, y
 
 ```
 index.html        home page with every unit
-unit-1/           matter and measurement
+unit-1/           matter and measurement (8 sections)
 unit-2/           atomic structure
 review/           all units combined
 guides/           written study guides

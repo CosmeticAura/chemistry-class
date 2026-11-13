@@ -414,53 +414,11 @@ const DECK = {
    "**Up = absorb** energy, **down = release** light (bright line spectrum)"
   ],
   "secs": {
-   "matter": [
-    "Matter → **pure substance** (one kind of particle) or **mixture** (physically combined)",
-    "Pure → **element** (one kind of atom) or **compound** (atoms chemically joined, only a chemical change splits it)",
-    "Mixture → **homogeneous** (same throughout, solutions like salt water) or **heterogeneous** (you can see the parts)",
-    "Particle diagrams: count kinds of particles first. One kind = pure, two or more = mixture",
-    "Solution, colloid, suspension: small to large particles. Alloy = mixture of metals",
-    "**Physical** property: seen without changing it (color, density, melting point). **Chemical**: how it reacts (flammability, ability to rust)",
-    "**Physical change**: no new substance (melt, cut, dissolve). **Chemical change**: new substance (burn, rust, bake)",
-    "Evidence of a chemical change: gas, color change, precipitate, temperature change or light, new odor. Proof is a new substance",
-    "Endothermic absorbs heat, exothermic releases it",
-    "Solid: fixed shape and volume. Liquid: fixed volume, takes the shape. Gas: fills the container",
-    "Melting, freezing, evaporation/boiling, condensation, **sublimation** (solid → gas), **deposition** (gas → solid). All physical",
-    "Water's heating curve is flat at 0 °C and 100 °C: the energy changes the state, not the temperature",
-    "Magnet, Filtration, Decantation, Flotation, Evaporation, Crystallization, Distillation, Chromatography, Electrolysis",
-    "All physical except **electrolysis** (chemical, splits water into hydrogen and oxygen)",
-    "Filtration: residue stays, filtrate goes through. Evaporation keeps the solid, distillation keeps the liquid",
-    "Iron, sand and salt: magnet, add water and filter, evaporate",
-    "Also sieving (particle size) and centrifugation (density, spinning)"
-   ],
    "lab": [
     "Beaker: rough volume. Graduated cylinder: accurate, read the bottom of the meniscus at eye level",
     "Volumetric flask: one exact volume. Buret: adds an exact amount. Balance: tare first",
     "Bunsen burner lit with a flint striker. Glowing splint relights in oxygen, burning one pops in hydrogen",
     "Safety: goggles, hair tied back, never taste, waft, point test tubes away, report spills"
-   ],
-   "measure": [
-    "mega 1,000,000 · kilo 1000 · hecto 100 · deka 10 · base 1 · deci 0.1 · centi 0.01 · milli 0.001 · micro 0.000001",
-    "Ladder: down to a smaller unit, decimal moves right. Mega↔kilo and milli↔micro are 3 places",
-    "Dimensional analysis: unit you want on top, unit to cancel on the bottom. 2.5 km × (1000 m / 1 km) = 2500 m",
-    "SI units: kilogram, meter, cubic meter, Kelvin, joule",
-    "A × 10ⁿ with 1 ≤ A < 10. Big numbers positive exponent, small numbers negative",
-    "45,000 = 4.5 × 10⁴. 0.0032 = 3.2 × 10⁻³",
-    "Multiply: multiply A's, add exponents. Divide: divide A's, subtract exponents. Fix A if it's 10 or more",
-    "Count from the first nonzero digit (Atlantic Pacific). Zeros in between count",
-    "× ÷: fewest sig figs. + −: fewest decimal places. Round once at the end",
-    "Measuring: all certain digits plus one estimated digit",
-    "D = m ÷ V. 20 g ÷ 5 cm³ = 4 g/cm³",
-    "Water displacement: volume = final − starting level. 45.0 g rock, 15.0 mL → 3.00 g/mL",
-    "Water is 1 g/mL: less dense floats, more dense sinks. Always write units"
-   ],
-   "data": [
-    "**Accuracy**: close to the true value. **Precision**: close to each other",
-    "Percent error: 2.85 measured, 2.70 accepted → 0.15 ÷ 2.70 × 100 = 5.6%. Lower = more accurate",
-    "Standard deviation: small = precise. 10.2, 10.4, 10.0, 10.6 g → mean 10.3, squares sum 0.20, ÷ 3, √ = 0.26 g",
-    "Line: change over time. Bar: categories. Pie: parts of a whole. Scatter: two measured variables",
-    "IV changed on purpose, x axis. DV measured, y axis. Controlled variables stay the same",
-    "Complete graph: title (DV vs IV), axes with units, even scales. Slope = Δy ÷ Δx with units"
    ],
    "theories": [
     "Dalton 1803: atoms are **indivisible**, same element atoms are **identical**, atoms join in **whole number ratios**, reactions **rearrange** atoms",
@@ -528,16 +486,12 @@ const DECK = {
  "subtitle": "Units 1 and 2",
  "source": "Every section from every unit so far, for cumulative review",
  "aliases": {
-  "classification": "matter",
-  "properties": "matter",
-  "states": "matter",
-  "separation": "matter",
-  "metric": "measure",
-  "scinot": "measure",
-  "sigfigs": "measure",
-  "density": "measure",
-  "accuracy": "data",
-  "graphs": "data",
+  "classification": "classify",
+  "properties": "changes",
+  "states": "changes",
+  "scinot": "numbers",
+  "sigfigs": "numbers",
+  "density": "metric",
   "dalton": "theories",
   "goldfoil": "theories",
   "models": "theories",
@@ -546,21 +500,23 @@ const DECK = {
   "ions": "atoms",
   "isotopes": "atoms",
   "mass": "avgmass",
-  "excited": "excited",
   "noblegas": "econfig",
   "valence": "econfig",
   "drills": "econfig",
   "explain": "econfig",
   "qnumbers": "orbdiag",
   "quantum": "orbdiag",
-  "config": "econfig"
+  "config": "econfig",
+  "matter": "classify",
+  "measure": "metric",
+  "data": "accuracy"
  },
  "breakMinutes": 2.5,
  "dumpMinutes": 7,
  "sections": [
   {
-   "id": "matter",
-   "title": "Matter, changes and separation",
+   "id": "classify",
+   "title": "Classifying matter",
    "quizlet": "",
    "notes": [
     {
@@ -662,7 +618,130 @@ const DECK = {
     },
     {
      "p": "An **alloy** is a mixture of metals, like steel or brass."
-    },
+    }
+   ],
+   "cards": [
+    [
+     "Matter",
+     "Anything that has mass and takes up space"
+    ],
+    [
+     "Pure substance",
+     "Only one type of particle with a fixed composition. Can't be separated by physical means. Either an element or a compound."
+    ],
+    [
+     "Element",
+     "Pure substance made of one kind of atom (carbon, oxygen O2, iron). Can't be broken down by a chemical change."
+    ],
+    [
+     "Compound",
+     "Pure substance of two or more kinds of atoms chemically joined in a fixed ratio (H2O, NaCl). Can only be broken down by a chemical change."
+    ],
+    [
+     "Mixture",
+     "Two or more substances physically combined, not chemically joined. Can be separated by physical means."
+    ],
+    [
+     "Homogeneous mixture",
+     "Looks the same all the way through (salt water, air, Kool-Aid). A solution is homogeneous."
+    ],
+    [
+     "Heterogeneous mixture",
+     "You can see the different parts (trail mix, cereal and milk)."
+    ],
+    [
+     "Solution",
+     "A homogeneous mixture where one substance (solute) is dissolved in another (solvent)"
+    ],
+    [
+     "Suspension",
+     "A heterogeneous mixture whose particles settle when it sits and can be filtered (muddy water, Italian dressing)"
+    ],
+    [
+     "Sodium chloride vs table salt",
+     "Sodium chloride is a pure compound. Table salt has other substances added, so it is a mixture."
+    ],
+    [
+     "Particle diagram: one kind of particle, single atoms or same atoms joined",
+     "Element"
+    ],
+    [
+     "Particle diagram: one kind of particle, different atoms joined",
+     "Compound"
+    ],
+    [
+     "Particle diagram: two or more kinds of particles",
+     "Mixture (spread evenly = homogeneous, clumped = heterogeneous)"
+    ],
+    [
+     "Mixture of elements (particle diagram)",
+     "Two or more kinds of particles, each made of only one kind of atom, not joined to each other"
+    ],
+    [
+     "Mixture of compounds (particle diagram)",
+     "Two or more kinds of particles, each made of different atoms joined"
+    ],
+    [
+     "Mixture of elements and compounds (particle diagram)",
+     "Some particles are single elements and some are compounds, mixed together but not joined"
+    ],
+    [
+     "Questions to classify matter",
+     "1) Can it be separated physically? Yes = mixture, no = pure substance. 2) Pure: can it be broken down chemically? Yes = compound, no = element. 3) Mixture: same throughout? Yes = homogeneous, no = heterogeneous."
+    ],
+    [
+     "Colloid",
+     "A mixture with medium sized particles: big enough to scatter light, too small to settle or filter out. Milk, fog, jello."
+    ],
+    [
+     "Solution vs colloid vs suspension",
+     "By particle size. Solution: tiny, can't see or filter. Colloid: medium, doesn't settle. Suspension: large, settles and can be filtered."
+    ],
+    [
+     "Alloy",
+     "A mixture of two or more metals (or a metal and another element), like steel or brass. It's a homogeneous mixture."
+    ],
+    [
+     "Classification flowchart, first question",
+     "Can it be separated by physical means? Yes means mixture, no means pure substance."
+    ],
+    [
+     "Classification flowchart, mixture question",
+     "Is the composition uniform? Yes means homogeneous, no means heterogeneous."
+    ],
+    [
+     "Classification flowchart, pure substance question",
+     "Can it be decomposed by ordinary chemical means? Yes means compound, no means element."
+    ],
+    [
+     "Homogeneous mixture examples (class flowchart)",
+     "Air, sugar in water, stainless steel"
+    ],
+    [
+     "Heterogeneous mixture examples (class flowchart)",
+     "Granite, wood, blood"
+    ],
+    [
+     "Compound examples (class flowchart)",
+     "Water, sodium chloride, sucrose"
+    ],
+    [
+     "Element examples (class flowchart)",
+     "Gold, aluminum, oxygen, chlorine"
+    ]
+   ],
+   "points": [
+    "A pure substance is an element or a compound. A mixture is homogeneous or heterogeneous",
+    "A compound has two or more kinds of atom chemically joined (H₂O, NaCl) and only breaks down by a chemical change",
+    "A mixture is not chemically joined and can be separated by physical means"
+   ],
+   "group": "Unit 1, matter and measurement"
+  },
+  {
+   "id": "changes",
+   "title": "Properties, changes and states",
+   "quizlet": "",
+   "notes": [
     {
      "h": "Properties and changes"
     },
@@ -816,7 +895,168 @@ const DECK = {
     },
     {
      "p": "In the phase change lab (heating curve for water at normal pressure), as ice is heated, the temperature rises, then stays flat at 0 °C while it melts, rises again, then stays flat at 100 °C while it boils. During a flat part the energy goes into changing the state, not raising the temperature."
-    },
+    }
+   ],
+   "cards": [
+    [
+     "Physical property",
+     "Can be observed without changing the substance: color, odor, state, melting and boiling point, density, solubility, hardness, magnetism, conductivity"
+    ],
+    [
+     "Chemical property",
+     "How a substance reacts to become something new: flammability, ability to rust, reacts with acid or water"
+    ],
+    [
+     "Physical change",
+     "No new substance forms: melting, freezing, boiling, cutting, crushing, dissolving"
+    ],
+    [
+     "Chemical change",
+     "A new substance forms: burning, rusting, baking, spoiling, vinegar with baking soda"
+    ],
+    [
+     "5 pieces of evidence of a chemical change",
+     "Gas bubbles, color change, a precipitate (solid forms in a liquid), temperature change or light, a new odor"
+    ],
+    [
+     "Precipitate",
+     "A solid that forms when two solutions are mixed; evidence of a chemical change"
+    ],
+    [
+     "Evidence vs proof of chemical change",
+     "Evidence is a clue. The proof is that a new substance formed."
+    ],
+    [
+     "Chemical reaction",
+     "Reactants turn into products (reactants → products). Example: iron + oxygen → rust."
+    ],
+    [
+     "Solid",
+     "Fixed shape and fixed volume. Particles packed tightly, vibrate in place."
+    ],
+    [
+     "Liquid",
+     "Takes the container's shape, fixed volume. Particles close but slide past each other."
+    ],
+    [
+     "Gas",
+     "Fills the whole container. Particles far apart and move fast."
+    ],
+    [
+     "Melting",
+     "Solid → liquid (ice melting). Particles break out of their fixed pattern and slide past each other."
+    ],
+    [
+     "Freezing",
+     "Liquid → solid (water freezing)"
+    ],
+    [
+     "Evaporation / boiling (vaporization)",
+     "Liquid → gas (boiling water)"
+    ],
+    [
+     "Condensation",
+     "Gas → liquid (droplets on a cold glass)"
+    ],
+    [
+     "Reactants",
+     "The starting substances in a chemical reaction (left side of the arrow)"
+    ],
+    [
+     "Products",
+     "The new substances made in a chemical reaction (right side of the arrow)"
+    ],
+    [
+     "Is dissolving physical or chemical?",
+     "Physical. No new substance forms and it can be separated again."
+    ],
+    [
+     "Is burning paper physical or chemical?",
+     "Chemical. A new substance forms; evidence is light, heat, ash and smoke."
+    ],
+    [
+     "How to answer 'physical or chemical?' on the test",
+     "Say which one, explain with 'a new substance formed' or 'no new substance formed', and give the evidence."
+    ],
+    [
+     "Physical properties (class list)",
+     "Color, shape, size, density, volume, malleability, ductility, boiling point, viscosity, solubility"
+    ],
+    [
+     "Chemical properties (class list)",
+     "Flammability, reactivity, ability to rust (corrosion), radioactivity, toxicity, oxidizer, combustible, explosive, pyrophoric"
+    ],
+    [
+     "Malleable",
+     "Can be hammered into thin sheets (physical property)"
+    ],
+    [
+     "Ductile",
+     "Can be pulled into a wire (physical property)"
+    ],
+    [
+     "Viscosity",
+     "How thick a liquid is, how much it resists flowing. Honey is very viscous. (Physical property)"
+    ],
+    [
+     "Solubility",
+     "How much of a substance dissolves in another (physical property)"
+    ],
+    [
+     "Pyrophoric",
+     "Catches fire on its own when it touches air (chemical property)"
+    ],
+    [
+     "Oxidizer",
+     "A substance that makes other things burn or react more (chemical property)"
+    ],
+    [
+     "Physical vs chemical change (class vocab sheet)",
+     "Physical: no new substance, reversible, small energy change. Chemical: new substance, usually irreversible, large energy change."
+    ],
+    [
+     "Endothermic",
+     "Absorbs heat, so the surroundings get colder. Melting ice, a cold pack."
+    ],
+    [
+     "Exothermic",
+     "Releases heat, so the surroundings get warmer. Burning, a hand warmer."
+    ],
+    [
+     "Sublimation",
+     "Solid → gas, skipping the liquid (dry ice)"
+    ],
+    [
+     "Deposition",
+     "Gas → solid, skipping the liquid (frost)"
+    ],
+    [
+     "Are phase changes physical or chemical?",
+     "Physical. It is still the same substance, only the state changed."
+    ],
+    [
+     "Heating curve flat parts",
+     "For water at normal pressure, the curve is flat at 0 °C (melting) and 100 °C (boiling) because the energy goes into changing the state, not raising the temperature."
+    ],
+    [
+     "Heating curve of ice",
+     "Temperature rises, flat at 0 °C while it melts, rises, flat at 100 °C while it boils, then rises again"
+    ]
+   ],
+   "points": [
+    "Physical properties are seen without changing the substance, chemical properties describe how it reacts",
+    "A physical change makes no new substance, a chemical change makes one (burning, rusting, baking)",
+    "The five pieces of evidence: gas, color change, precipitate, temperature change or light, new odor",
+    "Solid has a fixed shape and volume, liquid a fixed volume, gas fills its container",
+    "Melting, freezing, evaporation, condensation, sublimation (solid to gas) and deposition (gas to solid) are all physical",
+    "For water, the heating curve is flat at 0 °C and 100 °C because the energy changes the state, not the temperature"
+   ]
+  },
+  {
+   "id": "separation",
+   "title": "Separation techniques",
+   "quizlet": "",
+   "notes": [
     {
      "h": "Separation techniques"
     },
@@ -919,98 +1159,6 @@ const DECK = {
    ],
    "cards": [
     [
-     "Matter",
-     "Anything that has mass and takes up space"
-    ],
-    [
-     "Pure substance",
-     "Only one type of particle with a fixed composition. Can't be separated by physical means. Either an element or a compound."
-    ],
-    [
-     "Element",
-     "Pure substance made of one kind of atom (carbon, oxygen O2, iron). Can't be broken down by a chemical change."
-    ],
-    [
-     "Compound",
-     "Pure substance of two or more kinds of atoms chemically joined in a fixed ratio (H2O, NaCl). Can only be broken down by a chemical change."
-    ],
-    [
-     "Mixture",
-     "Two or more substances physically combined, not chemically joined. Can be separated by physical means."
-    ],
-    [
-     "Homogeneous mixture",
-     "Looks the same all the way through (salt water, air, Kool-Aid). A solution is homogeneous."
-    ],
-    [
-     "Heterogeneous mixture",
-     "You can see the different parts (trail mix, cereal and milk)."
-    ],
-    [
-     "Solution",
-     "A homogeneous mixture where one substance (solute) is dissolved in another (solvent)"
-    ],
-    [
-     "Physical property",
-     "Can be observed without changing the substance: color, odor, state, melting and boiling point, density, solubility, hardness, magnetism, conductivity"
-    ],
-    [
-     "Chemical property",
-     "How a substance reacts to become something new: flammability, ability to rust, reacts with acid or water"
-    ],
-    [
-     "Physical change",
-     "No new substance forms: melting, freezing, boiling, cutting, crushing, dissolving"
-    ],
-    [
-     "Chemical change",
-     "A new substance forms: burning, rusting, baking, spoiling, vinegar with baking soda"
-    ],
-    [
-     "5 pieces of evidence of a chemical change",
-     "Gas bubbles, color change, a precipitate (solid forms in a liquid), temperature change or light, a new odor"
-    ],
-    [
-     "Precipitate",
-     "A solid that forms when two solutions are mixed; evidence of a chemical change"
-    ],
-    [
-     "Evidence vs proof of chemical change",
-     "Evidence is a clue. The proof is that a new substance formed."
-    ],
-    [
-     "Chemical reaction",
-     "Reactants turn into products (reactants → products). Example: iron + oxygen → rust."
-    ],
-    [
-     "Solid",
-     "Fixed shape and fixed volume. Particles packed tightly, vibrate in place."
-    ],
-    [
-     "Liquid",
-     "Takes the container's shape, fixed volume. Particles close but slide past each other."
-    ],
-    [
-     "Gas",
-     "Fills the whole container. Particles far apart and move fast."
-    ],
-    [
-     "Melting",
-     "Solid → liquid (ice melting). Particles break out of their fixed pattern and slide past each other."
-    ],
-    [
-     "Freezing",
-     "Liquid → solid (water freezing)"
-    ],
-    [
-     "Evaporation / boiling (vaporization)",
-     "Liquid → gas (boiling water)"
-    ],
-    [
-     "Condensation",
-     "Gas → liquid (droplets on a cold glass)"
-    ],
-    [
      "Mnemonic for the 9 separation methods",
      "My Friend Dave Found Every Cool Dinosaur Coin Ever: Magnet, Filtration, Decantation, Flotation, Evaporation, Crystallization, Distillation, Chromatography, Electrolysis"
     ],
@@ -1037,166 +1185,6 @@ const DECK = {
     [
      "Crystallization (physical or chemical?)",
      "Physical. Uses solubility: evaporate some liquid, cool slowly, pure crystals form and are filtered off."
-    ],
-    [
-     "Suspension",
-     "A heterogeneous mixture whose particles settle when it sits and can be filtered (muddy water, Italian dressing)"
-    ],
-    [
-     "Sodium chloride vs table salt",
-     "Sodium chloride is a pure compound. Table salt has other substances added, so it is a mixture."
-    ],
-    [
-     "Particle diagram: one kind of particle, single atoms or same atoms joined",
-     "Element"
-    ],
-    [
-     "Particle diagram: one kind of particle, different atoms joined",
-     "Compound"
-    ],
-    [
-     "Particle diagram: two or more kinds of particles",
-     "Mixture (spread evenly = homogeneous, clumped = heterogeneous)"
-    ],
-    [
-     "Mixture of elements (particle diagram)",
-     "Two or more kinds of particles, each made of only one kind of atom, not joined to each other"
-    ],
-    [
-     "Mixture of compounds (particle diagram)",
-     "Two or more kinds of particles, each made of different atoms joined"
-    ],
-    [
-     "Mixture of elements and compounds (particle diagram)",
-     "Some particles are single elements and some are compounds, mixed together but not joined"
-    ],
-    [
-     "Questions to classify matter",
-     "1) Can it be separated physically? Yes = mixture, no = pure substance. 2) Pure: can it be broken down chemically? Yes = compound, no = element. 3) Mixture: same throughout? Yes = homogeneous, no = heterogeneous."
-    ],
-    [
-     "Colloid",
-     "A mixture with medium sized particles: big enough to scatter light, too small to settle or filter out. Milk, fog, jello."
-    ],
-    [
-     "Solution vs colloid vs suspension",
-     "By particle size. Solution: tiny, can't see or filter. Colloid: medium, doesn't settle. Suspension: large, settles and can be filtered."
-    ],
-    [
-     "Alloy",
-     "A mixture of two or more metals (or a metal and another element), like steel or brass. It's a homogeneous mixture."
-    ],
-    [
-     "Classification flowchart, first question",
-     "Can it be separated by physical means? Yes means mixture, no means pure substance."
-    ],
-    [
-     "Classification flowchart, mixture question",
-     "Is the composition uniform? Yes means homogeneous, no means heterogeneous."
-    ],
-    [
-     "Classification flowchart, pure substance question",
-     "Can it be decomposed by ordinary chemical means? Yes means compound, no means element."
-    ],
-    [
-     "Homogeneous mixture examples (class flowchart)",
-     "Air, sugar in water, stainless steel"
-    ],
-    [
-     "Heterogeneous mixture examples (class flowchart)",
-     "Granite, wood, blood"
-    ],
-    [
-     "Compound examples (class flowchart)",
-     "Water, sodium chloride, sucrose"
-    ],
-    [
-     "Element examples (class flowchart)",
-     "Gold, aluminum, oxygen, chlorine"
-    ],
-    [
-     "Reactants",
-     "The starting substances in a chemical reaction (left side of the arrow)"
-    ],
-    [
-     "Products",
-     "The new substances made in a chemical reaction (right side of the arrow)"
-    ],
-    [
-     "Is dissolving physical or chemical?",
-     "Physical. No new substance forms and it can be separated again."
-    ],
-    [
-     "Is burning paper physical or chemical?",
-     "Chemical. A new substance forms; evidence is light, heat, ash and smoke."
-    ],
-    [
-     "How to answer 'physical or chemical?' on the test",
-     "Say which one, explain with 'a new substance formed' or 'no new substance formed', and give the evidence."
-    ],
-    [
-     "Physical properties (class list)",
-     "Color, shape, size, density, volume, malleability, ductility, boiling point, viscosity, solubility"
-    ],
-    [
-     "Chemical properties (class list)",
-     "Flammability, reactivity, ability to rust (corrosion), radioactivity, toxicity, oxidizer, combustible, explosive, pyrophoric"
-    ],
-    [
-     "Malleable",
-     "Can be hammered into thin sheets (physical property)"
-    ],
-    [
-     "Ductile",
-     "Can be pulled into a wire (physical property)"
-    ],
-    [
-     "Viscosity",
-     "How thick a liquid is, how much it resists flowing. Honey is very viscous. (Physical property)"
-    ],
-    [
-     "Solubility",
-     "How much of a substance dissolves in another (physical property)"
-    ],
-    [
-     "Pyrophoric",
-     "Catches fire on its own when it touches air (chemical property)"
-    ],
-    [
-     "Oxidizer",
-     "A substance that makes other things burn or react more (chemical property)"
-    ],
-    [
-     "Physical vs chemical change (class vocab sheet)",
-     "Physical: no new substance, reversible, small energy change. Chemical: new substance, usually irreversible, large energy change."
-    ],
-    [
-     "Endothermic",
-     "Absorbs heat, so the surroundings get colder. Melting ice, a cold pack."
-    ],
-    [
-     "Exothermic",
-     "Releases heat, so the surroundings get warmer. Burning, a hand warmer."
-    ],
-    [
-     "Sublimation",
-     "Solid → gas, skipping the liquid (dry ice)"
-    ],
-    [
-     "Deposition",
-     "Gas → solid, skipping the liquid (frost)"
-    ],
-    [
-     "Are phase changes physical or chemical?",
-     "Physical. It is still the same substance, only the state changed."
-    ],
-    [
-     "Heating curve flat parts",
-     "For water at normal pressure, the curve is flat at 0 °C (melting) and 100 °C (boiling) because the energy goes into changing the state, not raising the temperature."
-    ],
-    [
-     "Heating curve of ice",
-     "Temperature rises, flat at 0 °C while it melts, rises, flat at 100 °C while it boils, then rises again"
     ],
     [
      "Distillation (physical or chemical?)",
@@ -1252,19 +1240,9 @@ const DECK = {
     ]
    ],
    "points": [
-    "A pure substance is an element or a compound. A mixture is homogeneous or heterogeneous",
-    "A compound has two or more kinds of atom chemically joined (H₂O, NaCl) and only breaks down by a chemical change",
-    "A mixture is not chemically joined and can be separated by physical means",
-    "Physical properties are seen without changing the substance, chemical properties describe how it reacts",
-    "A physical change makes no new substance, a chemical change makes one (burning, rusting, baking)",
-    "The five pieces of evidence: gas, color change, precipitate, temperature change or light, new odor",
-    "Solid has a fixed shape and volume, liquid a fixed volume, gas fills its container",
-    "Melting, freezing, evaporation, condensation, sublimation (solid to gas) and deposition (gas to solid) are all physical",
-    "For water, the heating curve is flat at 0 °C and 100 °C because the energy changes the state, not the temperature",
     "The nine methods in order with the mnemonic (My Friend Dave Found Every Cool Dinosaur Coin Ever)",
     "Evaporation keeps the solid and loses the water, distillation keeps the water"
-   ],
-   "group": "Unit 1, matter and measurement"
+   ]
   },
   {
    "id": "lab",
@@ -1760,8 +1738,8 @@ const DECK = {
    "group": "Unit 1, matter and measurement"
   },
   {
-   "id": "measure",
-   "title": "Measurement math",
+   "id": "metric",
+   "title": "Metric system, units and density",
    "quizlet": "",
    "notes": [
     {
@@ -1854,81 +1832,6 @@ const DECK = {
      ]
     },
     {
-     "h": "Scientific notation"
-    },
-    {
-     "key": "Form: A × 10ⁿ, where 1 ≤ A < 10 (A can be 1, but not 10)."
-    },
-    {
-     "list": [
-      "Big numbers get a positive exponent: 45,000 = 4.5 × 10⁴ (decimal moved 4 places left).",
-      "Numbers below 1 get a negative exponent: 0.0032 = 3.2 × 10⁻³ (decimal moved 3 places right).",
-      "Back to normal: positive exponent, move the decimal right. Negative exponent, move it left. 6.02 × 10⁻² = 0.0602.",
-      "Multiply: multiply the first parts, add the exponents. (3.0 × 10⁴) × (2.0 × 10²) = 6.0 × 10⁶.",
-      "Divide: divide the first parts, subtract the exponents. (4.0 × 10⁵) ÷ (2.0 × 10²) = 2.0 × 10³.",
-      "If A comes out 10 or more, fix it: 45 × 10³ = 4.5 × 10⁴."
-     ]
-    },
-    {
-     "h": "Significant figures"
-    },
-    {
-     "key": "Atlantic Pacific rule. If the decimal point is Present, start on the Pacific side (left). If it is Absent, start on the Atlantic side (right). Move in to the first nonzero digit, then count it and every digit after it."
-    },
-    {
-     "img": "../img/sigfig-atlantic-pacific.png",
-     "alt": "Atlantic Pacific rule diagram"
-    },
-    {
-     "table": {
-      "head": [
-       "Number",
-       "Sig figs",
-       "Why"
-      ],
-      "rows": [
-       [
-        "0.00820",
-        "3",
-        "Decimal present, start left at 8"
-       ],
-       [
-        "52,000",
-        "2",
-        "No decimal, start right at 2"
-       ],
-       [
-        "305",
-        "3",
-        "Zeros between nonzero digits count"
-       ],
-       [
-        "100.0",
-        "4",
-        "Decimal present, start left at 1"
-       ],
-       [
-        "4.50 × 10³",
-        "3",
-        "In scientific notation every digit in A counts, never the 10ⁿ"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "Scientific notation shows sig figs. 1200 with 3 sig figs is written 1.20 × 10³."
-    },
-    {
-     "list": [
-      "For × and ÷, keep the fewest sig figs. 4.56 × 1.4 = 6.384 → 6.4",
-      "For + and −, keep the fewest decimal places. 12.11 + 0.3 = 12.41 → 12.4",
-      "Round once, at the end."
-     ]
-    },
-    {
-     "p": "When you measure, record every certain digit plus one estimated digit (one digit past the smallest marking)."
-    },
-    {
      "h": "Density"
     },
     {
@@ -1974,66 +1877,6 @@ const DECK = {
     [
      "micro (μ)",
      "0.000001 of a base unit (one millionth, 3 places below milli)"
-    ],
-    [
-     "Scientific notation form",
-     "A × 10ⁿ where 1 ≤ A < 10"
-    ],
-    [
-     "Big number → scientific notation",
-     "Positive exponent. 45,000 = 4.5 × 10⁴"
-    ],
-    [
-     "Small number (below 1) → scientific notation",
-     "Negative exponent. 0.0032 = 3.2 × 10⁻³"
-    ],
-    [
-     "Positive exponent → standard form",
-     "Move the decimal right"
-    ],
-    [
-     "Negative exponent → standard form",
-     "Move the decimal left. 6.02 × 10⁻² = 0.0602"
-    ],
-    [
-     "Multiplying in scientific notation",
-     "Multiply the first parts, add the exponents. (3.0 × 10⁴)(2.0 × 10²) = 6.0 × 10⁶"
-    ],
-    [
-     "Dividing in scientific notation",
-     "Divide the first parts, subtract the exponents. (4.0 × 10⁵) ÷ (2.0 × 10²) = 2.0 × 10³"
-    ],
-    [
-     "Fixing A when it's 10 or more",
-     "45 × 10³ = 4.5 × 10⁴"
-    ],
-    [
-     "Atlantic Pacific rule",
-     "Decimal Present: start on the Pacific (left). Decimal Absent: start on the Atlantic (right). Move to the first nonzero digit and count it and every digit after."
-    ],
-    [
-     "Sig figs in 0.00820",
-     "3"
-    ],
-    [
-     "Sig figs in 52,000",
-     "2"
-    ],
-    [
-     "Sig figs in 305",
-     "3 (zeros between nonzero digits count)"
-    ],
-    [
-     "Sig figs in 100.0",
-     "4"
-    ],
-    [
-     "Sig figs in 4.50 × 10³",
-     "3 (every digit in A counts, never the 10ⁿ)"
-    ],
-    [
-     "Sig figs in 7,050",
-     "3"
     ],
     [
      "Density formula",
@@ -2120,6 +1963,164 @@ const DECK = {
      "5000 μg (milli to micro is 3 places)"
     ],
     [
+     "12.0 g and 4.0 mL",
+     "3.0 g/mL"
+    ]
+   ],
+   "points": [
+    "The prefix order mega, kilo, hecto, deka, base, deci, centi, milli, micro with their values",
+    "Mega to kilo and milli to micro are jumps of 3 decimal places",
+    "1 mL = 1 cm³, and Celsius to Kelvin is add 273",
+    "Dimensional analysis: the unit you want on top, the one you're cancelling on the bottom",
+    "Density = mass ÷ volume",
+    "Water displacement: volume = final level − starting level",
+    "Water is 1 g/mL. Less dense floats, more dense sinks"
+   ],
+   "group": "Unit 1, matter and measurement"
+  },
+  {
+   "id": "numbers",
+   "title": "Scientific notation and sig figs",
+   "quizlet": "",
+   "notes": [
+    {
+     "h": "Scientific notation"
+    },
+    {
+     "key": "Form: A × 10ⁿ, where 1 ≤ A < 10 (A can be 1, but not 10)."
+    },
+    {
+     "list": [
+      "Big numbers get a positive exponent: 45,000 = 4.5 × 10⁴ (decimal moved 4 places left).",
+      "Numbers below 1 get a negative exponent: 0.0032 = 3.2 × 10⁻³ (decimal moved 3 places right).",
+      "Back to normal: positive exponent, move the decimal right. Negative exponent, move it left. 6.02 × 10⁻² = 0.0602.",
+      "Multiply: multiply the first parts, add the exponents. (3.0 × 10⁴) × (2.0 × 10²) = 6.0 × 10⁶.",
+      "Divide: divide the first parts, subtract the exponents. (4.0 × 10⁵) ÷ (2.0 × 10²) = 2.0 × 10³.",
+      "If A comes out 10 or more, fix it: 45 × 10³ = 4.5 × 10⁴."
+     ]
+    },
+    {
+     "h": "Significant figures"
+    },
+    {
+     "key": "Atlantic Pacific rule. If the decimal point is Present, start on the Pacific side (left). If it is Absent, start on the Atlantic side (right). Move in to the first nonzero digit, then count it and every digit after it."
+    },
+    {
+     "img": "../img/sigfig-atlantic-pacific.png",
+     "alt": "Atlantic Pacific rule diagram"
+    },
+    {
+     "table": {
+      "head": [
+       "Number",
+       "Sig figs",
+       "Why"
+      ],
+      "rows": [
+       [
+        "0.00820",
+        "3",
+        "Decimal present, start left at 8"
+       ],
+       [
+        "52,000",
+        "2",
+        "No decimal, start right at 2"
+       ],
+       [
+        "305",
+        "3",
+        "Zeros between nonzero digits count"
+       ],
+       [
+        "100.0",
+        "4",
+        "Decimal present, start left at 1"
+       ],
+       [
+        "4.50 × 10³",
+        "3",
+        "In scientific notation every digit in A counts, never the 10ⁿ"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Scientific notation shows sig figs. 1200 with 3 sig figs is written 1.20 × 10³."
+    },
+    {
+     "list": [
+      "For × and ÷, keep the fewest sig figs. 4.56 × 1.4 = 6.384 → 6.4",
+      "For + and −, keep the fewest decimal places. 12.11 + 0.3 = 12.41 → 12.4",
+      "Round once, at the end."
+     ]
+    },
+    {
+     "p": "When you measure, record every certain digit plus one estimated digit (one digit past the smallest marking)."
+    }
+   ],
+   "cards": [
+    [
+     "Scientific notation form",
+     "A × 10ⁿ where 1 ≤ A < 10"
+    ],
+    [
+     "Big number → scientific notation",
+     "Positive exponent. 45,000 = 4.5 × 10⁴"
+    ],
+    [
+     "Small number (below 1) → scientific notation",
+     "Negative exponent. 0.0032 = 3.2 × 10⁻³"
+    ],
+    [
+     "Positive exponent → standard form",
+     "Move the decimal right"
+    ],
+    [
+     "Negative exponent → standard form",
+     "Move the decimal left. 6.02 × 10⁻² = 0.0602"
+    ],
+    [
+     "Multiplying in scientific notation",
+     "Multiply the first parts, add the exponents. (3.0 × 10⁴)(2.0 × 10²) = 6.0 × 10⁶"
+    ],
+    [
+     "Dividing in scientific notation",
+     "Divide the first parts, subtract the exponents. (4.0 × 10⁵) ÷ (2.0 × 10²) = 2.0 × 10³"
+    ],
+    [
+     "Fixing A when it's 10 or more",
+     "45 × 10³ = 4.5 × 10⁴"
+    ],
+    [
+     "Atlantic Pacific rule",
+     "Decimal Present: start on the Pacific (left). Decimal Absent: start on the Atlantic (right). Move to the first nonzero digit and count it and every digit after."
+    ],
+    [
+     "Sig figs in 0.00820",
+     "3"
+    ],
+    [
+     "Sig figs in 52,000",
+     "2"
+    ],
+    [
+     "Sig figs in 305",
+     "3 (zeros between nonzero digits count)"
+    ],
+    [
+     "Sig figs in 100.0",
+     "4"
+    ],
+    [
+     "Sig figs in 4.50 × 10³",
+     "3 (every digit in A counts, never the 10ⁿ)"
+    ],
+    [
+     "Sig figs in 7,050",
+     "3"
+    ],
+    [
      "0.000507 in scientific notation",
      "5.07 × 10⁻⁴"
     ],
@@ -2170,30 +2171,18 @@ const DECK = {
     [
      "Captive zero",
      "A zero between two nonzero digits, like in 305. It always counts."
-    ],
-    [
-     "12.0 g and 4.0 mL",
-     "3.0 g/mL"
     ]
    ],
    "points": [
-    "The prefix order mega, kilo, hecto, deka, base, deci, centi, milli, micro with their values",
-    "Mega to kilo and milli to micro are jumps of 3 decimal places",
-    "1 mL = 1 cm³, and Celsius to Kelvin is add 273",
-    "Dimensional analysis: the unit you want on top, the one you're cancelling on the bottom",
     "The form A × 10ⁿ with 1 ≤ A < 10",
     "Multiply: multiply the first parts and add the exponents. Divide: divide them and subtract",
     "Atlantic Pacific rule: decimal Present start left, Absent start right, count from the first nonzero digit",
-    "Times and divide keep the fewest sig figs, plus and minus keep the fewest decimal places",
-    "Density = mass ÷ volume",
-    "Water displacement: volume = final level − starting level",
-    "Water is 1 g/mL. Less dense floats, more dense sinks"
-   ],
-   "group": "Unit 1, matter and measurement"
+    "Times and divide keep the fewest sig figs, plus and minus keep the fewest decimal places"
+   ]
   },
   {
-   "id": "data",
-   "title": "Data, error and graphs",
+   "id": "accuracy",
+   "title": "Accuracy, error and standard deviation",
    "quizlet": "",
    "notes": [
     {
@@ -2278,56 +2267,6 @@ const DECK = {
     },
     {
      "key": "Check: the answer can never be negative, and it should be about the size of a typical difference from the mean (here 0.1 to 0.3). If your class divides by the number of values instead of n − 1, step 5 becomes 0.20 ÷ 4 = 0.05 and the answer is 0.22 g."
-    },
-    {
-     "h": "Graphs and data"
-    },
-    {
-     "table": {
-      "head": [
-       "Graph",
-       "Use it to",
-       "Example"
-      ],
-      "rows": [
-       [
-        "Line graph",
-        "Show change over time or another continuous variable",
-        "Temperature every minute while heating"
-       ],
-       [
-        "Bar graph",
-        "Compare separate categories",
-        "Density of four metals"
-       ],
-       [
-        "Pie chart",
-        "Show parts of a whole (percentages)",
-        "Gases in air"
-       ],
-       [
-        "Scatter plot",
-        "Show a relationship between two measured variables",
-        "Mass vs volume, with a line of best fit"
-       ]
-      ]
-     }
-    },
-    {
-     "img": "../img/graph-types.png",
-     "alt": "Examples of a line graph, bar graph, pie chart and scatter plot"
-    },
-    {
-     "list": [
-      "The **independent variable** (IV) is what you change on purpose. It goes on the x axis.",
-      "The **dependent variable** (DV) is what you measure. It goes on the y axis.",
-      "**Controlled variables** stay the same so the test is fair.",
-      "A complete graph has a title (DV vs IV), both axes labeled with units, even scales and correctly plotted points.",
-      "**Rate of change** = slope = change in y ÷ change in x, with units. Going from 20 °C to 60 °C in 8 min is 40 ÷ 8 = 5 °C per minute."
-     ]
-    },
-    {
-     "key": "DRY MIX: Dependent Responding Y, Manipulated Independent X."
     }
    ],
    "cards": [
@@ -2404,6 +2343,85 @@ const DECK = {
      "Add them all up (sigma, the sum)"
     ],
     [
+     "In the SD formula, what is n?",
+     "How many values there are"
+    ],
+    [
+     "Many Monkeys Swing Slowly Down Ropes",
+     "Mean, Minus, Square, Sum, Divide by n − 1, Root (the SD formula from the inside out)"
+    ],
+    [
+     "Actual (accepted) value",
+     "The true or correct value, what scientists aim for. It's the 'accepted' number in percent error."
+    ]
+   ],
+   "points": [
+    "Accuracy is closeness to the accepted value",
+    "Precision is closeness of repeated measurements to each other",
+    "Percent error = |experimental − accepted| ÷ accepted × 100",
+    "Standard deviation is spread from the average, small means precise",
+    "The standard deviation steps: mean, subtract and square, add, divide by n − 1, square root"
+   ],
+   "group": "Unit 1, matter and measurement"
+  },
+  {
+   "id": "graphs",
+   "title": "Graphs and data",
+   "quizlet": "",
+   "notes": [
+    {
+     "h": "Graphs and data"
+    },
+    {
+     "table": {
+      "head": [
+       "Graph",
+       "Use it to",
+       "Example"
+      ],
+      "rows": [
+       [
+        "Line graph",
+        "Show change over time or another continuous variable",
+        "Temperature every minute while heating"
+       ],
+       [
+        "Bar graph",
+        "Compare separate categories",
+        "Density of four metals"
+       ],
+       [
+        "Pie chart",
+        "Show parts of a whole (percentages)",
+        "Gases in air"
+       ],
+       [
+        "Scatter plot",
+        "Show a relationship between two measured variables",
+        "Mass vs volume, with a line of best fit"
+       ]
+      ]
+     }
+    },
+    {
+     "img": "../img/graph-types.png",
+     "alt": "Examples of a line graph, bar graph, pie chart and scatter plot"
+    },
+    {
+     "list": [
+      "The **independent variable** (IV) is what you change on purpose. It goes on the x axis.",
+      "The **dependent variable** (DV) is what you measure. It goes on the y axis.",
+      "**Controlled variables** stay the same so the test is fair.",
+      "A complete graph has a title (DV vs IV), both axes labeled with units, even scales and correctly plotted points.",
+      "**Rate of change** = slope = change in y ÷ change in x, with units. Going from 20 °C to 60 °C in 8 min is 40 ÷ 8 = 5 °C per minute."
+     ]
+    },
+    {
+     "key": "DRY MIX: Dependent Responding Y, Manipulated Independent X."
+    }
+   ],
+   "cards": [
+    [
      "Line graph",
      "Shows change over time or another continuous variable (temperature every minute)"
     ],
@@ -2450,3440 +2468,14 @@ const DECK = {
     [
      "Temperature vs sugar dissolved: IV and DV",
      "IV temperature (x axis), DV sugar dissolved (y axis)"
-    ],
-    [
-     "In the SD formula, what is n?",
-     "How many values there are"
-    ],
-    [
-     "Many Monkeys Swing Slowly Down Ropes",
-     "Mean, Minus, Square, Sum, Divide by n − 1, Root (the SD formula from the inside out)"
-    ],
-    [
-     "Actual (accepted) value",
-     "The true or correct value, what scientists aim for. It's the 'accepted' number in percent error."
     ]
    ],
    "points": [
-    "Accuracy is closeness to the accepted value",
-    "Precision is closeness of repeated measurements to each other",
-    "Percent error = |experimental − accepted| ÷ accepted × 100",
-    "Standard deviation is spread from the average, small means precise",
-    "The standard deviation steps: mean, subtract and square, add, divide by n − 1, square root",
     "Line graph for change over time, bar for categories, pie for parts of a whole, scatter for two measured variables",
     "The IV is changed on purpose and goes on x, the DV is measured and goes on y (DRY MIX)",
     "A complete graph: title DV vs IV, labeled axes with units, even scales, plotted points",
     "Rate of change = change in y ÷ change in x with units (5 °C per minute example)"
-   ],
-   "group": "Unit 1, matter and measurement"
-  },
-  {
-   "id": "theories",
-   "title": "Atomic theories",
-   "quizlet": "",
-   "notes": [
-    {
-     "key": "**Class vocab:** an **atom** is the basic building block of matter, the smallest particle an element can be divided into. **Law of conservation of mass:** even though matter can change form, its total mass stays the same."
-    },
-    {
-     "h": "The five models side by side"
-    },
-    {
-     "key": "Order: **Dogs Trust Really Big Squirrels** = Dalton, Thomson, Rutherford, Bohr, Schrödinger."
-    },
-    {
-     "table": {
-      "head": [
-       "Scientist",
-       "Year",
-       "Model",
-       "Key idea"
-      ],
-      "rows": [
-       [
-        "Dalton",
-        "1803",
-        "Solid sphere",
-        "Atoms are tiny solid balls that can't be divided"
-       ],
-       [
-        "Thomson",
-        "1897 electron, 1904 model",
-        "Plum pudding",
-        "Negative electrons scattered in a positive sphere"
-       ],
-       [
-        "Rutherford",
-        "1911",
-        "Nuclear",
-        "Gold foil showed a tiny, dense, positive nucleus and mostly empty space"
-       ],
-       [
-        "Bohr",
-        "1913",
-        "Planetary",
-        "Electrons in fixed energy levels"
-       ],
-       [
-        "Schrödinger",
-        "1926",
-        "Quantum (electron cloud)",
-        "No fixed paths, only regions where electrons are likely to be (orbitals)"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "Picture each one"
-    },
-    {
-     "list": [
-      "Dalton: a billiard ball, solid and unbreakable",
-      "Thomson: a chocolate chip cookie, the chips are the electrons",
-      "Rutherford: bullets fired through tissue paper",
-      "Bohr: planets on fixed rings",
-      "Schrödinger: a fan spinning so fast you only see a blur"
-     ]
-    },
-    {
-     "h": "Gold foil, word for word"
-    },
-    {
-     "list": [
-      "**Observation 1:** most alpha particles went straight through. **Conclusion:** the atom is mostly empty space.",
-      "**Observation 2:** a few bounced back. **Conclusion:** there is a tiny, dense, positive nucleus."
-     ]
-    },
-    {
-     "p": "Dalton is about 100 years before the rest. After that they come fast: 1904, 1911, 1913, 1926."
-    },
-    {
-     "h": "Early atomic theory and Dalton"
-    },
-    {
-     "img": "../img/u2/atomic-models.png",
-     "alt": "Five atomic models in order: Dalton, Thomson, Rutherford, Bohr, Schrödinger"
-    },
-    {
-     "key": "Order of the models: **Dogs Trust Really Big Squirrels** = Dalton, Thomson, Rutherford, Bohr, Schrödinger (quantum mechanical)."
-    },
-    {
-     "p": "**Democritus** (about 400 BC) first said matter is made of tiny uncuttable pieces, atomos. It was only an idea, with no experiments."
-    },
-    {
-     "h": "Dalton's atomic theory (1803)"
-    },
-    {
-     "list": [
-      "All matter is made of tiny **atoms** that cannot be divided.",
-      "Atoms of the **same element are identical** in mass and properties. Different elements have different atoms.",
-      "Atoms combine in **simple whole number ratios** to form compounds.",
-      "Chemical reactions **rearrange** atoms. Atoms are not created or destroyed."
-     ]
-    },
-    {
-     "p": "His model: a **solid sphere**, like a billiard ball."
-    },
-    {
-     "p": "**What was wrong:** atoms can be divided (electrons, protons, neutrons), and atoms of the same element can have different masses (isotopes). The other two ideas still hold."
-    },
-    {
-     "p": "Dalton's theory explained two laws: **conservation of mass** (atoms are only rearranged) and **definite proportions** (a compound always has the same ratio of elements)."
-    },
-    {
-     "h": "Thomson, Rutherford and the gold foil"
-    },
-    {
-     "h": "Thomson (electron 1897, plum pudding model 1904)"
-    },
-    {
-     "p": "In the **cathode ray tube**, the beam bent toward the positive plate, so it was made of **negative particles: electrons**. That proved atoms have smaller parts."
-    },
-    {
-     "p": "**Plum pudding model:** a ball of positive charge with negative electrons scattered through it. Overall neutral."
-    },
-    {
-     "h": "Rutherford's gold foil experiment (1909 to 1911)"
-    },
-    {
-     "p": "Your class scribe notes say \"In 1991\". That is a typo for **1911**."
-    },
-    {
-     "img": "../img/u2/gold-foil.png",
-     "alt": "Alpha particles fired at gold foil, most go straight, a few bend or bounce back"
-    },
-    {
-     "table": {
-      "head": [
-       "What happened",
-       "What it means"
-      ],
-      "rows": [
-       [
-        "Most alpha particles went **straight through**",
-        "The atom is **mostly empty space**"
-       ],
-       [
-        "A few were **deflected** at big angles",
-        "Something small and **positive** pushed them (like charges repel)"
-       ],
-       [
-        "Very few **bounced straight back**",
-        "The positive part is **tiny and very dense**: the **nucleus**, with almost all the mass"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "**Rutherford's nuclear model:** a tiny, dense, positive nucleus with electrons around it in mostly empty space. It replaced the plum pudding model."
-    },
-    {
-     "p": "Later: Rutherford named the **proton**, and **Chadwick** discovered the **neutron** in 1932."
-    },
-    {
-     "table": {
-      "head": [
-       "Model",
-       "Who, year",
-       "Got right",
-       "Problem"
-      ],
-      "rows": [
-       [
-        "Solid sphere",
-        "Dalton, 1803",
-        "Each element has its own kind of atom",
-        "Atoms aren't indivisible"
-       ],
-       [
-        "Plum pudding",
-        "Thomson, 1904",
-        "Atoms contain electrons",
-        "No nucleus"
-       ],
-       [
-        "Nuclear",
-        "Rutherford, 1911",
-        "Positive charge is in a tiny nucleus",
-        "Didn't explain why electrons stay in orbit"
-       ],
-       [
-        "Planetary",
-        "Bohr, 1913",
-        "Fixed energy levels, explained hydrogen's spectrum",
-        "Only worked for hydrogen"
-       ],
-       [
-        "Quantum (electron cloud)",
-        "Schrödinger, 1926",
-        "Electrons are in clouds of probability",
-        "Still the accepted model"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "The quantum mechanical model"
-    },
-    {
-     "p": "**Schrödinger (1926)**, building on de Broglie and Heisenberg: electrons behave like **waves**. You can't pin down an electron's exact path, so the model gives **probabilities** instead."
-    },
-    {
-     "p": "**Heisenberg uncertainty principle:** you can't know an electron's exact position and exact speed at the same time."
-    },
-    {
-     "p": "The **electron cloud** is the region where electrons are likely to be. An **orbital** is a region with about a 90% chance of finding an electron. Each orbital holds **at most 2 electrons**, with opposite spins."
-    }
-   ],
-   "cards": [
-    [
-     "Atom (class vocab)",
-     "The basic building block of matter, the smallest particle an element can be divided into"
-    ],
-    [
-     "Law of conservation of mass (class vocab)",
-     "Even though matter can change form, its total mass stays the same"
-    ],
-    [
-     "Order of the five models (mnemonic)",
-     "Dogs Trust Really Big Squirrels: Dalton, Thomson, Rutherford, Bohr, Schrödinger"
-    ],
-    [
-     "Dalton: year and model",
-     "1803, solid sphere"
-    ],
-    [
-     "Dalton's key idea",
-     "Atoms are tiny solid balls that can't be divided"
-    ],
-    [
-     "Thomson: year and model",
-     "Electron 1897, plum pudding model 1904"
-    ],
-    [
-     "Plum pudding model",
-     "Negative electrons scattered in a positive sphere"
-    ],
-    [
-     "Rutherford: year and model",
-     "1911, nuclear model"
-    ],
-    [
-     "Gold foil: most particles went straight through, so...",
-     "The atom is mostly empty space"
-    ],
-    [
-     "Gold foil: a few bounced back, so...",
-     "There is a tiny, dense, positive nucleus"
-    ],
-    [
-     "Bohr: year and model",
-     "1913, planetary model, electrons in fixed energy levels"
-    ],
-    [
-     "Democritus",
-     "Greek thinker (about 400 BC) who said matter is made of tiny uncuttable pieces he called atomos. He had no experiments to back it up."
-    ],
-    [
-     "Dalton's atomic theory (year)",
-     "1803, by John Dalton, a British chemist and teacher"
-    ],
-    [
-     "Dalton point 1",
-     "All matter is made of tiny particles called atoms that cannot be divided"
-    ],
-    [
-     "Dalton point 2",
-     "Atoms of the same element are identical in mass and properties. Atoms of different elements are different."
-    ],
-    [
-     "Dalton point 3",
-     "Atoms combine in simple whole number ratios to form compounds (like H₂O is always 2 H to 1 O)"
-    ],
-    [
-     "Dalton point 4",
-     "A chemical reaction only rearranges atoms. Atoms are not created or destroyed."
-    ],
-    [
-     "Which Dalton idea was wrong because of the electron?",
-     "That atoms can't be divided. Atoms have smaller parts: protons, neutrons and electrons."
-    ],
-    [
-     "Which Dalton idea was wrong because of isotopes?",
-     "That all atoms of an element have the same mass. Isotopes of one element have different masses."
-    ],
-    [
-     "Dalton's model of the atom",
-     "A solid, indivisible sphere, like a tiny billiard ball"
-    ],
-    [
-     "J.J. Thomson's experiment",
-     "The cathode ray tube (1897). The beam bent toward the positive plate, so it was made of negative particles."
-    ],
-    [
-     "What Thomson discovered",
-     "The electron, so atoms are not indivisible"
-    ],
-    [
-     "Why the plum pudding atom is neutral",
-     "The positive sphere cancels out the negative electrons"
-    ],
-    [
-     "Gold foil experiment (who, when)",
-     "Ernest Rutherford, 1909 to 1911 (done with Geiger and Marsden)"
-    ],
-    [
-     "Gold foil setup",
-     "Positive alpha particles were fired at a very thin sheet of gold foil, with a screen around it to see where they went"
-    ],
-    [
-     "Most alpha particles went straight through, so...",
-     "The atom is mostly empty space"
-    ],
-    [
-     "A few alpha particles bounced back or bent a lot, so...",
-     "There is a tiny, dense, positive center: the nucleus"
-    ],
-    [
-     "Why the bounce proved the nucleus is positive",
-     "Alpha particles are positive, and like charges repel, so they were pushed away by something positive"
-    ],
-    [
-     "Quantum mechanical model (who, when)",
-     "Erwin Schrödinger, 1926, built on Heisenberg and de Broglie"
-    ],
-    [
-     "Quantum mechanical model",
-     "Electrons act like waves. We can't know their exact path, only where they are likely to be."
-    ],
-    [
-     "Electron cloud",
-     "The fuzzy region around the nucleus where electrons are likely to be found. Denser means more likely."
-    ],
-    [
-     "Heisenberg uncertainty principle",
-     "You can't know both the exact position and the exact speed of an electron at the same time"
-    ],
-    [
-     "The modern model of the atom",
-     "The quantum mechanical model, also called the electron cloud or quantum model (Schrödinger, 1926). It's still the accepted model."
-    ],
-    [
-     "Do electrons travel in definite paths?",
-     "No. Their movement is unpredictable, so we only know where they're likely to be (the electron cloud)."
-    ]
-   ],
-   "points": [
-    "Dalton's four points: atoms are indivisible, same element atoms are identical, atoms combine in whole number ratios, reactions rearrange atoms",
-    "Wrong parts: atoms are divisible, and isotopes mean same element atoms can differ in mass",
-    "Thomson's cathode ray tube found the electron, a negative particle",
-    "Chadwick found the neutron in 1932",
-    "Class order: Democritus (first atomic theory), Dalton (atoms can't be created, divided or destroyed), Thomson (plum pudding), Rutherford (gold foil, nucleus), Bohr (electrons in paths around the nucleus), modern theory (electron clouds)",
-    "Schrödinger 1926: electrons act like waves, the model gives probabilities",
-    "Electron cloud and orbitals are regions where electrons are likely to be"
-   ],
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "atoms",
-   "title": "Atoms, ions and isotopes",
-   "quizlet": "",
-   "notes": [
-    {
-     "h": "The nucleus, atomic number and mass number"
-    },
-    {
-     "table": {
-      "head": [
-       "Particle",
-       "Charge",
-       "Mass",
-       "Where"
-      ],
-      "rows": [
-       [
-        "Proton",
-        "+1",
-        "about 1 amu",
-        "Nucleus"
-       ],
-       [
-        "Neutron",
-        "0",
-        "about 1 amu",
-        "Nucleus"
-       ],
-       [
-        "Electron",
-        "−1",
-        "about 0 amu (1/1840)",
-        "Electron cloud"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "Protons and neutrons together are called **nucleons**. The nucleus is tiny but holds almost **all the mass**. The strong nuclear force holds it together."
-    },
-    {
-     "key": "**Atomic number = protons** (it decides the element, and equals electrons in a neutral atom)\n**Mass number = protons + neutrons**\n**Neutrons = mass number − atomic number**"
-    },
-    {
-     "img": "../img/u2/isotope-notation.png",
-     "alt": "Nuclear symbol for carbon-14 with mass number on top and atomic number below"
-    },
-    {
-     "p": "The nuclear symbol puts the **mass number on top** and the **atomic number on the bottom**, both on the left. Carbon-14 can also be written C-14."
-    },
-    {
-     "list": [
-      "Oxygen-16: 8 protons, 16 − 8 = 8 neutrons, 8 electrons",
-      "Sodium-23: 11 protons, 23 − 11 = 12 neutrons, 11 electrons",
-      "Ions (atoms with a charge) get their own section next."
-     ]
-    },
-    {
-     "p": "Your class vocab sheet calls protons + neutrons the **atomic mass**. On a question that wants a whole number for one atom, that's the mass number. The decimal on the periodic table is the average atomic mass."
-    },
-    {
-     "h": "Ions"
-    },
-    {
-     "p": "An **ion** is an atom that gained or lost **electrons**, so it has a charge. The protons never change, because changing protons changes the element."
-    },
-    {
-     "table": {
-      "head": [
-       "",
-       "What happened",
-       "Charge",
-       "Example"
-      ],
-      "rows": [
-       [
-        "**Cation**",
-        "Lost electrons",
-        "Positive",
-        "Na⁺: 11 p⁺, 10 e⁻"
-       ],
-       [
-        "**Anion**",
-        "Gained electrons",
-        "Negative",
-        "Cl⁻: 17 p⁺, 18 e⁻"
-       ],
-       [
-        "Neutral atom",
-        "Nothing",
-        "0",
-        "K: 19 p⁺, 19 e⁻"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "**Charge = protons − electrons**\nPositive ion: electrons = protons − charge (Fe³⁺ → 26 − 3 = **23**)\nNegative ion: electrons = protons + charge (P³⁻ → 15 + 3 = **18**)\n**Cat**ions are **paws**itive."
-    },
-    {
-     "h": "Writing the symbol"
-    },
-    {
-     "list": [
-      "**Nuclear symbol:** mass number top left, atomic number bottom left, charge top right. Sodium-24 cation = ²⁴₁₁Na⁺.",
-      "**Hyphen notation:** name and mass number, like bromine-81 or barium-137.",
-      "Potassium-39 atom = ³⁹₁₉K. Its ion with 18 electrons = ³⁹₁₉K⁺. Oxygen with 8 p⁺ and 8 n⁰ = ¹⁶₈O, and with 10 e⁻ it's ¹⁶₈O²⁻."
-     ]
-    },
-    {
-     "h": "Exact masses and the size of an atom"
-    },
-    {
-     "table": {
-      "head": [
-       "Particle",
-       "Mass (amu)",
-       "Mass (kg)",
-       "Charge"
-      ],
-      "rows": [
-       [
-        "Proton",
-        "1.0073",
-        "1.673 × 10⁻²⁷",
-        "+1"
-       ],
-       [
-        "Neutron",
-        "1.0087",
-        "1.675 × 10⁻²⁷",
-        "0"
-       ],
-       [
-        "Electron",
-        "0.00055 (often rounded to 0.0005)",
-        "9.11 × 10⁻³¹",
-        "−1"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "To get kg, multiply the amu value by **1.66054 × 10⁻²⁷ kg**. The mass number is close to the mass in amu but not exact, because protons and neutrons are each slightly more than 1 amu."
-    },
-    {
-     "p": "**Mass:** in carbon-12, the nucleus holds (12 − 0.003) ÷ 12 = **99.975%** of the mass. **Size:** the atom is about **10,000 times wider** than the nucleus. If a chlorine nucleus were a dime, the whole atom would be a football stadium (100 pm ÷ 4.0 fm = 25,000, and 17 mm × 25,000 = 425 m)."
-    },
-    {
-     "h": "Isotopes"
-    },
-    {
-     "p": "**Isotopes** are atoms of the same element with the **same protons** but **different neutrons**, so different mass numbers. They react the same way chemically."
-    },
-    {
-     "list": [
-      "Carbon-12 (6 neutrons), carbon-13 (7), carbon-14 (8)",
-      "Hydrogen-1 (0 neutrons), deuterium H-2 (1), tritium H-3 (2)"
-     ]
-    },
-    {
-     "p": "**Not isotopes:** carbon-14 and nitrogen-14 have the same mass number but different protons, so they are different elements."
-    },
-    {
-     "h": "Explain it"
-    },
-    {
-     "p": "Explain questions are 2 points: one for **what** happens, one for **why**. Use the key word every time."
-    },
-    {
-     "h": "Why are isotopes the same element but different masses?"
-    },
-    {
-     "p": "Same number of **protons**, so the same element. Different numbers of **neutrons**, so different masses. Same electrons, so the same chemistry."
-    },
-    {
-     "h": "How many electrons does Mg²⁺ have, and why?"
-    },
-    {
-     "p": "Protons can't change, Mg always has 12. A 2+ charge means 2 more protons than electrons, so 12 − 2 = **10 electrons**."
-    }
-   ],
-   "cards": [
-    [
-     "Proton",
-     "Charge +1, mass about 1 amu, found in the nucleus"
-    ],
-    [
-     "Neutron",
-     "Charge 0, mass about 1 amu, found in the nucleus"
-    ],
-    [
-     "Electron",
-     "Charge −1, mass about 0 amu (about 1/1840 of a proton), found in the electron cloud around the nucleus"
-    ],
-    [
-     "Nucleons",
-     "The particles in the nucleus: protons and neutrons"
-    ],
-    [
-     "Where is almost all of an atom's mass?",
-     "In the nucleus"
-    ],
-    [
-     "How big is the nucleus compared to the atom?",
-     "Tiny. The atom is about 10,000 times wider than its nucleus. The rest is the electron cloud."
-    ],
-    [
-     "Atomic number",
-     "The number of protons. It decides which element it is."
-    ],
-    [
-     "In a neutral atom, electrons =",
-     "Protons (the atomic number)"
-    ],
-    [
-     "Mass number",
-     "Protons + neutrons (always a whole number)"
-    ],
-    [
-     "Number of neutrons",
-     "Mass number − atomic number"
-    ],
-    [
-     "Oxygen-16: protons, neutrons, electrons",
-     "8 protons, 8 neutrons, 8 electrons"
-    ],
-    [
-     "Ion",
-     "An atom with a charge because it gained or lost electrons. The protons never change."
-    ],
-    [
-     "Cation",
-     "A positive ion. It lost electrons. Examples: Na⁺, Ca²⁺, Al³⁺"
-    ],
-    [
-     "Anion",
-     "A negative ion. It gained electrons. Examples: Cl⁻, O²⁻, N³⁻"
-    ],
-    [
-     "Charge of an atom or ion",
-     "Protons − electrons. Each proton is +1, each electron is −1, neutrons are 0."
-    ],
-    [
-     "Electrons in a positive ion",
-     "Protons − charge. Al³⁺: 13 − 3 = 10 electrons"
-    ],
-    [
-     "Electrons in a negative ion",
-     "Protons + charge. S²⁻: 16 + 2 = 18 electrons"
-    ],
-    [
-     "Fe³⁺: protons and electrons",
-     "26 protons, 23 electrons"
-    ],
-    [
-     "Cl⁻: protons and electrons",
-     "17 protons, 18 electrons"
-    ],
-    [
-     "Pt²⁺: electrons",
-     "78 − 2 = 76"
-    ],
-    [
-     "Atom or ion: 19 p⁺ and 18 e⁻?",
-     "Ion (K⁺). Protons and electrons don't match. If they match, it's a neutral atom."
-    ],
-    [
-     "What happens if the number of protons changes?",
-     "It becomes a different element"
-    ],
-    [
-     "Isotopes",
-     "Atoms of the same element (same protons) with different numbers of neutrons, so different mass numbers"
-    ],
-    [
-     "Carbon-12 vs carbon-14",
-     "Both have 6 protons. C-12 has 6 neutrons, C-14 has 8."
-    ],
-    [
-     "Isotopes of hydrogen",
-     "Hydrogen-1 (0 neutrons), hydrogen-2 or deuterium (1 neutron), hydrogen-3 or tritium (2 neutrons)"
-    ],
-    [
-     "Do isotopes react differently?",
-     "No. Same protons and electrons, so the same chemical properties. Only the mass is different."
-    ],
-    [
-     "Why aren't carbon-14 and nitrogen-14 isotopes?",
-     "They have different numbers of protons (6 and 7), so they're different elements. Isotopes must have the same protons."
-    ],
-    [
-     "Same mass number, different element. Isotopes?",
-     "No. Isotopes are the same element with different mass numbers."
-    ],
-    [
-     "Why are isotopes the same element?",
-     "Same number of protons"
-    ],
-    [
-     "Why do isotopes have different masses?",
-     "Different numbers of neutrons"
-    ],
-    [
-     "Why do isotopes react the same way?",
-     "Same number of electrons"
-    ],
-    [
-     "Electrons in Mg²⁺ and why",
-     "10. Protons stay 12, a 2+ charge means 2 fewer electrons"
-    ]
-   ],
-   "points": [
-    "Proton +1 and about 1 amu, neutron 0 and about 1 amu, both in the nucleus",
-    "Atomic number = protons, it identifies the element",
-    "Mass number = protons + neutrons, neutrons = mass number − atomic number",
-    "Cation is positive (lost electrons), anion is negative (gained electrons)",
-    "Charge = protons − electrons",
-    "Al³⁺ has 10 electrons, S²⁻ has 18",
-    "Isotopes: same protons, different neutrons, different mass numbers",
-    "Isotopes have the same chemical properties",
-    "C-14 and N-14 are not isotopes, they have different protons"
-   ],
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "avgmass",
-   "title": "Average atomic mass",
-   "quizlet": "",
-   "notes": [
-    {
-     "key": "**The class's 4 steps:**\n1. Identify the isotopes.\n2. Find each isotope's mass and abundance.\n3. Multiply each mass by its abundance (as a decimal).\n4. Add all the results together."
-    },
-    {
-     "p": "The decimal on the periodic table is a **weighted average** of the isotopes, based on how common each one is (its **abundance**)."
-    },
-    {
-     "formula": "average = (mass₁ × %₁ + mass₂ × %₂) ÷ 100"
-    },
-    {
-     "list": [
-      "**Step 1.** Multiply each isotope's mass by its percent.",
-      "**Step 2.** Add those up.",
-      "**Step 3.** Divide by 100. (Or turn the percents into decimals first and skip step 3.)"
-     ]
-    },
-    {
-     "table": {
-      "head": [
-       "Chlorine isotope",
-       "Mass",
-       "Abundance",
-       "Mass × abundance"
-      ],
-      "rows": [
-       [
-        "Cl-35",
-        "35",
-        "75%",
-        "35 × 75 = 2625"
-       ],
-       [
-        "Cl-37",
-        "37",
-        "25%",
-        "37 × 25 = 925"
-       ],
-       [
-        "Total",
-        "",
-        "100%",
-        "3550 ÷ 100 = **35.5 amu**"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "Check: the answer must land between the isotope masses, and closer to the most common one. 35.5 is between 35 and 37 and closer to 35, which is 75%."
-    },
-    {
-     "h": "The decimal way (what the packet uses)"
-    },
-    {
-     "p": "Turn each percent into a decimal (75% = 0.75), multiply by the mass, and add. No dividing by 100 at the end. Cesium: 0.75 × 133 + 0.20 × 132 + 0.05 × 134 = **132.85 amu**."
-    },
-    {
-     "h": "Working backwards"
-    },
-    {
-     "list": [
-      "**Missing isotope mass:** subtract the part you know from the average, then divide by the other percent. Z averages 208.99 with 67% Z-208: (208.99 − 0.67 × 208) ÷ 0.33 = **211**.",
-      "**Missing abundances (two isotopes):** call one fraction x and the other 1 − x. Chlorine: 34.969x + 36.966(1 − x) = 35.453 → x = 0.7576, so **75.76% Cl-35, 24.24% Cl-37**.",
-      "**Which is most abundant?** No math needed: it's the isotope the average is closest to. Lithium 6.941 → Li-7. Silicon 28.086 → Si-28."
-     ]
-    },
-    {
-     "p": "Video from the class drive: [how to calculate average atomic mass](https://www.youtube.com/watch?v=xirPkCI1sMA)."
-    },
-    {
-     "h": "Practice"
-    },
-    {
-     "key": "Average atomic mass = (mass × percent as a decimal) + (mass × percent as a decimal) + ..."
-    },
-    {
-     "list": [
-      "Turn every percent into a decimal: 75.78% → 0.7578.",
-      "Multiply each isotope's mass by its decimal, then add them all.",
-      "Check: the answer lands closest to the most common isotope's mass.",
-      "Unknown element? Match the answer to the mass on the periodic table."
-     ]
-    },
-    {
-     "h": "Worked example"
-    },
-    {
-     "p": "Lithium: ⁶Li is 6.015 amu (7.5%), ⁷Li is 7.016 amu (92.5%). (6.015 × 0.075) + (7.016 × 0.925) = 0.451 + 6.490 = **6.94 amu**, close to 7 because ⁷Li is most common."
-    }
-   ],
-   "cards": [
-    [
-     "Average atomic mass, the 4 class steps",
-     "1. Identify the isotopes. 2. Find mass and abundance. 3. Multiply mass by abundance. 4. Add the results."
-    ],
-    [
-     "Average atomic mass",
-     "The weighted average of the masses of all of an element's isotopes, based on how common each one is"
-    ],
-    [
-     "Average atomic mass formula",
-     "(mass₁ × % abundance₁ + mass₂ × % abundance₂ + ...) ÷ 100"
-    ],
-    [
-     "Where you see average atomic mass",
-     "The decimal number on the periodic table, in amu"
-    ],
-    [
-     "Why isn't atomic mass a whole number?",
-     "It's an average of isotopes with different masses"
-    ],
-    [
-     "The average is closest to which isotope?",
-     "The most abundant (most common) one"
-    ],
-    [
-     "Chlorine: 75% Cl-35, 25% Cl-37",
-     "(35 × 75 + 37 × 25) ÷ 100 = 35.5 amu"
-    ],
-    [
-     "Boron: 20% B-10, 80% B-11",
-     "(10 × 20 + 11 × 80) ÷ 100 = 10.8 amu"
-    ],
-    [
-     "Mass number vs atomic mass",
-     "Mass number is a whole number for one isotope (protons + neutrons). Atomic mass is the average of all isotopes, a decimal."
-    ],
-    [
-     "Lithium averages 6.941 amu (Li-6 and Li-7). Most abundant?",
-     "Lithium-7, because the average is much closer to 7"
-    ],
-    [
-     "Silicon averages 28.086 amu (Si-28, 29, 30). What does that tell you?",
-     "Silicon-28 is by far the most common. Si-29 and Si-30 are rare."
-    ],
-    [
-     "Cesium: 75% Cs-133, 20% Cs-132, 5% Cs-134",
-     "0.75 × 133 + 0.20 × 132 + 0.05 × 134 = 132.85 amu"
-    ],
-    [
-     "Copper: 69.2% at 62.93 amu, 30.8% at 64.93 amu",
-     "43.548 + 19.998 = 63.546 amu"
-    ],
-    [
-     "Element Z averages 208.99 amu, 67% is Z-208. Other isotope?",
-     "0.67 × 208 = 139.36. 208.99 − 139.36 = 69.63. 69.63 ÷ 0.33 = 211, so Z-211."
-    ],
-    [
-     "Cl-35 (34.969 amu) and Cl-37 (36.966 amu) average 35.453. Abundances?",
-     "34.969x + 36.966(1 − x) = 35.453, so x = 0.7576. 75.76% Cl-35 and 24.24% Cl-37."
-    ]
-   ],
-   "points": [
-    "Average atomic mass is a weighted average by abundance",
-    "Formula: (mass × % + mass × %) ÷ 100",
-    "The average is closest to the most abundant isotope",
-    "Decimal way: 0.75 × 133 + 0.20 × 132 + ... with no ÷ 100",
-    "Backwards: (average − known part) ÷ other fraction gives the missing mass",
-    "Practice answers: Cl 35.45, X 10.81 (boron), Cu 63.55, Si 28.09"
-   ],
-   "dump": [
-    {
-     "p": "Write the formula and the steps from memory. Then solve these with a calculator."
-    },
-    {
-     "list": [
-      "Chlorine: 34.969 amu (75.78%), 36.966 amu (24.22%)",
-      "Element X: 10.013 amu (19.9%), 11.009 amu (80.1%). Which element?",
-      "Copper: 62.930 amu (69.15%), 64.928 amu (30.85%)",
-      "Silicon: 27.977 (92.23%), 28.976 (4.68%), 29.974 (3.09%)"
-     ]
-    }
-   ],
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "bohr",
-   "title": "Bohr's model",
-   "cards": [
-    [
-     "How many electrons can rings 1, 2 and 3 hold?",
-     "Up to 2, then 8, then 8 (fill inside out, stop when you run out)"
-    ],
-    [
-     "Why is Mg 2-8-2 and not 2-8-8?",
-     "Mg only has 12 electrons: 2 + 8 uses 10, so ring 3 only gets the last 2"
-    ],
-    [
-     "Bohr model (who, when)",
-     "Niels Bohr, 1913"
-    ],
-    [
-     "Bohr model",
-     "Electrons move around the nucleus in fixed paths called energy levels (shells), each with a set amount of energy"
-    ],
-    [
-     "Can an electron be between energy levels?",
-     "No. It can only be in one level or another."
-    ],
-    [
-     "Ground state",
-     "All electrons in the lowest energy levels they can be in"
-    ],
-    [
-     "Excited state",
-     "An electron has absorbed energy and jumped to a higher level"
-    ],
-    [
-     "What happens when an electron falls back down?",
-     "It gives off the extra energy as light of a specific color (wavelength)"
-    ],
-    [
-     "Bright line spectrum",
-     "The set of colored lines an element gives off. Each element's is unique, like a fingerprint."
-    ],
-    [
-     "Energy levels closer to the nucleus have...",
-     "Lower energy"
-    ],
-    [
-     "Most electrons a level can hold",
-     "2n². Level 1: 2, level 2: 8, level 3: 18, level 4: 32"
-    ],
-    [
-     "Electron configuration of sodium (Bohr style)",
-     "2-8-1 (11 electrons)"
-    ],
-    [
-     "Electron configuration of chlorine (Bohr style)",
-     "2-8-7 (17 electrons)"
-    ],
-    [
-     "Valence electrons",
-     "The electrons in the outermost energy level"
-    ],
-    [
-     "How many valence electrons does oxygen (2-6) have?",
-     "6"
-    ],
-    [
-     "What the Bohr model got right",
-     "It explained hydrogen's bright line spectrum"
-    ],
-    [
-     "Bohr model's weakness",
-     "It only worked for hydrogen. Electrons don't really travel in neat circles."
-    ],
-    [
-     "How to draw a Bohr diagram",
-     "Protons and neutrons in the center, then electrons from the inside out: 2 in ring 1, 8 in ring 2, 8 in ring 3 (for the first 20 elements)"
-    ],
-    [
-     "Bohr diagram: carbon (6)",
-     "2-4"
-    ],
-    [
-     "Bohr diagram: silicon (14)",
-     "2-8-4"
-    ],
-    [
-     "Bohr diagram: argon (18)",
-     "2-8-8"
-    ],
-    [
-     "Bohr diagram: potassium (19)",
-     "2-8-8-1"
-    ],
-    [
-     "Bohr diagram: calcium (20)",
-     "2-8-8-2"
-    ],
-    [
-     "Bohr diagram: bromine (35)",
-     "2-8-18-7 (read it off the reference table)"
-    ],
-    [
-     "Where to find any element's shell configuration",
-     "On your reference table, printed under the atomic number in every box (Na says 2-8-1)"
-    ],
-    [
-     "Bohr's model name",
-     "The planetary model (1913)"
-    ],
-    [
-     "Quantized",
-     "Energy comes only in fixed amounts. A Bohr electron can only have the energy of one level, nothing in between."
-    ],
-    [
-     "Photon emission",
-     "When an electron drops to a lower orbit, it gives off light of an exact wavelength"
-    ],
-    [
-     "What was wrong with Bohr's model?",
-     "Moving electrons should give off energy and spiral into the nucleus, and the model didn't work for atoms heavier than hydrogen"
-    ],
-    [
-     "Electron dot diagram",
-     "The symbol with one dot per valence electron"
-    ],
-    [
-     "How do you place dots in a dot diagram?",
-     "Clockwise from the top, one per side, then pair them up (max 8)"
-    ],
-    [
-     "Dot diagram for chlorine (2-8-7)",
-     "Cl with 7 dots: three pairs and one single dot"
-    ],
-    [
-     "What do chemists use Bohr models for?",
-     "To predict reactivity: the outer ring shows the valence electrons"
-    ]
-   ],
-   "notes": [
-    {
-     "key": "**What a ring can hold vs what an atom has.** Ring 1 holds up to **2** electrons, ring 2 up to **8**, ring 3 up to **8**. You fill from the inside out and stop when you run out.\nMagnesium has 12: ring 1 takes 2 (10 left), ring 2 takes 8 (2 left), ring 3 gets the last 2. So **Mg = 2-8-2**. Chlorine has 17: **2-8-7**.\nIt matches the configuration: ring 1 is 1s (2), ring 2 is 2s + 2p (2 + 6 = 8), ring 3 is 3s + 3p."
-    },
-    {
-     "img": "../img/u2/bohr-levels.png",
-     "alt": "Bohr model with four energy levels and an electron jumping up and falling back"
-    },
-    {
-     "p": "**Bohr (1913):** electrons travel around the nucleus in fixed **energy levels** (shells). An electron can only be in a level, never in between."
-    },
-    {
-     "list": [
-      "**Ground state:** every electron in the lowest level it can be in.",
-      "**Excited state:** an electron absorbs energy and jumps up to a higher level.",
-      "When it **falls back**, it gives off that energy as **light** of one specific color. That makes a **bright line spectrum**, which is different for every element."
-     ]
-    },
-    {
-     "key": "**Most electrons per level = 2n²** → 2, 8, 18, 32.\nWrite configurations level by level: sodium (11) is **2-8-1**, chlorine (17) is **2-8-7**, oxygen (8) is **2-6**.\nThe last number is the **valence electrons**."
-    },
-    {
-     "p": "Bohr explained hydrogen's spectrum, but the model fails for bigger atoms, and electrons don't really move in neat circles. That led to the quantum mechanical model."
-    },
-    {
-     "h": "Drawing Bohr diagrams"
-    },
-    {
-     "list": [
-      "Write the protons and neutrons in the nucleus (neutrons = mass number − atomic number).",
-      "Fill electrons from the inside out: **2, then 8, then 8**, then the rest. Never go over what a ring holds.",
-      "Past calcium (20), copy the configuration from the reference table, like Br **2-8-18-7** and I **2-8-18-18-7**."
-     ]
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Electrons",
-       "Rings"
-      ],
-      "rows": [
-       [
-        "H",
-        "1",
-        "1"
-       ],
-       [
-        "Li",
-        "3",
-        "2-1"
-       ],
-       [
-        "C",
-        "6",
-        "2-4"
-       ],
-       [
-        "O",
-        "8",
-        "2-6"
-       ],
-       [
-        "Ne",
-        "10",
-        "2-8"
-       ],
-       [
-        "Na",
-        "11",
-        "2-8-1"
-       ],
-       [
-        "Mg",
-        "12",
-        "2-8-2"
-       ],
-       [
-        "Al",
-        "13",
-        "2-8-3"
-       ],
-       [
-        "Si",
-        "14",
-        "2-8-4"
-       ],
-       [
-        "P",
-        "15",
-        "2-8-5"
-       ],
-       [
-        "Cl",
-        "17",
-        "2-8-7"
-       ],
-       [
-        "Ar",
-        "18",
-        "2-8-8"
-       ],
-       [
-        "K",
-        "19",
-        "2-8-8-1"
-       ],
-       [
-        "Ca",
-        "20",
-        "2-8-8-2"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "Chemists use Bohr diagrams to **predict how reactive an element is**: the outer ring shows the **valence electrons**, and an atom with a nearly full or nearly empty outer ring reacts easily."
-    },
-    {
-     "h": "Electron dot diagrams"
-    },
-    {
-     "p": "A dot diagram (Lewis dot) shows only the **valence electrons**: the last number of the Bohr configuration. Write the symbol, then place dots **clockwise** starting at the top, one per side, and only start pairing after all four sides have one."
-    },
-    {
-     "list": [
-      "Write the element's symbol, like **Cl**.",
-      "Count the valence electrons: the last number of the Bohr configuration. Cl is 2-8-7, so **7**.",
-      "Dots 1 to 4: one on the **top**, one on the **right**, one on the **bottom**, one on the **left**.",
-      "Dots 5 to 8: go around again in the same order, putting each new dot next to the first one to make a **pair**.",
-      "Cl ends with three pairs and one single dot on the left. 8 dots is the most a dot diagram ever has."
-     ]
-    },
-    {
-     "img": "../img/u2/cl-dot-steps.png"
-    },
-    {
-     "alt": "Chlorine's 7 dots numbered in the order you draw them, then the finished diagram"
-    },
-    {
-     "img": "../img/u2/dot-diagrams.png"
-    },
-    {
-     "alt": "Dot diagrams for Na (1 dot), Mg (2), N (5), Cl (7) and Ne (8)"
-    },
-    {
-     "key": "Chlorine is 2-8-7, so 7 dots: three pairs and one single. Neon is 2-8, so 8 dots, a full octet."
-    }
-   ],
-   "points": [
-    "Bohr 1913: electrons in fixed energy levels",
-    "Ground state is lowest energy, excited state is after absorbing energy",
-    "Falling back gives off light, making a bright line spectrum unique to each element",
-    "Max electrons per level is 2n²: 2, 8, 18, 32",
-    "Configurations like 2-8-1, the last number is the valence electrons",
-    "It only worked for hydrogen",
-    "Bohr diagrams fill 2, 8, 8 from the inside out",
-    "K is 2-8-8-1, Ca is 2-8-8-2, bigger ones come from the reference table",
-    "Dot diagram: valence electrons only, clockwise from the top, pair after all four sides have one"
-   ],
-   "quizlet": "",
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "emspec",
-   "title": "Electromagnetic spectra",
-   "notes": [
-    {
-     "p": "Light is energy that travels as a wave. The **electromagnetic (EM) spectrum** is every kind of light lined up by wavelength, from radio waves to gamma rays. Visible light, the part your eyes see, is a tiny slice in the middle."
-    },
-    {
-     "key": "**Class vocab, word for word on the test:**\n**Electromagnetic spectrum:** the amount of light given off by an object at a range of wavelengths.\n**Bright line spectrum:** an electron can absorb or emit specific amounts of energy by changing energy levels."
-    },
-    {
-     "p": "Another way to say it: the EM spectrum is the **full range of all types of electromagnetic radiation, ordered by frequency and wavelength**."
-    },
-    {
-     "img": "../img/u2/em-spectrum.png"
-    },
-    {
-     "alt": "The electromagnetic spectrum from radio to gamma, with the wave getting shorter to the right and visible light zoomed in as ROYGBIV"
-    },
-    {
-     "key": "**Long wavelength to short:** Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma.\nTrick: **R**aging **M**artians **I**nvaded **V**enus **U**sing **X**-ray **G**uns."
-    },
-    {
-     "h": "Wavelength, frequency and energy"
-    },
-    {
-     "p": "**Wavelength** is the distance from one wave peak to the next. **Frequency** is how many waves pass a point every second. Picture the wave in the diagram: on the left the peaks are far apart (long wavelength, few waves per second), on the right they're packed together (short wavelength, lots of waves per second)."
-    },
-    {
-     "key": "**Wavelength and frequency are opposites.** When one goes up, the other goes down.\n**Energy follows frequency.** Short wavelength = high frequency = **high energy**."
-    },
-    {
-     "p": "So gamma rays carry the most energy (that's why they're dangerous) and radio waves the least. All of them travel at the same speed in empty space, the **speed of light**."
-    },
-    {
-     "h": "Visible light: ROYGBIV"
-    },
-    {
-     "p": "Inside visible light the same rule holds. **Red** has the longest wavelength and the least energy. **Violet** has the shortest wavelength and the most energy. Just past red is infrared, just past violet is ultraviolet."
-    },
-    {
-     "h": "Three kinds of spectra"
-    },
-    {
-     "img": "../img/u2/spectra.png"
-    },
-    {
-     "alt": "A continuous rainbow, hydrogen's four bright lines on black, and a rainbow with dark gaps at the same four colors"
-    },
-    {
-     "list": [
-      "**Continuous spectrum:** every color with no gaps. White light (the sun, a light bulb) through a prism.",
-      "**Bright line (emission) spectrum:** a hot gas only gives off certain colors, so you see a few bright lines on a dark background.",
-      "**Absorption spectrum:** white light shines through a cool gas, and the gas soaks up those same colors, leaving dark lines in the rainbow."
-     ]
-    },
-    {
-     "h": "Why each element has its own lines"
-    },
-    {
-     "p": "Electrons can only sit in certain energy levels, never in between. When an excited electron falls back down, it gives off exactly the energy of that drop as one color of light. Each element has its own spacing of levels, so it gives off its own set of colors, like a **fingerprint**. A bigger drop gives off more energy, so a line toward the violet end means a bigger drop than a line toward the red end."
-    },
-    {
-     "p": "**Flame tests** use this. Heat a metal salt and its electrons get excited, then fall back and color the flame: sodium is yellow-orange, lithium and strontium are red, copper is blue-green, potassium is light purple."
-    }
-   ],
-   "cards": [
-    [
-     "Electromagnetic spectrum (class vocab)",
-     "The amount of light given off by an object at a range of wavelengths"
-    ],
-    [
-     "Bright line spectrum (class vocab)",
-     "An electron can absorb or emit specific amounts of energy by changing energy levels"
-    ],
-    [
-     "Electromagnetic spectrum",
-     "Every kind of light lined up by wavelength: radio, microwave, infrared, visible, ultraviolet, X-ray, gamma"
-    ],
-    [
-     "Order of the EM spectrum (long to short wavelength)",
-     "Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma (Raging Martians Invaded Venus Using X-ray Guns)"
-    ],
-    [
-     "Wavelength",
-     "The distance from one wave peak to the next"
-    ],
-    [
-     "Frequency",
-     "How many waves pass a point every second"
-    ],
-    [
-     "Wavelength vs frequency",
-     "Opposites. Longer wavelength means lower frequency, shorter wavelength means higher frequency."
-    ],
-    [
-     "Which has more energy, high or low frequency?",
-     "High frequency. Energy goes up with frequency (and down with wavelength)."
-    ],
-    [
-     "Most energy on the EM spectrum",
-     "Gamma rays (shortest wavelength, highest frequency)"
-    ],
-    [
-     "Least energy on the EM spectrum",
-     "Radio waves (longest wavelength, lowest frequency)"
-    ],
-    [
-     "Visible color with the most energy",
-     "Violet: shortest wavelength, highest frequency"
-    ],
-    [
-     "Visible color with the least energy",
-     "Red: longest wavelength, lowest frequency"
-    ],
-    [
-     "Order of visible colors",
-     "ROYGBIV: red, orange, yellow, green, blue, indigo, violet (red is the long wavelength end)"
-    ],
-    [
-     "Speed of all EM waves in a vacuum",
-     "The same: the speed of light"
-    ],
-    [
-     "Continuous spectrum",
-     "Every color with no gaps, like white light through a prism"
-    ],
-    [
-     "Bright line (emission) spectrum",
-     "Only certain colors as bright lines on a dark background, given off when excited electrons fall back down"
-    ],
-    [
-     "Absorption spectrum",
-     "A rainbow with dark lines where a cool gas soaked up those colors"
-    ],
-    [
-     "Why does each element have its own line spectrum?",
-     "Each element has its own spacing of energy levels, so the drops (and the colors of light they give off) are different"
-    ],
-    [
-     "Line near violet vs line near red",
-     "The violet line came from a bigger energy drop"
-    ],
-    [
-     "Flame test",
-     "Heating a metal excites its electrons. They fall back and give the flame a color unique to that metal."
-    ]
-   ],
-   "points": [
-    "Order: Radio, Microwave, Infrared, Visible, UV, X-ray, Gamma (Raging Martians...)",
-    "Wavelength and frequency are opposites",
-    "Short wavelength = high frequency = high energy",
-    "Visible: red least energy, violet most",
-    "Continuous = every color, emission = bright lines, absorption = dark lines",
-    "Each element's lines are unique because its energy levels are unique",
-    "Bigger drop gives higher energy light (toward violet)"
-   ],
-   "dump": [
-    {
-     "p": "Write everything you remember about the electromagnetic spectrum. Then answer these in full sentences."
-    },
-    {
-     "list": [
-      "Put in order of increasing energy: visible, gamma, radio, ultraviolet, microwave, X-ray, infrared",
-      "Red light vs blue light: which has the longer wavelength, the higher frequency, the more energy?",
-      "Why does hydrogen give off only four colors of visible light instead of a full rainbow?",
-      "What's the difference between an emission spectrum and an absorption spectrum?"
-     ]
-    }
-   ],
-   "quizlet": "",
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "excited",
-   "title": "Ground state vs excited state",
-   "cards": [
-    [
-     "Ground state configuration",
-     "Every electron in the lowest level possible. It matches the reference table, like sulfur 2-8-6."
-    ],
-    [
-     "Excited state configuration",
-     "Same number of electrons, but at least one has jumped up a level. Sulfur excited: 2-8-5-1."
-    ],
-    [
-     "How to spot an excited state",
-     "The electrons add up to the right total, but an inner level isn't full or it doesn't match the reference table"
-    ],
-    [
-     "Is 2-7-1 excited or ground? (neon)",
-     "Excited. Neon's ground state is 2-8."
-    ],
-    [
-     "Electron moves to a higher level",
-     "It absorbs energy"
-    ],
-    [
-     "Electron falls to a lower level",
-     "It releases energy as light"
-    ],
-    [
-     "Compared to the ground state, an excited atom has...",
-     "An electron with more energy. Same number of electrons."
-    ],
-    [
-     "Spectral lines come from...",
-     "Electrons falling from higher to lower energy levels and releasing light"
-    ],
-    [
-     "Most energy absorbed: 2 to 4, 2 to 5, 4 to 2, or 5 to 2?",
-     "2 to 5. Absorbing means moving up, and the biggest jump up takes the most energy."
-    ],
-    [
-     "Most energy released",
-     "The biggest jump down, like 5 to 2"
-    ],
-    [
-     "Bright line spectrum",
-     "The pattern of colored lines an element gives off. Every element has its own, like a fingerprint."
-    ],
-    [
-     "Finding elements in an unknown spectrum",
-     "An element is in the mixture only if every one of its lines shows up in the unknown"
-    ],
-    [
-     "Ground state (class vocab)",
-     "The lowest energy configuration, the one printed on the periodic table"
-    ],
-    [
-     "Excited state (class vocab)",
-     "Any configuration that isn't the one on the periodic table"
-    ]
-   ],
-   "notes": [
-    {
-     "p": "**Ground state:** every electron is in the lowest level it can be. That's the configuration printed on the reference table."
-    },
-    {
-     "p": "**Excited state:** the atom took in energy and an electron jumped up. The total number of electrons doesn't change, but the pattern does."
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Ground state",
-       "An excited state"
-      ],
-      "rows": [
-       [
-        "Sulfur (16)",
-        "2-8-6",
-        "2-8-5-1"
-       ],
-       [
-        "Sodium (11)",
-        "2-8-1",
-        "2-7-2"
-       ],
-       [
-        "Neon (10)",
-        "2-8",
-        "2-7-1"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "**Up = absorb, down = release.**\nFalling down releases light, which makes the **spectral lines**. Bigger jump, more energy."
-    },
-    {
-     "p": "Each element's **bright line spectrum** is unique. To find which elements are in an unknown, an element counts only if **all** of its lines appear in the unknown's spectrum."
-    }
-   ],
-   "points": [
-    "Ground state: lowest levels, matches the reference table",
-    "Excited state: same electrons, one moved up (S 2-8-5-1)",
-    "Going up absorbs energy, coming down releases light",
-    "Spectral lines come from electrons falling to lower levels",
-    "Biggest jump means the most energy",
-    "Every element has a unique bright line spectrum, match all lines"
-   ],
-   "quizlet": "",
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "econfig",
-   "title": "Electron configuration",
-   "quizlet": "",
-   "notes": [
-    {
-     "h": "One element, written three ways"
-    },
-    {
-     "p": "Tests often ask for the same element as a **normal** configuration, in **noble gas** notation, and as an **orbital diagram**. Oxygen has only 8 electrons, so all three are short."
-    },
-    {
-     "img": "../img/u2/oxygen-three-ways.png"
-    },
-    {
-     "alt": "Oxygen: 1s² 2s² 2p⁴, [He] 2s² 2p⁴, and boxes 1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑"
-    },
-    {
-     "list": [
-      "**Normal:** write every sublevel: 1s² 2s² 2p⁴ (2 + 2 + 4 = 8).",
-      "**Noble gas:** the noble gas before oxygen is helium (1s²), so swap that part for [He]: **[He] 2s² 2p⁴**.",
-      "**Orbital diagram:** one box per orbital (1s, 2s, three 2p). In 2p put one ↑ in each box first (Hund), then the 4th electron pairs up in the first box: ↑↓ ↑ ↑.",
-      "**Unpaired** means an electron alone in its box. Oxygen has **2 unpaired**, nitrogen (2p³: ↑ ↑ ↑) has 3."
-     ]
-    },
-    {
-     "h": "Electron configurations and the Aufbau principle"
-    },
-    {
-     "p": "An **electron configuration** lists where every electron is. In **3p⁵**, 3 is the energy level, p is the sublevel and 5 is how many electrons are in it."
-    },
-    {
-     "p": "**Aufbau principle:** electrons fill the **lowest energy** sublevel first. The order isn't just 1, 2, 3: **4s comes before 3d** because it's lower in energy. Follow the diagonal arrows."
-    },
-    {
-     "img": "../img/u2/aufbau-order.png",
-     "alt": "Aufbau diagonal chart showing the filling order of sublevels"
-    },
-    {
-     "list": [
-      "**Step 1.** Find the number of electrons (atomic number for a neutral atom).",
-      "**Step 2.** Follow the arrows: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f.",
-      "**Step 3.** Fill each sublevel to its max (s 2, p 6, d 10, f 14) until you run out.",
-      "**Step 4.** Check that the superscripts add up to the number of electrons."
-     ]
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Electrons",
-       "Configuration"
-      ],
-      "rows": [
-       [
-        "Nitrogen",
-        "7",
-        "1s² 2s² 2p³"
-       ],
-       [
-        "Oxygen",
-        "8",
-        "1s² 2s² 2p⁴"
-       ],
-       [
-        "Sodium",
-        "11",
-        "1s² 2s² 2p⁶ 3s¹"
-       ],
-       [
-        "Silicon",
-        "14",
-        "1s² 2s² 2p⁶ 3s² 3p²"
-       ],
-       [
-        "Chlorine",
-        "17",
-        "1s² 2s² 2p⁶ 3s² 3p⁵"
-       ],
-       [
-        "Calcium",
-        "20",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²"
-       ],
-       [
-        "Titanium",
-        "22",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²"
-       ],
-       [
-        "Iron",
-        "26",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶"
-       ],
-       [
-        "Nickel",
-        "28",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁸"
-       ],
-       [
-        "Bromine",
-        "35",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵"
-       ],
-       [
-        "Strontium",
-        "38",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s²"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "Spotting a wrong configuration"
-    },
-    {
-     "list": [
-      "Skipping a sublevel in the order (4s² 4d¹⁰ instead of 4s² 3d¹⁰) breaks **Aufbau**.",
-      "Too many electrons in a sublevel (3s³) breaks **Pauli**: s holds 2, p holds 6.",
-      "Using a core that isn't a noble gas ([Ra] instead of [Rn]) is not allowed."
-     ]
-    },
-    {
-     "h": "Noble gas notation, exceptions and ions"
-    },
-    {
-     "p": "**Noble gas notation** is the shortcut. Write the noble gas from the row above in brackets, then only the electrons after it."
-    },
-    {
-     "key": "Cores: **[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86**\nCa (20) = 20 − 18 → **[Ar] 4s²**"
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Full",
-       "Noble gas"
-      ],
-      "rows": [
-       [
-        "Lithium",
-        "1s² 2s¹",
-        "[He] 2s¹"
-       ],
-       [
-        "Fluorine",
-        "1s² 2s² 2p⁵",
-        "[He] 2s² 2p⁵"
-       ],
-       [
-        "Magnesium",
-        "1s² 2s² 2p⁶ 3s²",
-        "[Ne] 3s²"
-       ],
-       [
-        "Chlorine",
-        "1s² 2s² 2p⁶ 3s² 3p⁵",
-        "[Ne] 3s² 3p⁵"
-       ],
-       [
-        "Potassium",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹",
-        "[Ar] 4s¹"
-       ],
-       [
-        "Titanium",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²",
-        "[Ar] 4s² 3d²"
-       ],
-       [
-        "Iron",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶",
-        "[Ar] 4s² 3d⁶"
-       ],
-       [
-        "Gallium",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p¹",
-        "[Ar] 4s² 3d¹⁰ 4p¹"
-       ],
-       [
-        "Bromine",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
-        "[Ar] 4s² 3d¹⁰ 4p⁵"
-       ],
-       [
-        "Silver",
-        "too long",
-        "[Kr] 5s¹ 4d¹⁰"
-       ],
-       [
-        "Tin",
-        "too long",
-        "[Kr] 5s² 4d¹⁰ 5p²"
-       ],
-       [
-        "Iodine",
-        "too long",
-        "[Kr] 5s² 4d¹⁰ 5p⁵"
-       ],
-       [
-        "Barium",
-        "too long",
-        "[Xe] 6s²"
-       ],
-       [
-        "Lead",
-        "too long",
-        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "Exceptions"
-    },
-    {
-     "p": "A **half full (d⁵)** or **full (d¹⁰)** d sublevel is extra stable, so one electron moves from s to d."
-    },
-    {
-     "list": [
-      "**Cr:** [Ar] 4s¹ 3d⁵ (not 4s² 3d⁴)",
-      "**Cu:** [Ar] 4s¹ 3d¹⁰ (not 4s² 3d⁹)",
-      "Same pattern: Mo [Kr] 5s¹ 4d⁵, Ag [Kr] 5s¹ 4d¹⁰, Au [Xe] 4f¹⁴ 5d¹⁰ 6s¹",
-      "Your handout's molybdenum line says [Ar] 5s¹ 4d⁵. That's a typo, it should be [Kr]."
-     ]
-    },
-    {
-     "h": "Ions"
-    },
-    {
-     "table": {
-      "head": [
-       "Ion",
-       "Electrons",
-       "Configuration",
-       "Same as"
-      ],
-      "rows": [
-       [
-        "O²⁻",
-        "10",
-        "1s² 2s² 2p⁶",
-        "Ne"
-       ],
-       [
-        "F⁻",
-        "10",
-        "1s² 2s² 2p⁶",
-        "Ne"
-       ],
-       [
-        "Na⁺",
-        "10",
-        "1s² 2s² 2p⁶",
-        "Ne"
-       ],
-       [
-        "Ca²⁺",
-        "18",
-        "1s² 2s² 2p⁶ 3s² 3p⁶",
-        "Ar"
-       ],
-       [
-        "K⁺",
-        "18",
-        "1s² 2s² 2p⁶ 3s² 3p⁶",
-        "Ar"
-       ],
-       [
-        "Li⁺",
-        "2",
-        "1s²",
-        "He"
-       ],
-       [
-        "Fe²⁺",
-        "24",
-        "[Ar] 3d⁶",
-        ""
-       ],
-       [
-        "Co³⁺",
-        "24",
-        "[Ar] 3d⁶",
-        ""
-       ],
-       [
-        "Ni²⁺",
-        "26",
-        "[Ar] 3d⁸",
-        ""
-       ],
-       [
-        "Ag⁺",
-        "46",
-        "[Kr] 4d¹⁰",
-        ""
-       ]
-      ]
-     }
-    },
-    {
-     "p": "For transition metals, electrons leave **4s before 3d**, because 4s is the outermost level."
-    },
-    {
-     "h": "Valence electrons"
-    },
-    {
-     "p": "**Valence electrons** are in the outermost energy level, counting only s and p. They're the electrons that react, so they matter most to chemists."
-    },
-    {
-     "key": "Groups 1, 2 → **1, 2** valence electrons\nGroups 13 to 18 → **group − 10** (Cl in group 17 has 7)\nNoble gases have **8** (helium has 2)"
-    },
-    {
-     "img": "../img/u2/spdf-blocks.png",
-     "alt": "Periodic table split into s, p, d and f blocks"
-    },
-    {
-     "p": "Reading a noble gas configuration: the **period** is the biggest level number, the **block** is the last sublevel filled, and the element is the one at that spot."
-    },
-    {
-     "table": {
-      "head": [
-       "Configuration",
-       "Period",
-       "Block",
-       "Group",
-       "Valence",
-       "Element"
-      ],
-      "rows": [
-       [
-        "[He] 2s² 2p¹",
-        "2",
-        "p",
-        "13",
-        "3",
-        "B"
-       ],
-       [
-        "[Ne] 3s² 3p⁵",
-        "3",
-        "p",
-        "17",
-        "7",
-        "Cl"
-       ],
-       [
-        "[Ar] 4s² 3d⁶",
-        "4",
-        "d",
-        "8",
-        "2",
-        "Fe"
-       ],
-       [
-        "[Kr] 5s¹",
-        "5",
-        "s",
-        "1",
-        "1",
-        "Rb"
-       ],
-       [
-        "[Xe] 6s² 4f¹⁴ 5d¹⁰",
-        "6",
-        "d",
-        "12",
-        "2",
-        "Hg"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "**Lewis dot diagram:** write the symbol and put one dot per valence electron around it (up to 8). Boron gets 3, chlorine 7, iron 2."
-    },
-    {
-     "h": "Gaining and losing electrons"
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Shells",
-       "Lose or gain",
-       "Ion"
-      ],
-      "rows": [
-       [
-        "O",
-        "2-6",
-        "gain 2",
-        "O²⁻"
-       ],
-       [
-        "Na",
-        "2-8-1",
-        "lose 1",
-        "Na⁺"
-       ],
-       [
-        "S",
-        "2-8-6",
-        "gain 2",
-        "S²⁻"
-       ],
-       [
-        "K",
-        "2-8-8-1",
-        "lose 1",
-        "K⁺"
-       ],
-       [
-        "Al",
-        "2-8-3",
-        "lose 3",
-        "Al³⁺"
-       ],
-       [
-        "Cl",
-        "2-8-7",
-        "gain 1",
-        "Cl⁻"
-       ],
-       [
-        "Ca",
-        "2-8-8-2",
-        "lose 2",
-        "Ca²⁺"
-       ],
-       [
-        "N",
-        "2-5",
-        "gain 3",
-        "N³⁻"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "Explain it"
-    },
-    {
-     "h": "Why does 4s fill before 3d, but empty first?"
-    },
-    {
-     "p": "4s is **lower in energy**, so it fills first. But 4s is **farther from the nucleus**, so a positive ion loses its 4s electrons first."
-    },
-    {
-     "h": "Why are Cr and Cu exceptions?"
-    },
-    {
-     "p": "One 4s electron moves into 3d because a **half full (d⁵) or full (d¹⁰) d subshell is more stable**. Cr = [Ar] 4s¹ 3d⁵, Cu = [Ar] 4s¹ 3d¹⁰."
-    },
-    {
-     "key": "Every explain answer: what happens, then why, with the key word (neutrons, charge, energy, more stable)."
-    },
-    {
-     "h": "Drills"
-    },
-    {
-     "key": "Filling order: 1s 2s 2p 3s 3p **4s 3d** 4p 5s 4d 5p. s holds 2, p holds 6, d holds 10."
-    },
-    {
-     "list": [
-      "Noble gas notation: write the noble gas before the element in brackets, then the rest. Fe = [Ar] 4s² 3d⁶.",
-      "Check: the superscripts plus the noble gas's electrons equal the element's electrons.",
-      "**Exceptions:** Cr = [Ar] 4s¹ 3d⁵ and Cu = [Ar] 4s¹ 3d¹⁰.",
-      "**Positive ions:** write the neutral atom first, then take electrons from **4s first**, then 3d. Fe²⁺ = [Ar] 3d⁶, Fe³⁺ = [Ar] 3d⁵.",
-      "**Negative ions:** add electrons to the next open spot. Cl⁻ = [Ar]."
-     ]
-    }
-   ],
-   "cards": [
-    [
-     "Oxygen, normal configuration",
-     "1s² 2s² 2p⁴"
-    ],
-    [
-     "Oxygen, noble gas notation",
-     "[He] 2s² 2p⁴"
-    ],
-    [
-     "Oxygen orbital diagram",
-     "1s ↑↓ · 2s ↑↓ · 2p ↑↓ ↑ ↑ (2 unpaired)"
-    ],
-    [
-     "What does unpaired mean?",
-     "An electron alone in its orbital box (no ↓ partner)"
-    ],
-    [
-     "Electron configuration",
-     "A list of which sublevels an atom's electrons are in, like 1s² 2s² 2p⁴"
-    ],
-    [
-     "In 2p⁴, what do the 2, the p and the 4 mean?",
-     "2 is the energy level, p is the sublevel, 4 is the number of electrons in it"
-    ],
-    [
-     "Aufbau principle",
-     "Electrons fill the lowest energy sublevel first, building up from the bottom"
-    ],
-    [
-     "Filling order",
-     "1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f"
-    ],
-    [
-     "Why does 4s fill before 3d?",
-     "4s is lower in energy than 3d, so Aufbau fills it first"
-    ],
-    [
-     "How to check a configuration",
-     "The superscripts must add up to the number of electrons. Mg: 2 + 2 + 6 + 2 = 12."
-    ],
-    [
-     "Max electrons in s, p, d, f",
-     "2, 6, 10, 14"
-    ],
-    [
-     "Nitrogen (7)",
-     "1s² 2s² 2p³"
-    ],
-    [
-     "Sodium (11)",
-     "1s² 2s² 2p⁶ 3s¹"
-    ],
-    [
-     "Chlorine (17)",
-     "1s² 2s² 2p⁶ 3s² 3p⁵"
-    ],
-    [
-     "Noble gas notation",
-     "Put the noble gas before the element in brackets, then write only what comes after it. Ca = [Ar] 4s²"
-    ],
-    [
-     "Noble gas cores",
-     "[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86"
-    ],
-    [
-     "Core electrons vs valence electrons",
-     "The bracket is the core (inner electrons). What comes after holds the valence electrons."
-    ],
-    [
-     "Chlorine, noble gas notation",
-     "[Ne] 3s² 3p⁵"
-    ],
-    [
-     "Iron, noble gas notation",
-     "[Ar] 4s² 3d⁶"
-    ],
-    [
-     "Cobalt, noble gas notation",
-     "[Ar] 4s² 3d⁷"
-    ],
-    [
-     "Tin, noble gas notation",
-     "[Kr] 5s² 4d¹⁰ 5p²"
-    ],
-    [
-     "Silver, noble gas notation",
-     "[Kr] 5s¹ 4d¹⁰"
-    ],
-    [
-     "Lead, noble gas notation",
-     "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
-    ],
-    [
-     "Valence electrons",
-     "The electrons in the outermost energy level (the highest s and p). They're the ones used in reactions and bonding."
-    ],
-    [
-     "Why valence electrons matter to chemists",
-     "They decide how an atom reacts and bonds"
-    ],
-    [
-     "Valence electrons from the group number",
-     "Groups 1 and 2: 1 and 2. Groups 13 to 18: subtract 10 (group 17 → 7). Helium has 2."
-    ],
-    [
-     "Most valence electrons an atom can have",
-     "8, a full s and p (an octet)"
-    ],
-    [
-     "Valence electrons in fluorine",
-     "7"
-    ],
-    [
-     "Valence electrons in gallium [Ar] 4s² 3d¹⁰ 4p¹",
-     "3 (the 4s² and 4p¹). The 3d doesn't count."
-    ],
-    [
-     "Lewis dot diagram",
-     "The element's symbol with one dot for each valence electron"
-    ],
-    [
-     "Dots for B, Cl and Fe",
-     "B 3, Cl 7, Fe 2 (from 4s²)"
-    ],
-    [
-     "Period from a configuration",
-     "The highest energy level number. [Ne] 3s² 3p⁵ is period 3."
-    ],
-    [
-     "Why does 4s empty before 3d in an ion?",
-     "4s is farther from the nucleus"
-    ],
-    [
-     "Why are Cr and Cu exceptions?",
-     "A half full (d⁵) or full (d¹⁰) d subshell is more stable, so one 4s electron moves to 3d"
-    ],
-    [
-     "Cr configuration",
-     "[Ar] 4s¹ 3d⁵"
-    ],
-    [
-     "Cu configuration",
-     "[Ar] 4s¹ 3d¹⁰"
-    ]
-   ],
-   "points": [
-    "Aufbau: fill the lowest energy first",
-    "Order: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
-    "s 2, p 6, d 10, f 14",
-    "Noble gas notation: [noble gas] then the rest, Ca = [Ar] 4s²",
-    "Cr [Ar] 4s¹ 3d⁵ and Cu [Ar] 4s¹ 3d¹⁰, half full and full d are stable",
-    "Transition metal ions lose 4s electrons first: Fe²⁺ = [Ar] 3d⁶",
-    "Groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10",
-    "Drills: Ni [Ar] 4s² 3d⁸, Zn²⁺ [Ar] 3d¹⁰, Mn²⁺ and Fe³⁺ [Ar] 3d⁵, Co²⁺ [Ar] 3d⁷, Cl⁻ [Ar]"
-   ],
-   "dump": [
-    {
-     "p": "Write the filling order and every rule you remember. Then write these, full and in noble gas notation."
-    },
-    {
-     "list": [
-      "Cu",
-      "Cr",
-      "Ni",
-      "Zn²⁺",
-      "Mn²⁺",
-      "Fe³⁺",
-      "Co²⁺",
-      "Cl⁻"
-     ]
-    }
-   ],
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "orbdiag",
-   "title": "Orbital diagrams",
-   "quizlet": "",
-   "notes": [
-    {
-     "h": "Orbitals: s, p, d and f"
-    },
-    {
-     "table": {
-      "head": [
-       "Sublevel",
-       "Orbitals",
-       "Electrons",
-       "Shape"
-      ],
-      "rows": [
-       [
-        "s",
-        "1",
-        "2",
-        "Sphere"
-       ],
-       [
-        "p",
-        "3",
-        "6",
-        "Dumbbell"
-       ],
-       [
-        "d",
-        "5",
-        "10",
-        "Cloverleaf"
-       ],
-       [
-        "f",
-        "7",
-        "14",
-        "Complex"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "**s2 p6 d10 f14.** Energy level n has n sublevels and n² orbitals: level 2 has s and p (4 orbitals, 8 electrons)."
-    },
-    {
-     "p": "**Orbit vs orbital:** a Bohr orbit is an exact circle. An orbital is a fuzzy region where the electron probably is."
-    },
-    {
-     "p": "Filling order (aufbau, lowest energy first): 1s, 2s, 2p, 3s, 3p, 4s, 3d. Oxygen (8 electrons) is 1s² 2s² 2p⁴."
-    },
-    {
-     "h": "Orbital diagrams, Pauli and Hund's rule"
-    },
-    {
-     "img": "../img/u2/orbital-boxes.png"
-    },
-    {
-     "alt": "Orbital box diagrams: fluorine, nitrogen drawn right, nitrogen breaking Hund's rule, helium breaking Pauli"
-    },
-    {
-     "p": "Draw one box per orbital: 1 box for s, 3 for p, 5 for d, 7 for f. Put one arrow of each spin in each box before you double up."
-    },
-    {
-     "table": {
-      "head": [
-       "Rule",
-       "What it says",
-       "In the diagram"
-      ],
-      "rows": [
-       [
-        "**Aufbau**",
-        "Fill the lowest energy first",
-        "Fill boxes left to right in the filling order"
-       ],
-       [
-        "**Pauli exclusion**",
-        "Max 2 electrons per orbital, opposite spins",
-        "Never more than ↑↓ in one box"
-       ],
-       [
-        "**Hund's rule**",
-        "Spread out before pairing",
-        "One ↑ in every box of a sublevel, then go back and add ↓"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "**Aufbau builds, Pauli pairs, Hund spreads.**\nBus seat rule: nobody shares a seat until every seat has one person."
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "1s",
-       "2s",
-       "2p",
-       "3s",
-       "3p"
-      ],
-      "rows": [
-       [
-        "Be (4)",
-        "↑↓",
-        "↑↓",
-        "_ _ _",
-        "",
-        ""
-       ],
-       [
-        "N (7)",
-        "↑↓",
-        "↑↓",
-        "↑ ↑ ↑",
-        "",
-        ""
-       ],
-       [
-        "O (8)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑ ↑",
-        "",
-        ""
-       ],
-       [
-        "Ne (10)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "",
-        ""
-       ],
-       [
-        "Na (11)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑",
-        ""
-       ],
-       [
-        "Si (14)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑↓",
-        "↑ ↑ _"
-       ],
-       [
-        "Cl (17)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑"
-       ],
-       [
-        "Ar (18)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "For the 4s and 3d part (everything up to 3p is full, like argon):"
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "4s",
-       "3d (5 boxes)"
-      ],
-      "rows": [
-       [
-        "Ti (22)",
-        "↑↓",
-        "↑ ↑ _ _ _"
-       ],
-       [
-        "V (23)",
-        "↑↓",
-        "↑ ↑ ↑ _ _"
-       ],
-       [
-        "Fe (26)",
-        "↑↓",
-        "↑↓ ↑ ↑ ↑ ↑"
-       ],
-       [
-        "Ni (28)",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓ ↑ ↑"
-       ],
-       [
-        "Cu (29)",
-        "↑",
-        "↑↓ ↑↓ ↑↓ ↑↓ ↑↓"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "**Ions:** draw the neutral atom, then add arrows (negative ion) or remove them (positive ion). Ca²⁺ looks like argon, O²⁻ looks like neon."
-    }
-   ],
-   "cards": [
-    [
-     "Orbital",
-     "A region of space where there is a high chance (about 90%) of finding an electron"
-    ],
-    [
-     "Most electrons in one orbital",
-     "2, and they must have opposite spins"
-    ],
-    [
-     "s sublevel",
-     "1 orbital, holds 2 electrons, sphere shaped"
-    ],
-    [
-     "p sublevel",
-     "3 orbitals, holds 6 electrons, dumbbell shaped"
-    ],
-    [
-     "d sublevel",
-     "5 orbitals, holds 10 electrons"
-    ],
-    [
-     "f sublevel",
-     "7 orbitals, holds 14 electrons"
-    ],
-    [
-     "Sublevels in energy level n",
-     "n sublevels. Level 1: s. Level 2: s, p. Level 3: s, p, d. Level 4: s, p, d, f."
-    ],
-    [
-     "Orbitals in energy level n",
-     "n² orbitals (so 2n² electrons)"
-    ],
-    [
-     "Bohr orbit vs orbital",
-     "A Bohr orbit is an exact circular path. An orbital is a probability region with no exact path."
-    ],
-    [
-     "Filling order (aufbau)",
-     "1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p... lowest energy first"
-    ],
-    [
-     "Orbital diagram",
-     "A box or line for every orbital, with arrows for electrons. ↑ and ↓ are the two spins."
-    ],
-    [
-     "Boxes per sublevel",
-     "s 1, p 3, d 5, f 7"
-    ],
-    [
-     "Pauli exclusion principle (in a diagram)",
-     "A box holds at most 2 arrows, and they point opposite ways: ↑↓"
-    ],
-    [
-     "Hund's rule",
-     "In a sublevel, put one electron in each box first, all pointing up, then start pairing"
-    ],
-    [
-     "Hund's rule picture",
-     "The bus seat rule: nobody sits next to someone until every seat has one person"
-    ],
-    [
-     "The three filling rules in one line",
-     "Aufbau builds from the bottom, Pauli pairs opposite spins, Hund spreads out before pairing"
-    ],
-    [
-     "Nitrogen orbital diagram",
-     "1s ↑↓, 2s ↑↓, 2p ↑ ↑ ↑"
-    ],
-    [
-     "Oxygen orbital diagram",
-     "1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑"
-    ],
-    [
-     "Nitrogen drawn as 2p ↑↓ ↑ _",
-     "Wrong, breaks Hund's rule. Each p box gets one electron before any pairs."
-    ],
-    [
-     "A box drawn ↑↑",
-     "Wrong, breaks Pauli. Two electrons in one orbital must have opposite spins."
-    ],
-    [
-     "Unpaired electrons in nitrogen",
-     "3"
-    ],
-    [
-     "Iron's 3d orbital diagram",
-     "↑↓ ↑ ↑ ↑ ↑ (6 electrons, 4 unpaired)"
-    ],
-    [
-     "Orbital diagram of an ion",
-     "Same as the neutral atom with arrows added (negative) or removed (positive). Na⁺: 1s ↑↓, 2s ↑↓, 2p ↑↓ ↑↓ ↑↓"
-    ],
-    [
-     "Shape of an s orbital",
-     "Sphere"
-    ],
-    [
-     "Shape of a p orbital",
-     "Dumbbell"
-    ],
-    [
-     "Shape of a d orbital",
-     "Cloverleaf"
-    ],
-    [
-     "Shape of an f orbital",
-     "Complex shapes"
-    ],
-    [
-     "Boxes per sublevel in an orbital diagram",
-     "s 1, p 3, d 5, f 7"
-    ]
-   ],
-   "points": [
-    "An orbital holds at most 2 electrons with opposite spins",
-    "s2 p6 d10 f14, with 1, 3, 5, 7 orbitals",
-    "Orbital diagram: a box per orbital, arrows for electrons",
-    "s 1 box, p 3, d 5, f 7",
-    "Pauli: max 2 per box, opposite spins",
-    "Hund: one in each box first, then pair"
-   ],
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "bigatoms",
-   "title": "Rules, shapes and bigger atoms",
-   "quizlet": "",
-   "notes": [
-    {
-     "h": "Which rule is broken"
-    },
-    {
-     "table": {
-      "head": [
-       "What you see",
-       "Rule broken",
-       "The rule"
-      ],
-      "rows": [
-       [
-        "An electron in 2p while 2s is still empty",
-        "**Aufbau**",
-        "Fill the lowest energy first"
-       ],
-       [
-        "Three electrons in one box, or two with the same spin",
-        "**Pauli**",
-        "Max 2 per box, opposite spins"
-       ],
-       [
-        "Two 2p electrons paired while another 2p box is empty",
-        "**Hund**",
-        "One per box before pairing (bus seats)"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "Wrong **order** is Aufbau. Too many or same direction **in one box** is Pauli. Paired **too early** is Hund."
-    },
-    {
-     "list": [
-      "Carbon's 2p is **↑ ↑ __**: two single arrows, one empty box. ↑↓ __ __ breaks Hund",
-      "Phosphorus 2p is ↑ ↑ ↑, so it has **3 unpaired electrons**"
-     ]
-    },
-    {
-     "h": "Orbital shapes and blocks"
-    },
-    {
-     "img": "../img/u2/shapes.png",
-     "alt": "s sphere, p dumbbell, d cloverleaf, f complex"
-    },
-    {
-     "key": "s is a sphere, p is a dumbbell, d is a cloverleaf, f is complex."
-    },
-    {
-     "img": "../img/u2/blocks.png",
-     "alt": "Periodic table split into s, p, d and f blocks"
-    },
-    {
-     "p": "The periodic table is split into blocks. Each block's width is how many electrons that sublevel holds: s is the 2 left columns, p is the 6 right columns, d is the 10 middle columns (transition metals), f is the 2 bottom rows, 14 wide. An element's block is the sublevel its **last** electron goes into. Chlorine is in the p block and ends in 3p⁵. Iron is in the d block and ends in 3d⁶. Helium is the exception: it sits on the right but is 1s²."
-    },
-    {
-     "h": "Why 4s fills before 3d"
-    },
-    {
-     "img": "../img/u2/energy-ladder.png",
-     "alt": "Energy ladder showing 4s below 3d"
-    },
-    {
-     "p": "Ring 3 can hold 18, but 4s is lower in energy than 3d, so after 3p fills the next electrons go to ring 4 first. That's why potassium is **2-8-8-1** and calcium is **2-8-8-2**. Starting at scandium, the transition metals go back and fill 3d, so iron (26) is **2-8-14-2**."
-    },
-    {
-     "h": "Noble gas notation for transition metals"
-    },
-    {
-     "img": "../img/u2/noble-gas.png",
-     "alt": "Nickel's full configuration with the argon part boxed, then [Ar] 4s2 3d8"
-    },
-    {
-     "p": "Everything up to 3p⁶ matches argon (18 electrons), so write **[Ar]** and only what comes after: 4s gets 2, 3d gets the rest."
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Electrons",
-       "Minus 18",
-       "4s",
-       "3d",
-       "Answer"
-      ],
-      "rows": [
-       [
-        "Fe",
-        "26",
-        "8",
-        "2",
-        "6",
-        "[Ar] 4s² 3d⁶"
-       ],
-       [
-        "Ni",
-        "28",
-        "10",
-        "2",
-        "8",
-        "[Ar] 4s² 3d⁸"
-       ],
-       [
-        "Zn",
-        "30",
-        "12",
-        "2",
-        "10",
-        "[Ar] 4s² 3d¹⁰"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "**Transition metal ions:** a 2+ ion lost 2 electrons, and they come out of 4s first. Fe²⁺ is **[Ar] 3d⁶**, Ni²⁺ is **[Ar] 3d⁸**."
-    }
-   ],
-   "cards": [
-    [
-     "Electron in 2p while 2s is empty",
-     "Breaks Aufbau"
-    ],
-    [
-     "Three electrons in one box",
-     "Breaks Pauli"
-    ],
-    [
-     "Paired in 2p while another 2p box is empty",
-     "Breaks Hund"
-    ],
-    [
-     "Correct drawing of carbon's 2p",
-     "↑ ↑ __"
-    ],
-    [
-     "Unpaired electrons in phosphorus",
-     "3"
-    ],
-    [
-     "Shape of s orbitals",
-     "Sphere"
-    ],
-    [
-     "Shape of p orbitals",
-     "Dumbbell"
-    ],
-    [
-     "Shape of d orbitals",
-     "Cloverleaf"
-    ],
-    [
-     "Which block is the 2 left columns?",
-     "s block"
-    ],
-    [
-     "Which block is the 6 right columns?",
-     "p block"
-    ],
-    [
-     "Which block is the 10 middle columns?",
-     "d block (transition metals)"
-    ],
-    [
-     "Which block is the 2 bottom rows?",
-     "f block, 14 wide"
-    ],
-    [
-     "Why does 4s fill before 3d?",
-     "4s is lower in energy"
-    ],
-    [
-     "Bohr model of calcium",
-     "2-8-8-2"
-    ],
-    [
-     "Bohr model of iron",
-     "2-8-14-2"
-    ],
-    [
-     "Noble gas notation for Ni",
-     "[Ar] 4s² 3d⁸"
-    ],
-    [
-     "Noble gas notation for Zn",
-     "[Ar] 4s² 3d¹⁰"
-    ],
-    [
-     "Noble gas notation for Ni²⁺",
-     "[Ar] 3d⁸ (4s electrons leave first)"
-    ],
-    [
-     "Noble gas notation for Fe²⁺",
-     "[Ar] 3d⁶"
-    ]
-   ],
-   "points": [
-    "Wrong order = Aufbau, too many in one box = Pauli, paired too early = Hund",
-    "Carbon 2p is ↑ ↑ __, phosphorus has 3 unpaired",
-    "s sphere, p dumbbell, d cloverleaf, f complex",
-    "s, p, d, f blocks are 2, 6, 10, 14 wide; the block is the last sublevel filled",
-    "4s fills before 3d: Ca 2-8-8-2, Fe 2-8-14-2",
-    "Fe [Ar] 4s² 3d⁶, Ni [Ar] 4s² 3d⁸, Zn [Ar] 4s² 3d¹⁰",
-    "2+ ions lose 4s first: Ni²⁺ [Ar] 3d⁸"
    ]
-  },
-  {
-   "id": "packet",
-   "title": "Atom practice packet answer key",
-   "steps": [
-    0
-   ],
-   "cards": [],
-   "notes": [
-    {
-     "p": "Answers to the Atom Practice Packet, by the page numbers you wrote on it. Use it to check your work, not to skip it. Every number here was recalculated."
-    },
-    {
-     "h": "Fix these (you had them wrong)"
-    },
-    {
-     "list": [
-      "**p. 9, Br-81:** make sure the atomic number under it reads 35.",
-      "**p. 10:** potassium is ³⁹₁₉K and its ion is ³⁹₁₉K⁺ (not 84). Both oxygens are ¹⁶₈O, and the one with 10 e⁻ is ¹⁶₈O²⁻.",
-      "**p. 11, 3c:** 12, 13, 14 are **mass numbers**, not atomic mass.",
-      "**p. 13, 6b:** isotopes differ in **neutrons** (and mass), not electrons.",
-      "**p. 14, sulfur:** 32.0574 amu.",
-      "**p. 15, Q3:** C-14 and N-14 aren't isotopes because they have **different protons**.",
-      "**p. 39, Q9 (Ca):** 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² (3p⁶, not 3p²)."
-     ]
-    },
-    {
-     "h": "Pages 4 to 7"
-    },
-    {
-     "list": [
-      "**p. 4, Q12:** an element can have many isotopes, but most are unstable (radioactive) and break down, so only a few occur in nature.",
-      "**p. 5, Q2:** proton 1.0073 × 1.66054 × 10⁻²⁷ = 1.673 × 10⁻²⁷ kg, neutron 1.675 × 10⁻²⁷ kg, electron 0.000549 × 1.66054 × 10⁻²⁷ = 9.11 × 10⁻³¹ kg (if you round the electron to 0.0005 amu first you get 8.3 × 10⁻³¹, so use the value the packet gives).",
-      "**p. 6:** 99.975% of carbon-12's mass is in the nucleus, because electrons are so light.",
-      "**p. 7:** atom ÷ nucleus = 100 pm ÷ 4.0 fm = 25,000. 17 mm × 25,000 = 425 m, so **(c) a football stadium**."
-     ]
-    },
-    {
-     "table": {
-      "head": [
-       "p. 5 Table 2",
-       "Symbol",
-       "Z",
-       "A",
-       "Neutrons",
-       "Electrons"
-      ],
-      "rows": [
-       [
-        "calcium-40 ion",
-        "⁴⁰₂₀Ca²⁺",
-        "20",
-        "40",
-        "20",
-        "18"
-       ],
-       [
-        "oxygen-16",
-        "¹⁶₈O",
-        "8",
-        "16",
-        "8",
-        "8"
-       ],
-       [
-        "uranium-238",
-        "²³⁸₉₂U",
-        "92",
-        "238",
-        "146",
-        "92"
-       ],
-       [
-        "fluorine-19",
-        "¹⁹₉F",
-        "9",
-        "19",
-        "10",
-        "9"
-       ],
-       [
-        "chlorine-35 ion",
-        "³⁵₁₇Cl⁻",
-        "17",
-        "35",
-        "18",
-        "18"
-       ],
-       [
-        "potassium-39",
-        "³⁹₁₉K",
-        "19",
-        "39",
-        "20",
-        "19"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "Page 12"
-    },
-    {
-     "table": {
-      "head": [
-       "Isotope or ion",
-       "Z",
-       "Protons",
-       "Neutrons",
-       "Electrons",
-       "Mass #"
-      ],
-      "rows": [
-       [
-        "uranium-235",
-        "92",
-        "92",
-        "143",
-        "92",
-        "235"
-       ],
-       [
-        "uranium-238",
-        "92",
-        "92",
-        "146",
-        "92",
-        "238"
-       ],
-       [
-        "boron-10",
-        "5",
-        "5",
-        "5",
-        "5",
-        "10"
-       ],
-       [
-        "boron-11",
-        "5",
-        "5",
-        "6",
-        "5",
-        "11"
-       ],
-       [
-        "¹H",
-        "1",
-        "1",
-        "0",
-        "1",
-        "1"
-       ],
-       [
-        "¹H⁺",
-        "1",
-        "1",
-        "0",
-        "0",
-        "1"
-       ],
-       [
-        "¹²C",
-        "6",
-        "6",
-        "6",
-        "6",
-        "12"
-       ],
-       [
-        "⁷Li",
-        "3",
-        "3",
-        "4",
-        "3",
-        "7"
-       ],
-       [
-        "³⁵Cl⁻",
-        "17",
-        "17",
-        "18",
-        "18",
-        "35"
-       ],
-       [
-        "³⁹K",
-        "19",
-        "19",
-        "20",
-        "19",
-        "39"
-       ],
-       [
-        "²⁴Mg²⁺",
-        "12",
-        "12",
-        "12",
-        "10",
-        "24"
-       ],
-       [
-        "⁷⁵As",
-        "33",
-        "33",
-        "42",
-        "33",
-        "75"
-       ],
-       [
-        "¹⁰⁸Ag⁺",
-        "47",
-        "47",
-        "61",
-        "46",
-        "108"
-       ],
-       [
-        "³²S²⁻",
-        "16",
-        "16",
-        "16",
-        "18",
-        "32"
-       ],
-       [
-        "⁶⁶Zn²⁺",
-        "30",
-        "30",
-        "36",
-        "28",
-        "66"
-       ],
-       [
-        "¹⁹⁰Os",
-        "76",
-        "76",
-        "114",
-        "76",
-        "190"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "**Part II:** an atom is negative when it has more electrons than protons, and positive when it has more protons than electrons. Isotopes are atoms of the same element with different numbers of neutrons. Changing the number of protons changes the element."
-    },
-    {
-     "h": "Pages 15 to 18, average atomic mass"
-    },
-    {
-     "list": [
-      "**p. 15, Q4:** ²³⁴₉₂U (142 neutrons) and ²³⁸₉₂U (146 neutrons).",
-      "**p. 16:** hydrogen 1.012 amu. Q9 is about 71.16 amu as printed, but its percents only add to 95%. Dividing by 0.95 gives about 74.9 amu, which is **arsenic**. Q10: 51.996 amu, **chromium**. Q11: **Ca-40**. Q12: 41.996 amu.",
-      "**p. 17:** Cu 63.62, S 32.09, Pb 207.21, Br 79.99 amu (whole number masses). Q5: Si-28 is most common. Q6: Li-7. Q7: **Z-211**.",
-      "**p. 18:** Q8: **Q-113**. Q9: **75.76% Cl-35, 24.24% Cl-37**."
-     ]
-    },
-    {
-     "h": "Pages 19 to 25, Bohr diagrams"
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Protons",
-       "Neutrons",
-       "Electrons",
-       "Rings"
-      ],
-      "rows": [
-       [
-        "H",
-        "1",
-        "0",
-        "1",
-        "1"
-       ],
-       [
-        "C",
-        "6",
-        "6",
-        "6",
-        "2-4"
-       ],
-       [
-        "Be",
-        "4",
-        "5",
-        "4",
-        "2-2"
-       ],
-       [
-        "O",
-        "8",
-        "8",
-        "8",
-        "2-6"
-       ],
-       [
-        "Ne",
-        "10",
-        "10",
-        "10",
-        "2-8"
-       ],
-       [
-        "Na",
-        "11",
-        "12",
-        "11",
-        "2-8-1"
-       ],
-       [
-        "Mg",
-        "12",
-        "12",
-        "12",
-        "2-8-2"
-       ],
-       [
-        "Al",
-        "13",
-        "14",
-        "13",
-        "2-8-3"
-       ],
-       [
-        "Si",
-        "14",
-        "14",
-        "14",
-        "2-8-4"
-       ],
-       [
-        "P",
-        "15",
-        "16",
-        "15",
-        "2-8-5"
-       ],
-       [
-        "Cl",
-        "17",
-        "18",
-        "17",
-        "2-8-7"
-       ],
-       [
-        "Ar",
-        "18",
-        "22",
-        "18",
-        "2-8-8"
-       ],
-       [
-        "K",
-        "19",
-        "20",
-        "19",
-        "2-8-8-1"
-       ],
-       [
-        "Ca",
-        "20",
-        "20",
-        "20",
-        "2-8-8-2"
-       ],
-       [
-        "Li",
-        "3",
-        "4",
-        "3",
-        "2-1"
-       ],
-       [
-        "S",
-        "16",
-        "16",
-        "16",
-        "2-8-6"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "Bromine is 2-8-18-7 and iodine is 2-8-18-18-7, from the reference table."
-    },
-    {
-     "h": "Pages 26 and 30, configurations"
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Electrons",
-       "Configuration"
-      ],
-      "rows": [
-       [
-        "Na",
-        "11",
-        "1s² 2s² 2p⁶ 3s¹"
-       ],
-       [
-        "Pb",
-        "82",
-        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
-       ],
-       [
-        "Sr",
-        "38",
-        "[Kr] 5s²"
-       ],
-       [
-        "U",
-        "92",
-        "[Rn] 7s² 5f⁴"
-       ],
-       [
-        "N",
-        "7",
-        "1s² 2s² 2p³"
-       ],
-       [
-        "Ag",
-        "47",
-        "[Kr] 5s¹ 4d¹⁰"
-       ],
-       [
-        "Ti",
-        "22",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²"
-       ],
-       [
-        "Ce",
-        "58",
-        "[Xe] 6s² 4f²"
-       ],
-       [
-        "Cl",
-        "17",
-        "1s² 2s² 2p⁶ 3s² 3p⁵"
-       ],
-       [
-        "Hg",
-        "80",
-        "[Xe] 6s² 4f¹⁴ 5d¹⁰"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "Uranium and cerium follow the filling order here. Their real configurations are slightly different, but your class uses the order."
-    },
-    {
-     "h": "Page 27"
-    },
-    {
-     "list": [
-      "**Q11:** (a) 13, aluminum. (b) 23, vanadium. (c) 9, fluorine. (d) 31, gallium. (e) 8, oxygen. Write the configuration for each from the boxes.",
-      "**Q12:** s block: groups 1 and 2 plus He. p block: groups 13 to 18. d block: groups 3 to 12. f block: the two bottom rows.",
-      "**Q13:** three d electrons: V (23). Complete d: Cu (29, it's 3d¹⁰), or Zn (30) if you ignore exceptions. Ten p electrons: S (16). An f electron: La (57) by the filling order. 13 d electrons: Nb (41). 23 p electrons: I (53). 7 s electrons: K (19).",
-      "**Q14:** 9 (2p⁶ + 3p³). **Q15:** 18 (2n² with n = 3)."
-     ]
-    },
-    {
-     "h": "Page 29"
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "Z",
-       "Shells",
-       "Configuration",
-       "Lost or gained",
-       "Left",
-       "Ion"
-      ],
-      "rows": [
-       [
-        "O",
-        "8",
-        "2-6",
-        "1s² 2s² 2p⁴",
-        "gain 2",
-        "10",
-        "2−"
-       ],
-       [
-        "Na",
-        "11",
-        "2-8-1",
-        "1s² 2s² 2p⁶ 3s¹",
-        "lose 1",
-        "10",
-        "1+"
-       ],
-       [
-        "S",
-        "16",
-        "2-8-6",
-        "1s² 2s² 2p⁶ 3s² 3p⁴",
-        "gain 2",
-        "18",
-        "2−"
-       ],
-       [
-        "K",
-        "19",
-        "2-8-8-1",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹",
-        "lose 1",
-        "18",
-        "1+"
-       ],
-       [
-        "Al",
-        "13",
-        "2-8-3",
-        "1s² 2s² 2p⁶ 3s² 3p¹",
-        "lose 3",
-        "10",
-        "3+"
-       ],
-       [
-        "Cl",
-        "17",
-        "2-8-7",
-        "1s² 2s² 2p⁶ 3s² 3p⁵",
-        "gain 1",
-        "18",
-        "1−"
-       ],
-       [
-        "Sr",
-        "38",
-        "2-8-18-8-2",
-        "[Kr] 5s²",
-        "lose 2",
-        "36",
-        "2+"
-       ],
-       [
-        "Ca",
-        "20",
-        "2-8-8-2",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²",
-        "lose 2",
-        "18",
-        "2+"
-       ],
-       [
-        "F",
-        "9",
-        "2-7",
-        "1s² 2s² 2p⁵",
-        "gain 1",
-        "10",
-        "1−"
-       ],
-       [
-        "Br",
-        "35",
-        "2-8-18-7",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
-        "gain 1",
-        "36",
-        "1−"
-       ],
-       [
-        "N",
-        "7",
-        "2-5",
-        "1s² 2s² 2p³",
-        "gain 3",
-        "10",
-        "3−"
-       ],
-       [
-        "I",
-        "53",
-        "2-8-18-18-7",
-        "[Kr] 5s² 4d¹⁰ 5p⁵",
-        "gain 1",
-        "54",
-        "1−"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "Page 31"
-    },
-    {
-     "list": [
-      "**E:** sodium 1s² 2s² 2p⁶ 3s¹. Iron 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Bromine 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵. Barium 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 4d¹⁰ 5p⁶ 6s². Neptunium [Rn] 7s² 5f⁵ (written out in full it continues from 6p⁶).",
-      "**F:** cobalt [Ar] 4s² 3d⁷. Silver [Kr] 5s¹ 4d¹⁰. Tellurium [Kr] 5s² 4d¹⁰ 5p⁴. Radium [Rn] 7s². Lawrencium [Rn] 7s² 5f¹⁴ 6d¹.",
-      "**G:** 11) sulfur, 12) rubidium, 13) antimony, 14) osmium, 15) einsteinium."
-     ]
-    },
-    {
-     "h": "Page 32"
-    },
-    {
-     "list": [
-      "**16)** invalid: 4d after 4s, it should be 3d (Aufbau). **17)** invalid: 3s³, s holds only 2 (Pauli), and 3p was skipped. **18)** invalid: [Ra] isn't a noble gas, use [Rn]. **19)** valid, it's iodine. **20)** valid, it's xenon.",
-      "**I:** nitrogen 1s² 2s² 2p³ = [He] 2s² 2p³. Chlorine 1s² 2s² 2p⁶ 3s² 3p⁵ = [Ne] 3s² 3p⁵. Sodium 1s² 2s² 2p⁶ 3s¹ = [Ne] 3s¹. Neon 1s² 2s² 2p⁶ = [He] 2s² 2p⁶. The arrows are in the orbital diagrams section."
-     ]
-    },
-    {
-     "h": "Pages 33 and 34"
-    },
-    {
-     "list": [
-      "**B:** O²⁻ 1s² 2s² 2p⁶. Fe²⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶. B³⁺ 1s². Ni²⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁸. K⁺ 1s² 2s² 2p⁶ 3s² 3p⁶. Co³⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶.",
-      "**C:** 17) selenium (or ions with 34 electrons, like Br⁺ or As⁻). 18) krypton, or Br⁻, Rb⁺, Sr²⁺, Se²⁻. 19) dysprosium (66 electrons). 20) manganese. 21) antimony. 22) potassium. 23) dysprosium. 24) aluminum.",
-      "**p. 34:** nickel 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁸. Vanadium 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d³. Copper 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d¹⁰ (the exception)."
-     ]
-    },
-    {
-     "h": "Pages 35 to 37"
-    },
-    {
-     "table": {
-      "head": [
-       "p. 35",
-       "Full",
-       "Noble gas"
-      ],
-      "rows": [
-       [
-        "Li",
-        "1s² 2s¹",
-        "[He] 2s¹"
-       ],
-       [
-        "F",
-        "1s² 2s² 2p⁵",
-        "[He] 2s² 2p⁵"
-       ],
-       [
-        "Ne",
-        "1s² 2s² 2p⁶",
-        "[He] 2s² 2p⁶"
-       ],
-       [
-        "Si",
-        "1s² 2s² 2p⁶ 3s² 3p²",
-        "[Ne] 3s² 3p²"
-       ],
-       [
-        "Ti",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²",
-        "[Ar] 4s² 3d²"
-       ],
-       [
-        "Br",
-        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
-        "[Ar] 4s² 3d¹⁰ 4p⁵"
-       ],
-       [
-        "Pb",
-        "noble gas only",
-        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
-       ],
-       [
-        "U",
-        "noble gas only",
-        "[Rn] 7s² 5f⁴"
-       ]
-      ]
-     }
-    },
-    {
-     "list": [
-      "**p. 35, 9 to 13:** B, Cl, Fe, Rb, Hg (full table in the valence section). **Q14:** 4s is lower in energy than 3d, so Aufbau fills it first. **Q15:** valence electrons are the outermost s and p electrons, the ones that react. Use the group number: groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10.",
-      "**p. 36, Part I:** Fr [Rn] 7s¹ (1 valence), Sn [Kr] 5s² 4d¹⁰ 5p² (4 valence, 5s² 5p²), Sr [Kr] 5s² (2), P [Ne] 3s² 3p³ (5).",
-      "**p. 36, Part II:** N 1s² 2s² 2p³, Ti 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d², Rb 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s¹, Cl 1s² 2s² 2p⁶ 3s² 3p⁵.",
-      "**p. 37, Part III:** K [Ar] 4s¹, 1 valence (4s¹). Mg [Ne] 3s², 2 (3s²). I [Kr] 5s² 4d¹⁰ 5p⁵, 7 (5s² 5p⁵). Ga [Ar] 4s² 3d¹⁰ 4p¹, 3 (4s² 4p¹)."
-     ]
-    },
-    {
-     "table": {
-      "head": [
-       "p. 37 Part IV",
-       "Max e⁻ (2n²)",
-       "Sublevels",
-       "Types",
-       "Orbitals each",
-       "e⁻ per orbital"
-      ],
-      "rows": [
-       [
-        "n = 1",
-        "2",
-        "1",
-        "s",
-        "s = 1",
-        "2"
-       ],
-       [
-        "n = 2",
-        "8",
-        "2",
-        "s, p",
-        "s = 1, p = 3",
-        "2"
-       ],
-       [
-        "n = 3",
-        "18",
-        "3",
-        "s, p, d",
-        "s = 1, p = 3, d = 5",
-        "2"
-       ],
-       [
-        "n = 4",
-        "32",
-        "4",
-        "s, p, d, f",
-        "s = 1, p = 3, d = 5, f = 7",
-        "2"
-       ]
-      ]
-     }
-    },
-    {
-     "h": "Pages 38 to 40"
-    },
-    {
-     "list": [
-      "**p. 38:** iron has 26 electrons, 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Be, Si, Ni, Ar and Ti diagrams are in the orbital diagrams section.",
-      "**p. 39:** Cr 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d⁵ (exception). Mg 1s² 2s² 2p⁶ 3s². Ca [Ar] 4s². Cl [Ne] 3s² 3p⁵. Ag [Kr] 5s¹ 4d¹⁰. Sn [Kr] 5s² 4d¹⁰ 5p².",
-      "**p. 39 ions:** Ca²⁺ is drawn like argon, O²⁻ like neon. Be²⁺ 1s². Li⁺ 1s². F⁻ 1s² 2s² 2p⁶. Br⁻ [Kr]. Ba²⁺ [Xe]. Ag⁺ [Kr] 4d¹⁰. Dots: Fe 2, B 3, Cl 7.",
-      "**p. 40:** 1) 2 released. 2) 3 (seven). 3) 4 spectra. 4) match every line of each element to the unknown. 5) 3. 6) 2 (n = 2 to 5). 7) 2. 8) 4 (2-8-5-1). 9) 2."
-     ]
-    },
-    {
-     "h": "Handout typo"
-    },
-    {
-     "p": "The Examples page lists molybdenum as [Ar] 5s¹ 4d⁵. It should be **[Kr] 5s¹ 4d⁵**."
-    }
-   ],
-   "points": [
-    "Check your packet against this key, especially the fixes at the top"
-   ],
-   "quizlet": "",
-   "group": "Unit 2, atomic structure"
   }
  ]
 };
