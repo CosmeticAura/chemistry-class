@@ -22,7 +22,7 @@ Same content as the site, as a doc you can read or print.
 
 ## How each unit works
 
-Every section goes read, short break, flashcards, break, brain dump, then you mark how well it stuck. The memory jog is a quick pass over every topic with the formulas and mnemonics to memorize. Progress saves in your browser, so you can close the tab and pick up where you left off.
+Every section goes read, short break, practice (flashcards or multiple choice, your pick), break, brain dump, then you mark how well it stuck. The periodic table and calculator buttons at the top open next to the page. The memory jog is a quick pass over every topic with the formulas and mnemonics to memorize. Progress saves in your browser, so you can close the tab and pick up where you left off.
 
 ## Layout
 
