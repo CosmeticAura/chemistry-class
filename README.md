@@ -1,6 +1,6 @@
 # Chemistry, 10th grade
 
-Chemistry study site for 10th grade at The Clinton School, 2026 to 2027. Each unit gets its own study loop, and the review page puts everything so far in one place to prep for cumulative tests and the final.
+Chemistry study site for 10th grade at The Clinton School, 2026 to 2027. It keeps every unit in full, so you can come back to any of them later. Each unit gets its own study loop, and the review page puts everything so far in one place for cumulative tests and the final.
 
 **Site:** https://cosmeticaura.github.io/chemistry-class/
 
@@ -9,7 +9,7 @@ Chemistry study site for 10th grade at The Clinton School, 2026 to 2027. Each un
 | Unit | Topic | Status |
 | --- | --- | --- |
 | [Unit 1](https://cosmeticaura.github.io/chemistry-class/unit-1/) | Matter and measurement | Test was Oct 16 |
-| [Unit 2](https://cosmeticaura.github.io/chemistry-class/unit-2/) | Atomic structure | In progress |
+| [Unit 2](https://cosmeticaura.github.io/chemistry-class/unit-2/) | Atomic structure | Test Nov 13 |
 | [Review](https://cosmeticaura.github.io/chemistry-class/review/) | Everything so far | Updated with each unit |
 
 ## Written study guides
@@ -31,8 +31,7 @@ index.html        home page with every unit
 unit-1/           matter and measurement
 unit-2/           atomic structure
 review/           all units combined
-mock-test/        practice test you grade yourself
+guides/           written study guides
 img/              diagrams and lab tool pictures
 ```
 
-- `diagnostic/` is a 26 question check with an answer key. `fast-review/` is unit 2 in 3 quick loops.

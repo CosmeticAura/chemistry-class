@@ -5,7 +5,7 @@ Test: Friday, Nov 13. Written answers, with a periodic table and a calculator.
 Interactive version with flashcards and practice: https://cosmeticaura.github.io/chemistry-class/unit-2/
 All the code and links: https://github.com/CosmeticAura/chemistry-class
 
-The unit has 8 topics.
+The unit has 9 topics.
 
 ## 1. Atomic theories
 
@@ -155,6 +155,40 @@ Nitrogen three ways:
 - Orbital diagram: 1s ↑↓, 2s ↑↓, 2p ↑ ↑ ↑ (3 unpaired electrons)
 
 If someone draws oxygen's 2p as ↑↓ ↑↓ with an empty box, they broke **Hund's rule**. It should be ↑↓ ↑ ↑.
+
+## 9. Rules, shapes and bigger atoms
+
+Which rule is broken:
+
+| What you see | Rule broken |
+| --- | --- |
+| An electron in 2p while 2s is still empty | Aufbau (lowest energy first) |
+| Three electrons in one box, or two with the same spin | Pauli (max 2, opposite spins) |
+| Two 2p electrons paired while another 2p box is empty | Hund (one per box before pairing) |
+
+Carbon's 2p is ↑ ↑ __ (two single arrows, one empty box). Phosphorus's 2p is ↑ ↑ ↑, so it has 3 unpaired electrons.
+
+**Shapes:** s is a sphere, p is a dumbbell, d is a cloverleaf, f is complex.
+
+![Orbital shapes](../img/u2/shapes.png)
+
+**Blocks:** the periodic table splits into an s block (2 left columns), p block (6 right columns), d block (10 middle columns, the transition metals) and f block (2 bottom rows, 14 wide). An element's block is the sublevel its last electron goes into: chlorine ends in 3p⁵, iron ends in 3d⁶. Helium is the exception, on the right but 1s².
+
+![s, p, d and f blocks](../img/u2/blocks.png)
+
+**Why 4s fills before 3d:** 4s is lower in energy than 3d. So potassium is 2-8-8-1 and calcium is 2-8-8-2. From scandium on, the transition metals go back and fill 3d, so iron (26) is 2-8-14-2.
+
+![Energy ladder](../img/u2/energy-ladder.png)
+
+**Noble gas notation for transition metals:** write [Ar] for the first 18 electrons, then 4s gets 2 and 3d gets the rest.
+
+| Element | Electrons | Answer |
+| --- | --- | --- |
+| Fe | 26 | [Ar] 4s² 3d⁶ |
+| Ni | 28 | [Ar] 4s² 3d⁸ |
+| Zn | 30 | [Ar] 4s² 3d¹⁰ |
+
+A 2+ ion loses its 4s electrons first: Fe²⁺ is [Ar] 3d⁶ and Ni²⁺ is [Ar] 3d⁸.
 
 ## Study tip
 

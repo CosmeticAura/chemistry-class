@@ -428,6 +428,12 @@ const DECK = {
     "**Pauli:** max 2 arrows per box, opposite spins",
     "**Hund:** one in each box first, then pair",
     "N 2p ↑ ↑ ↑, O 2p ↑↓ ↑ ↑"
+   ],
+   "bigatoms": [
+    "Wrong order breaks Aufbau, too many in one box breaks Pauli, paired too early breaks Hund",
+    "**s** sphere, **p** dumbbell, **d** cloverleaf, **f** complex. Blocks are 2, 6, 10 and 14 wide",
+    "4s fills before 3d: K 2-8-8-1, Ca 2-8-8-2, Fe 2-8-14-2",
+    "Fe [Ar] 4s² 3d⁶, Ni [Ar] 4s² 3d⁸. 2+ ions lose the 4s first: Ni²⁺ [Ar] 3d⁸"
    ]
   }
  },
@@ -4413,142 +4419,214 @@ const DECK = {
    "group": "Unit 2, atomic structure"
   },
   {
-   "id": "u2quiz",
-   "title": "Practice quiz",
-   "steps": [
-    0
-   ],
+   "id": "bigatoms",
+   "title": "Rules, shapes and bigger atoms",
+   "quizlet": "",
    "notes": [
     {
-     "p": "21 questions in the style of a class quiz, about a minute each. Cover the answers, write yours on paper with the work shown, then check. Redo the loop for any section you missed."
-    },
-    {
-     "list": [
-      "**1.** Put the atomic models in order and name the model that came right after Rutherford's.",
-      "**2.** In the gold foil experiment most alpha particles went straight through. What did that show?",
-      "**3.** A few alpha particles bounced straight back. What did that show, and why does it mean the nucleus is positive?",
-      "**4.** Which particle hardly adds to an atom's mass?",
-      "**5.** An atom or ion has 17 protons, 18 neutrons and 18 electrons. What is it, what is its mass number and what is its charge?",
-      "**6.** How many protons, neutrons and electrons are in ²⁷₁₃Al³⁺?",
-      "**7.** Carbon-12 and carbon-14 are isotopes. What is different about them, and what is the same?",
-      "**8.** Gallium is 60.1% Ga-69 (68.926 amu) and 39.9% Ga-71 (70.925 amu). Find the average atomic mass.",
-      "**9.** Element X is 19.9% X-10 (10.013 amu) and 80.1% X-11 (11.009 amu). Find its average atomic mass and name it.",
-      "**10.** Is 2-8-7-1 a ground state or an excited state? Which element is it?",
-      "**11.** An electron drops from level 4 to level 2. Does the atom absorb or release energy, and what do you see?",
-      "**12.** What is the most electrons energy level n = 4 can hold?",
-      "**13.** Write the full electron configuration of manganese (25).",
-      "**14.** Write the noble gas notation for selenium (34).",
-      "**15.** Which element is [Kr] 5s² 4d⁷?",
-      "**16.** Draw the 3p orbital diagram for phosphorus. How many unpaired electrons does it have, and which rule decides it?",
-      "**17.** A student draws nitrogen's 2p as ↑↓ ↑ _. Which rule is broken?",
-      "**18.** If n = 3, what values can l have, and how many orbitals are in level 3?",
-      "**19.** How many valence electrons does arsenic (group 15) have, and how many dots go in its Lewis dot diagram?",
-      "**20.** Write the electron configuration of S²⁻. Which noble gas has the same one?",
-      "**21.** Write chromium's configuration and say why it is an exception."
-     ]
-    },
-    {
-     "h": "Answers"
+     "h": "Which rule is broken"
     },
     {
      "table": {
       "head": [
-       "#",
+       "What you see",
+       "Rule broken",
+       "The rule"
+      ],
+      "rows": [
+       [
+        "An electron in 2p while 2s is still empty",
+        "**Aufbau**",
+        "Fill the lowest energy first"
+       ],
+       [
+        "Three electrons in one box, or two with the same spin",
+        "**Pauli**",
+        "Max 2 per box, opposite spins"
+       ],
+       [
+        "Two 2p electrons paired while another 2p box is empty",
+        "**Hund**",
+        "One per box before pairing (bus seats)"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Wrong **order** is Aufbau. Too many or same direction **in one box** is Pauli. Paired **too early** is Hund."
+    },
+    {
+     "list": [
+      "Carbon's 2p is **↑ ↑ __**: two single arrows, one empty box. ↑↓ __ __ breaks Hund",
+      "Phosphorus 2p is ↑ ↑ ↑, so it has **3 unpaired electrons**"
+     ]
+    },
+    {
+     "h": "Orbital shapes and blocks"
+    },
+    {
+     "img": "../img/u2/shapes.png",
+     "alt": "s sphere, p dumbbell, d cloverleaf, f complex"
+    },
+    {
+     "key": "s is a sphere, p is a dumbbell, d is a cloverleaf, f is complex."
+    },
+    {
+     "img": "../img/u2/blocks.png",
+     "alt": "Periodic table split into s, p, d and f blocks"
+    },
+    {
+     "p": "The periodic table is split into blocks. Each block's width is how many electrons that sublevel holds: s is the 2 left columns, p is the 6 right columns, d is the 10 middle columns (transition metals), f is the 2 bottom rows, 14 wide. An element's block is the sublevel its **last** electron goes into. Chlorine is in the p block and ends in 3p⁵. Iron is in the d block and ends in 3d⁶. Helium is the exception: it sits on the right but is 1s²."
+    },
+    {
+     "h": "Why 4s fills before 3d"
+    },
+    {
+     "img": "../img/u2/energy-ladder.png",
+     "alt": "Energy ladder showing 4s below 3d"
+    },
+    {
+     "p": "Ring 3 can hold 18, but 4s is lower in energy than 3d, so after 3p fills the next electrons go to ring 4 first. That's why potassium is **2-8-8-1** and calcium is **2-8-8-2**. Starting at scandium, the transition metals go back and fill 3d, so iron (26) is **2-8-14-2**."
+    },
+    {
+     "h": "Noble gas notation for transition metals"
+    },
+    {
+     "img": "../img/u2/noble-gas.png",
+     "alt": "Nickel's full configuration with the argon part boxed, then [Ar] 4s2 3d8"
+    },
+    {
+     "p": "Everything up to 3p⁶ matches argon (18 electrons), so write **[Ar]** and only what comes after: 4s gets 2, 3d gets the rest."
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Electrons",
+       "Minus 18",
+       "4s",
+       "3d",
        "Answer"
       ],
       "rows": [
        [
-        "1",
-        "Dalton, Thomson, Rutherford, Bohr, Schrödinger (Dogs Trust Really Big Squirrels). After Rutherford came **Bohr's planetary model** (1913)."
-       ],
-       [
-        "2",
-        "The atom is **mostly empty space**."
-       ],
-       [
-        "3",
-        "A **tiny, dense nucleus** holds the mass. Alpha particles are positive and like charges repel, so the nucleus is **positive**."
-       ],
-       [
-        "4",
-        "The **electron** (about 1/1840 of a proton)."
-       ],
-       [
-        "5",
-        "**Chlorine**, mass number **35**, charge **1−** (more electrons than protons), so ³⁵₁₇Cl⁻."
-       ],
-       [
-        "6",
-        "**13 protons, 14 neutrons, 10 electrons** (electrons = protons − charge)."
-       ],
-       [
-        "7",
-        "Different number of **neutrons** (6 and 8), so different mass numbers. Same protons (6), same electrons, same chemistry."
-       ],
-       [
+        "Fe",
+        "26",
         "8",
-        "(68.926 × 60.1 + 70.925 × 39.9) ÷ 100 = **69.72 amu**. It is closer to 69 because Ga-69 is more common."
+        "2",
+        "6",
+        "[Ar] 4s² 3d⁶"
        ],
        [
-        "9",
-        "(10.013 × 19.9 + 11.009 × 80.1) ÷ 100 = **10.81 amu**, which is **boron**."
-       ],
-       [
+        "Ni",
+        "28",
         "10",
-        "18 electrons, so it is **argon**. Its ground state is 2-8-8, so 2-8-7-1 is **excited**."
+        "2",
+        "8",
+        "[Ar] 4s² 3d⁸"
        ],
        [
-        "11",
-        "It **releases** energy as light of one color, a line in the **bright line spectrum**. Up = absorb, down = release."
-       ],
-       [
+        "Zn",
+        "30",
         "12",
-        "2n² = 2 × 4² = **32**"
-       ],
-       [
-        "13",
-        "**1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁵**"
-       ],
-       [
-        "14",
-        "**[Ar] 4s² 3d¹⁰ 4p⁴**"
-       ],
-       [
-        "15",
-        "36 + 2 + 7 = 45 electrons, so **rhodium (Rh)**."
-       ],
-       [
-        "16",
-        "3p **↑ ↑ ↑**, so **3 unpaired**. **Hund's rule**: one in each box before any pair up."
-       ],
-       [
-        "17",
-        "**Hund's rule.** It should be ↑ ↑ ↑."
-       ],
-       [
-        "18",
-        "l = **0, 1, 2** (s, p, d). n² = **9 orbitals**."
-       ],
-       [
-        "19",
-        "Group 15 − 10 = **5** valence electrons, so **5 dots** (4s² 4p³)."
-       ],
-       [
-        "20",
-        "16 + 2 = 18 electrons: **1s² 2s² 2p⁶ 3s² 3p⁶**, the same as **argon**."
-       ],
-       [
-        "21",
-        "**[Ar] 4s¹ 3d⁵**, not 4s² 3d⁴. A half full d sublevel is more stable, so one electron moves from 4s to 3d."
+        "2",
+        "10",
+        "[Ar] 4s² 3d¹⁰"
        ]
       ]
      }
+    },
+    {
+     "p": "**Transition metal ions:** a 2+ ion lost 2 electrons, and they come out of 4s first. Fe²⁺ is **[Ar] 3d⁶**, Ni²⁺ is **[Ar] 3d⁸**."
     }
    ],
-   "cards": [],
-   "points": [],
-   "quizlet": "",
-   "group": "Unit 2, atomic structure"
+   "cards": [
+    [
+     "Electron in 2p while 2s is empty",
+     "Breaks Aufbau"
+    ],
+    [
+     "Three electrons in one box",
+     "Breaks Pauli"
+    ],
+    [
+     "Paired in 2p while another 2p box is empty",
+     "Breaks Hund"
+    ],
+    [
+     "Correct drawing of carbon's 2p",
+     "↑ ↑ __"
+    ],
+    [
+     "Unpaired electrons in phosphorus",
+     "3"
+    ],
+    [
+     "Shape of s orbitals",
+     "Sphere"
+    ],
+    [
+     "Shape of p orbitals",
+     "Dumbbell"
+    ],
+    [
+     "Shape of d orbitals",
+     "Cloverleaf"
+    ],
+    [
+     "Which block is the 2 left columns?",
+     "s block"
+    ],
+    [
+     "Which block is the 6 right columns?",
+     "p block"
+    ],
+    [
+     "Which block is the 10 middle columns?",
+     "d block (transition metals)"
+    ],
+    [
+     "Which block is the 2 bottom rows?",
+     "f block, 14 wide"
+    ],
+    [
+     "Why does 4s fill before 3d?",
+     "4s is lower in energy"
+    ],
+    [
+     "Bohr model of calcium",
+     "2-8-8-2"
+    ],
+    [
+     "Bohr model of iron",
+     "2-8-14-2"
+    ],
+    [
+     "Noble gas notation for Ni",
+     "[Ar] 4s² 3d⁸"
+    ],
+    [
+     "Noble gas notation for Zn",
+     "[Ar] 4s² 3d¹⁰"
+    ],
+    [
+     "Noble gas notation for Ni²⁺",
+     "[Ar] 3d⁸ (4s electrons leave first)"
+    ],
+    [
+     "Noble gas notation for Fe²⁺",
+     "[Ar] 3d⁶"
+    ]
+   ],
+   "points": [
+    "Wrong order = Aufbau, too many in one box = Pauli, paired too early = Hund",
+    "Carbon 2p is ↑ ↑ __, phosphorus has 3 unpaired",
+    "s sphere, p dumbbell, d cloverleaf, f complex",
+    "s, p, d, f blocks are 2, 6, 10, 14 wide; the block is the last sublevel filled",
+    "4s fills before 3d: Ca 2-8-8-2, Fe 2-8-14-2",
+    "Fe [Ar] 4s² 3d⁶, Ni [Ar] 4s² 3d⁸, Zn [Ar] 4s² 3d¹⁰",
+    "2+ ions lose 4s first: Ni²⁺ [Ar] 3d⁸"
+   ]
   },
   {
    "id": "packet",
